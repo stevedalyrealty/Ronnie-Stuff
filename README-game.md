@@ -39,6 +39,7 @@ Every fighter was drawn on paper first.
 | Cloud Nine | Cloudy's home: a cloud stage in the sky, side clouds drift, rainbow behind |
 | Fish Tank | Franchesca's home: inside an aquarium, slow falls, seaweed platforms sway |
 | Shoebox Stack | Shoean's home: a shoe store, shoebox platforms, the top one slides |
+| Lava Lift | hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles |
 
 Pick Random on the select screen to shuffle.
 
