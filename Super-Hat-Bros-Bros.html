@@ -1467,7 +1467,7 @@ function drawHUD(c, m) {
     // portrait
     c.save(); c.beginPath(); c.arc(cx - 100, by - 48, 36, 0, Math.PI * 2); c.closePath(); c.fillStyle = f.ch.color2; c.fill(); c.clip();
     const pk = 0.95 * Math.min(1, 1.15 / f.ch.scale), headY = ({ boot: 100, penny: 74, baggy: 84, snakey: 94 })[f.ch.id] || 70;
-    const fake = Object.assign(Object.create(Fighter.prototype), f, { x: cx - 100, y: by - 48 + headY * pk * f.ch.scale, finalSmash: false, hitlag: 0, inv: 0, state: f.state === 'hitstun' ? 'hitstun' : 'ground', trail: [], squash: 1, crouch: false, facing: 1, grounded: true, vx: 0, ko: false, atk: null, tumble: 0 });
+    const fake = Object.assign(Object.create(Fighter.prototype), f, { x: cx - 100, y: by - 48 + headY * f.ch.scale, finalSmash: false, hitlag: 0, inv: 0, state: f.state === 'hitstun' ? 'hitstun' : 'ground', trail: [], squash: 1, crouch: false, facing: 1, grounded: true, vx: 0, ko: false, atk: null, tumble: 0 });
     c.save(); c.translate(cx - 100, by - 48); c.scale(pk, pk); c.translate(-(cx - 100), -(by - 48)); drawFighter(c, fake, true); c.restore();
     c.restore();
     c.strokeStyle = '#fff'; c.lineWidth = 2; c.beginPath(); c.arc(cx - 100, by - 48, 36, 0, Math.PI * 2); c.stroke();
