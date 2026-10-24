@@ -151,8 +151,8 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Jump <kbd>↑</kbd> · Crouch <kbd>↓</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> (or Numpad 1 2 3, jump Numpad 0)</div>
           <div class="kbd"><b>Smash-style moves</b><br>Flick a direction + Attack at the same time = <b>Smash attack</b> (hold to charge).<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up also jumps.</div>
-          <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Penny</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.</div>
-          <div class="kbd"><b>Final Smashes</b><br>Every 60 seconds a random fighter glows. Press <b>Special</b> with no direction to unleash it. Lose a stock and you lose it.<br>Rook Disc Storm · Tank Meteor Slam · Fern Overgrowth · Zip Lightning Rush · Spike Mega Ram · Noodles Tidal Wave · Penny Bank Heist.</div>
+          <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Penny</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.</div>
+          <div class="kbd"><b>Final Smashes</b><br>Every 60 seconds a random fighter glows. Press <b>Special</b> with no direction to unleash it. Lose a stock and you lose it.<br>Rook Disc Storm · Tank Meteor Slam · Fern Overgrowth · Zip Lightning Rush · Spike Mega Ram · Noodles Tidal Wave · Penny Bank Heist · Bootisaurus Boot Quake · Baggy Trash Tornado · Snakey Full Arrest.</div>
           <div class="kbd"><b>Stages</b><br>Ten arenas. Orca Cove has a drifting boat, Penny's Vault and Lava Lift have platforms that ride up and down, Orbit Station slides sideways in low gravity, Bell Tower is tiny with ledges everywhere. Pick Random to shuffle.</div>
           <div class="kbd"><b>Defense &amp; specials</b><br>Shield + Left/Right = roll · Shield + Down = spot dodge · Shield in the air = air dodge.<br>Up + Special = recovery. Special alone = projectile. Side + Special = lunge.<br>Fall near the edge to grab the ledge. <kbd>Esc</kbd> pauses.</div>
         </div>
@@ -241,7 +241,7 @@ const rnd = (a, b) => a + Math.random() * (b - a);
 const sign = v => v < 0 ? -1 : 1;
 
 /* ---------------- Hats: every fighter has their own, and every one has bells ---------------- */
-const HAT_NAMES = { rook: 'Jester Cap', tank: 'Viking Helm', fern: 'Garden Hat', zip: 'Propeller Cap', spike: 'Pirate Tricorn', noodles: 'Sailor Cap', penny: 'Robber Beanie' };
+const HAT_NAMES = { rook: 'Jester Cap', tank: 'Viking Helm', fern: 'Garden Hat', zip: 'Propeller Cap', spike: 'Pirate Tricorn', noodles: 'Sailor Cap', penny: 'Robber Beanie', boot: 'Spur Cowboy Hat', baggy: 'Nightcap', snakey: 'Siren Cap' };
 let hatsOn = false;
 
 function rr(c, x, y, w, h, r) {
@@ -314,6 +314,29 @@ function drawCharHat(c, id, cx, top, r, t) {
       c.fillStyle = '#1b3f9e'; c.fillRect(-20, -3, 40, 5);
       c.fillStyle = '#ffcf33'; c.beginPath(); c.arc(0, -1, 2, 0, Math.PI * 2); c.fill();
       bell(c, 0, -16, 4, t, 0); bell(c, -17, 5, 2.6, t, 1); bell(c, 17, 5, 2.6, t, 2);
+      break;
+    }
+    case 'boot': { // cowboy hat with jingling spur bells on the brim and a spur wheel on the band
+      c.fillStyle = '#8b5a2b'; c.beginPath(); c.moveTo(-34, -2); c.quadraticCurveTo(-32, 8, -14, 6); c.lineTo(14, 6); c.quadraticCurveTo(32, 8, 34, -2); c.quadraticCurveTo(20, 2, 0, 2); c.quadraticCurveTo(-20, 2, -34, -2); c.fill();
+      c.fillStyle = '#a0683a'; rr(c, -15, -28, 30, 32, 8); c.fill();
+      c.fillStyle = '#3d2614'; c.fillRect(-15, -8, 30, 6);
+      c.fillStyle = '#c9ced9'; c.beginPath(); c.arc(8, -5, 4, 0, Math.PI * 2); c.fill(); c.strokeStyle = '#c9ced9'; c.lineWidth = 1.5; for (let i = 0; i < 6; i++) { const a2 = t * 0.1 + i * Math.PI / 3; c.beginPath(); c.moveTo(8 + Math.cos(a2) * 4, -5 + Math.sin(a2) * 4); c.lineTo(8 + Math.cos(a2) * 7, -5 + Math.sin(a2) * 7); c.stroke(); }
+      bell(c, -30, 6, 3.5, t, 0); bell(c, 30, 6, 3.5, t, 1.5); bell(c, 0, -30, 3.5, t, 3);
+      break;
+    }
+    case 'baggy': { // long floppy nightcap with a bell on the tip
+      c.fillStyle = '#3d7bff'; c.beginPath(); c.moveTo(-15, 2); c.lineTo(15, 2); c.quadraticCurveTo(14, -26, -4, -30); c.quadraticCurveTo(-30, -36, -34 + Math.sin(t * 0.1) * 3, -14); c.quadraticCurveTo(-26, -24, -12, -18); c.quadraticCurveTo(-18, -8, -15, 2); c.fill();
+      c.fillStyle = '#fff'; rr(c, -17, -4, 34, 7, 3); c.fill();
+      bell(c, -34 + Math.sin(t * 0.1) * 3, -9, 4, t, 0); bell(c, -14, 6, 2.6, t, 1); bell(c, 14, 6, 2.6, t, 2);
+      break;
+    }
+    case 'snakey': { // his police cap gains a spinning siren and bells off the visor
+      const on = Math.floor(t / 8) % 2 === 0;
+      c.fillStyle = on ? '#ff4d4d' : '#3d7bff'; c.beginPath(); c.arc(0, -12, 7, Math.PI, 0); c.closePath(); c.fill();
+      c.fillStyle = 'rgba(255,255,255,.5)'; c.beginPath(); c.arc(-2, -15, 2.5, 0, Math.PI * 2); c.fill();
+      c.fillStyle = '#6b7383'; c.fillRect(-8, -12, 16, 3);
+      c.globalAlpha = 0.35; c.fillStyle = on ? '#ff4d4d' : '#3d7bff'; c.beginPath(); c.arc(0, -14, 18, 0, Math.PI * 2); c.fill(); c.globalAlpha = 1;
+      bell(c, 24, 10, 3, t, 0); bell(c, 14, 12, 3, t, 1); bell(c, -18, 6, 3, t, 2);
       break;
     }
     case 'penny': { // black robber beanie, bell pom and two side bells
@@ -407,6 +430,42 @@ const CHARS = [
       downb: { dur: 90, s: 12, e: 90, dmg: 14, ang: 270, bkb: 7, kbg: 70, box: { x: 0, y: -8, w: 44, h: 40 }, special: 'dive', dive: true, lag: 18, meteor: true },
       downbGround: { dur: 36, s: 10, e: 18, dmg: 9, ang: 50, bkb: 7, kbg: 65, box: { x: 0, y: -50, w: 120, h: 90 }, special: 'spin', lag: 8 },
     }, final: { name: 'Bank Heist', final: true, dur: 100, s: 10, e: 88, special: 'rain', rain: { every: 5, dmg: 13, r: 16, ang: 80, bkb: 8, kbg: 80, life: 160 }, lag: 10 }, },
+  // Bootisaurus Rex: a T. Rex made of boots, twice the size of everyone else. Slow, armored by sheer weight, every hit is a stomp.
+  { id: 'boot', name: 'BOOTISAURUS', title: 'The Boot Rex (2x size)', sig: 'Chomp · Lace Whip · Boot Stomp', color: '#8a5a2b', color2: '#3d2614', accent: '#e8c9a0', weight: 170, speed: 3.4, accel: 0.5, airSpeed: 3.0, airAccel: 0.2, jump: -14.5, gravity: 0.78, fall: 14, jumps: 2, dmgMul: 1.5, scale: 2.0, proj: null,
+    moves: {
+      jab: { dmg: 4, box: { x: 36, y: -96, w: 44, h: 34 } },
+      fsmash: { dmg: 19, ang: 38, bkb: 10, kbg: 100, box: { x: 46, y: -40, w: 74, h: 50 } },
+      neutralb: { dur: 34, s: 12, e: 18, dmg: 14, ang: 45, bkb: 9, kbg: 80, box: { x: 36, y: -96, w: 62, h: 52 }, special: 'melee', lag: 12 },
+      sideb: { dur: 40, s: 14, e: 22, dmg: 12, ang: 55, bkb: 8, kbg: 70, box: { x: -12, y: -52, w: 150, h: 52 }, special: 'swing', move: false, lag: 12 },
+      upb: { dmg: 10 },
+      downb: { dur: 90, s: 12, e: 90, dmg: 16, ang: 270, bkb: 7, kbg: 65, box: { x: 0, y: -10, w: 60, h: 46 }, special: 'dive', dive: true, lag: 20, meteor: true },
+      downbGround: { dur: 44, s: 14, e: 20, dmg: 13, ang: 75, bkb: 9, kbg: 75, box: { x: 0, y: -18, w: 200, h: 50 }, special: 'quake', lag: 12 },
+    }, final: { name: 'Boot Quake', final: true, dur: 110, s: 20, e: 100, dmg: 12, ang: 80, bkb: 9, kbg: 60, rehit: 20, box: { x: 0, y: -30, w: 400, h: 120 }, special: 'burst', lag: 20, finalHit: { dmg: 20, ang: 75, bkb: 12, kbg: 100 } } },
+  // Baggy: a bag with no arms. Fights with kicks and headbutts, floats like a bag in the wind, pulls junk out of itself.
+  { id: 'baggy', name: 'BAGGY', title: 'The Armless Bag', sig: 'Bag of Tricks · Bag Roll · Puff Up', color: '#3a3a44', color2: '#1b1b22', accent: '#e8e2d8', weight: 68, speed: 4.8, accel: 0.9, airSpeed: 5.0, airAccel: 0.45, jump: -13, gravity: 0.38, fall: 7.5, jumps: 4, dmgMul: 0.9, scale: 1, hurtH: 96,
+    proj: { speed: 8, grav: 0.2, vy0: -5, dmg: 7, r: 10, life: 80, kind: 'junk' },
+    moves: {
+      jab: { dmg: 3, box: { x: 26, y: -78, w: 38, h: 36 } },
+      ftilt: { dmg: 8, box: { x: 34, y: -28, w: 54, h: 30 } },
+      fsmash: { dmg: 15, ang: 42, box: { x: 42, y: -32, w: 68, h: 42 } },
+      sideb: { dur: 36, s: 4, e: 26, dmg: 10, ang: 45, bkb: 7, kbg: 72, box: { x: 10, y: -48, w: 70, h: 80 }, special: 'lunge', lunge: { vx: 10 }, move: true, lag: 10 },
+      upb: { dmg: 6 },
+      downb: { dur: 90, s: 12, e: 90, dmg: 12, ang: 270, bkb: 6, kbg: 65, box: { x: 0, y: -8, w: 46, h: 40 }, special: 'dive', dive: true, lag: 14, meteor: true },
+      downbGround: { dur: 36, s: 10, e: 18, dmg: 10, ang: 70, bkb: 9, kbg: 70, box: { x: 0, y: -55, w: 140, h: 120 }, special: 'puff', lag: 10 },
+    }, final: { name: 'Trash Tornado', final: true, dur: 110, s: 6, e: 100, dmg: 5, ang: 85, bkb: 3, kbg: 25, rehit: 8, box: { x: 0, y: -70, w: 180, h: 220 }, special: 'rush', rush: { vx: 7, turnEvery: 40 }, lag: 14, finalHit: { dmg: 16, ang: 80, bkb: 10, kbg: 95 } } },
+  // Snakey: snake police officer. Baton pokes, ticket tosses, a coil counter that punishes anyone who swings at him.
+  { id: 'snakey', name: 'SNAKEY', title: 'The Snake Cop', sig: 'Ticket Toss · Slither Charge · Coil Counter', color: '#4caf50', color2: '#1b5e20', accent: '#c5e1a5', weight: 92, speed: 5.2, accel: 0.9, airSpeed: 4.3, airAccel: 0.33, jump: -14, gravity: 0.6, fall: 11, jumps: 2, dmgMul: 1.0, scale: 1, hurtH: 100,
+    proj: { speed: 11, grav: 0.05, dmg: 5, r: 7, life: 60, kind: 'ticket' },
+    moves: {
+      jab: { dmg: 3, box: { x: 34, y: -72, w: 46, h: 26 } },
+      ftilt: { dmg: 10, ang: 40, box: { x: 40, y: -66, w: 58, h: 34 } },
+      fsmash: { dmg: 17, ang: 40, box: { x: 46, y: -70, w: 72, h: 52 } },
+      neutralb: { dur: 28, s: 8, e: 8, shots: [8, 14], lag: 8 },
+      sideb: { dur: 34, s: 6, e: 20, dmg: 11, ang: 45, bkb: 7, kbg: 75, box: { x: 26, y: -60, w: 64, h: 70 }, special: 'lunge', lunge: { vx: 10 }, move: true, lag: 10 },
+      upb: { dmg: 8 },
+      downb: { dur: 40, s: 4, e: 24, special: 'counter', counter: true, lag: 12 },
+      counterhit: { dur: 28, s: 4, e: 10, dmg: 14, ang: 50, bkb: 9, kbg: 90, box: { x: 30, y: -60, w: 90, h: 84 }, special: 'melee', lag: 8 },
+    }, final: { name: 'Full Arrest', final: true, dur: 90, s: 10, e: 80, dmg: 4, ang: 80, bkb: 3, kbg: 20, rehit: 6, box: { x: 50, y: -60, w: 300, h: 170 }, special: 'burst', lag: 14, finalHit: { dmg: 20, ang: 45, bkb: 12, kbg: 100 } } },
 ];
 
 // Attack data. box: x = forward offset of center, y = offset of center from the feet (negative = up).
@@ -690,7 +749,7 @@ class Fighter {
     if (a.special === 'rain' && f.frame >= a.s && f.frame <= a.e && (f.frame - a.s) % a.rain.every === 0) { const mn = stage.main; const foes = fighters.filter(g => g !== f && !g.ko); const aimed = foes.length && (f.frame - a.s) % (a.rain.every * 2) === 0; const rx = aimed ? foes[Math.floor(Math.random() * foes.length)].x + rnd(-40, 40) : mn.x - 60 + Math.random() * (mn.w + 120);
       projectiles.push({ owner: f, x: rx, y: cam.y - 420 / cam.z, vx: rnd(-1, 1), vy: 3, grav: 0.45, dmg: a.rain.dmg, r: a.rain.r, life: a.rain.life, kind: 'bag', color: '#c9a66b', spin: rnd(0, 6), ang: a.rain.ang, bkb: a.rain.bkb, kbg: a.rain.kbg }); if (f.frame % 12 === 0) SFX.proj(); }
     if (a.special === 'wave' && f.frame === a.s) { const w = a.wave; projectiles.push({ owner: f, x: f.x + f.facing * 40, y: f.y - 10, vx: f.facing * w.speed, vy: 0, grav: 0, dmg: w.dmg, r: w.r, life: w.life, kind: 'wave', color: '#4fb3ff', spin: 0, ang: w.ang, bkb: w.bkb, kbg: w.kbg, pierce: true, hitSet: new Set() }); SFX.hit(60); }
-    if (a.rehit && f.frame > a.s && (f.frame - a.s) % a.rehit === 0) f.hitIds.clear();
+    if (a.rehit && f.frame > a.s && (f.frame - a.s) % a.rehit === 0) { f.hitIds.clear(); if (a.final && a.special === 'burst') { shake = Math.max(shake, 10); particles.dust(f.x, f.y, 12); particles.burst(f.x, f.y - 40 * ch.scale, ch.accent, 8, 6); } }
     if (a.finalHit && f.frame === a.e) f.hitIds.clear();
     if (a.move) f.vx *= 0.95; else if (f.grounded) f.vx *= 0.8;
     if (!f.grounded && dirX && !a.dive) f.vx = clamp(f.vx + dirX * ch.airAccel * 0.8, -ch.airSpeed, ch.airSpeed);
@@ -718,6 +777,12 @@ class Fighter {
 /* ---------------- Hit resolution ---------------- */
 function applyHit(att, vic, p, srcX, hx, hy) {
   if (vic.inv > 0 || vic.state === 'respawn') return;
+  if (vic.state === 'attack' && vic.atk && vic.atk.counter && vic.frame >= vic.atk.s && vic.frame <= vic.atk.e) { // Coil Counter
+    vic.facing = att.x >= vic.x ? 1 : -1; vic.startAttack('counterhit'); vic.inv = 26; vic.hitlag = 0; att.hitlag = 10;
+    flash = 0.35; shake = Math.max(shake, 8); particles.hitSpark(hx, hy, 70); SFX.shield(); SFX.hit(50);
+    if (match) match.banner = { text: 'COUNTER!', sub: vic.ch.name + ' says freeze', t: 100, color: vic.ch.color };
+    return;
+  }
   if (vic.state === 'shield') {
     vic.shield -= p.dmg * 1.3; vic.vx = sign(vic.x - srcX) * 4; vic.hitlag = 5; att.hitlag = 5;
     particles.burst(hx, hy, '#fff', 6, 4); SFX.shield();
@@ -955,7 +1020,7 @@ function updateMatch(m) {
   const live = m.fighters.filter(f => !f.ko);
   if (live.length) {
     let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity;
-    for (const f of live) { minx = Math.min(minx, f.x); maxx = Math.max(maxx, f.x); miny = Math.min(miny, f.y - 60); maxy = Math.max(maxy, f.y); }
+    for (const f of live) { minx = Math.min(minx, f.x); maxx = Math.max(maxx, f.x); miny = Math.min(miny, f.y - 100 * f.ch.scale); maxy = Math.max(maxy, f.y); }
     const main = m.stage.main;
     minx = Math.min(minx, main.x + 80); maxx = Math.max(maxx, main.x + main.w - 80); miny = Math.min(miny, main.y - 220); maxy = Math.max(maxy, main.y + 40);
     const bw = maxx - minx + 420, bh = maxy - miny + 300;
@@ -1078,6 +1143,91 @@ function drawPenny(c, f, ch, crouch, legA, atkA, idle) {
   c.strokeStyle = '#1b1230'; c.lineWidth = 2; c.beginPath(); if (hurt) { c.arc(2, hy + 14, 3, 0, Math.PI * 2); } else { c.moveTo(-5, hy + 15); c.lineTo(8, hy + 13); } c.stroke();
   return { hy, htop: top - 1, hr: 11 };
 }
+// Bootisaurus Rex: everything is a boot. Boot head with sole teeth, boot body with laces, boot legs, laced tail. Designed at 1x, drawn at 2x.
+function drawBoot(c, f, ch, crouch, legA, atkA, idle) {
+  const k = crouch * 0.5;
+  // tail (behind): thick laced curve
+  c.strokeStyle = '#8a5a2b'; c.lineWidth = 13; c.lineCap = 'round'; c.beginPath(); c.moveTo(-26, -40 + k); c.quadraticCurveTo(-52, -34 + k, -58, -58 + k); c.quadraticCurveTo(-62, -72 + k, -54, -80 + k); c.stroke();
+  c.strokeStyle = '#3d2614'; c.lineWidth = 2; for (let i = 0; i < 5; i++) { const tt = i / 5, x = -26 + (-30) * tt, y = -40 + k + (-36) * tt * (1 - tt) * 2.2 - 14 * tt; c.beginPath(); c.moveTo(x - 5, y - 5); c.lineTo(x + 5, y + 5); c.moveTo(x + 5, y - 5); c.lineTo(x - 5, y + 5); c.stroke(); }
+  // boot legs
+  c.fillStyle = '#5a3a1a';
+  rr(c, -16 + legA, -22 + crouch, 12, 22 - crouch * 0.5, 3); c.fill(); rr(c, 4 - legA, -22 + crouch, 12, 22 - crouch * 0.5, 3); c.fill();
+  c.fillStyle = '#1b1230'; rr(c, -18 + legA, -7, 22, 7, 3); c.fill(); rr(c, 2 - legA, -7, 22, 7, 3); c.fill();
+  // boot body (a boot lying on its side, toe forward)
+  c.fillStyle = '#8a5a2b'; c.beginPath(); c.moveTo(-30, -24 + k); c.lineTo(26, -24 + k); c.quadraticCurveTo(34, -30 + k, 30, -44 + k); c.lineTo(22, -60 + crouch * 0.6); c.lineTo(-26, -60 + crouch * 0.6); c.quadraticCurveTo(-34, -46 + k, -30, -24 + k); c.closePath(); c.fill();
+  c.fillStyle = '#3d2614'; rr(c, -30, -28 + k, 60, 6, 2); c.fill(); // sole
+  c.strokeStyle = '#e8c9a0'; c.lineWidth = 2; for (let i = 0; i < 4; i++) { const y = -54 + crouch * 0.6 + i * 7; c.beginPath(); c.moveTo(-10, y); c.lineTo(6, y + 6); c.moveTo(6, y); c.lineTo(-10, y + 6); c.stroke(); }
+  // tiny arms with claws
+  c.strokeStyle = '#8a5a2b'; c.lineWidth = 5; c.beginPath(); c.moveTo(18, -56 + k); c.lineTo(28 + (atkA ? 8 : 0), -50 + k); c.stroke();
+  c.strokeStyle = '#e8c9a0'; c.lineWidth = 2; for (const d of [-3, 0, 3]) { c.beginPath(); c.moveTo(28 + (atkA ? 8 : 0), -50 + k); c.lineTo(34 + (atkA ? 8 : 0), -50 + k + d); c.stroke(); }
+  // neck: boot shaft
+  c.fillStyle = '#8a5a2b'; rr(c, -4, -92 + k, 18, 36, 4); c.fill();
+  // head: a boot on its side, teeth along the sole
+  const hy = -100 + k;
+  c.fillStyle = '#8a5a2b'; c.beginPath(); c.moveTo(-10, hy - 16); c.lineTo(18, hy - 16); c.lineTo(22, hy - 4); c.quadraticCurveTo(44, hy - 2, 46, hy + 10); c.quadraticCurveTo(44, hy + 18, 30, hy + 18); c.lineTo(-10, hy + 18); c.closePath(); c.fill();
+  c.fillStyle = '#3d2614'; rr(c, -10, hy - 20, 30, 8, 2); c.fill(); // boot top / hair
+  c.fillStyle = '#3d2614'; rr(c, -10, hy + 12, 56, 6, 2); c.fill(); // sole
+  c.fillStyle = '#fff'; for (let i = 0; i < 6; i++) { const x = -4 + i * 8; c.beginPath(); c.moveTo(x, hy + 12); c.lineTo(x + 4, hy + 4); c.lineTo(x + 8, hy + 12); c.closePath(); c.fill(); }
+  const hurt = drawEyes(c, f, hy - 2, 8, null, 4);
+  if (!hurt) { c.strokeStyle = '#1b1230'; c.lineWidth = 2.5; c.beginPath(); c.moveTo(2, hy - 12); c.lineTo(14, hy - 7); c.stroke(); }
+  return { hy, htop: hy - 20, hr: 16 };
+}
+// Baggy: a crumpled bag with a tied-off pointed top, dot eyes, a zigzag tie line, legs in sneakers, no arms at all.
+function drawBaggy(c, f, ch, crouch, legA, atkA, idle) {
+  const k = crouch * 0.6;
+  const kick = atkA && f.atk.box.y > -60;
+  c.fillStyle = '#1b1b22'; rr(c, -12 + legA, -22 + crouch, 9, 22 - crouch * 0.5, 4); c.fill();
+  if (kick) { c.save(); c.translate(4, -20 + crouch); c.rotate(-0.9); rr(c, -4, 0, 9, 30, 4); c.fill(); c.fillStyle = '#fff'; rr(c, -6, 26, 20, 8, 4); c.fill(); c.restore(); }
+  else { rr(c, 3 - legA, -22 + crouch, 9, 22 - crouch * 0.5, 4); c.fill(); }
+  c.fillStyle = '#fff'; rr(c, -16 + legA, -6, 18, 6, 3); c.fill(); if (!kick) { rr(c, 1 - legA, -6, 18, 6, 3); c.fill(); }
+  // bag body, torn jagged bottom
+  const puff = f.state === 'attack' && f.atkName === 'downbGround' ? 1.25 : 1;
+  c.save(); c.scale(puff, 1);
+  c.fillStyle = ch.color; c.beginPath(); c.moveTo(-20, -18 + crouch);
+  for (let i = 0; i <= 8; i++) c.lineTo(-20 + i * 5, -18 + crouch + (i % 2 ? 4 : 0));
+  c.lineTo(17, -72 + k); c.lineTo(-17, -72 + k); c.closePath(); c.fill();
+  c.strokeStyle = 'rgba(255,255,255,.14)'; c.lineWidth = 2; for (let x = -14; x <= 14; x += 7) { c.beginPath(); c.moveTo(x, -70 + k); c.lineTo(x + (x < 0 ? -2 : 2), -20 + crouch); c.stroke(); }
+  // tied top
+  c.fillStyle = ch.accent; c.beginPath(); c.moveTo(-17, -72 + k); c.lineTo(17, -72 + k); c.lineTo(0, -100 + k); c.closePath(); c.fill();
+  c.strokeStyle = '#1b1b22'; c.lineWidth = 2; c.beginPath(); for (let i = 0; i <= 6; i++) c.lineTo(-15 + i * 5, -72 + k + (i % 2 ? -3 : 3)); c.stroke();
+  c.restore();
+  const hy = -84 + k;
+  const hurtFace = f.state === 'hitstun' || f.state === 'broken';
+  if (hurtFace) { c.strokeStyle = '#1b1b22'; c.lineWidth = 2; for (const ex of [-4, 5]) { c.beginPath(); c.moveTo(ex - 2, hy - 2); c.lineTo(ex + 2, hy + 2); c.moveTo(ex + 2, hy - 2); c.lineTo(ex - 2, hy + 2); c.stroke(); } }
+  else { c.fillStyle = '#1b1b22'; c.beginPath(); c.arc(-4, hy, 3.2, 0, Math.PI * 2); c.fill(); c.beginPath(); c.arc(5, hy, 3.2, 0, Math.PI * 2); c.fill(); if (f.state === 'attack' || f.state === 'charge') { c.strokeStyle = '#1b1b22'; c.lineWidth = 2; c.beginPath(); c.moveTo(-8, hy - 6); c.lineTo(-1, hy - 4); c.moveTo(2, hy - 4); c.lineTo(9, hy - 6); c.stroke(); } }
+  return { hy, htop: hy - 16, hr: 12 };
+}
+// Snakey: upright snake in a police cap, curled tail, baton in hand, tongue flick.
+function drawSnakey(c, f, ch, crouch, legA, atkA, idle) {
+  const k = crouch * 0.6;
+  // tail curled behind
+  c.strokeStyle = ch.color; c.lineWidth = 11; c.lineCap = 'round'; c.beginPath(); c.moveTo(-8, -14 + crouch); c.quadraticCurveTo(-46, -8 + crouch, -42, -40 + crouch); c.quadraticCurveTo(-40, -52 + crouch, -30, -50 + crouch); c.stroke();
+  c.strokeStyle = ch.color2; c.lineWidth = 2; c.beginPath(); c.moveTo(-26, -18 + crouch); c.lineTo(-36, -26 + crouch); c.stroke();
+  drawLegs(c, ch.color2, crouch, legA, false);
+  c.fillStyle = '#1b1230'; rr(c, -15 + legA, -6, 14, 6, 2); c.fill(); rr(c, 2 - legA, -6, 14, 6, 2); c.fill();
+  // body
+  c.fillStyle = ch.color; rr(c, -14, -82 + k, 28, 68 - k, 12); c.fill();
+  c.fillStyle = ch.accent; rr(c, -7, -76 + k, 14, 58 - k, 6); c.fill();
+  c.fillStyle = ch.color2; for (let y = -74 + k; y < -22; y += 10) { c.beginPath(); c.arc(-11, y, 2, 0, Math.PI * 2); c.fill(); c.beginPath(); c.arc(11, y, 2, 0, Math.PI * 2); c.fill(); }
+  // badge and belt
+  c.fillStyle = '#1b1230'; c.fillRect(-14, -34 + k, 28, 5); c.fillStyle = '#ffcf33'; c.beginPath(); c.arc(-6, -62 + k, 3.5, 0, Math.PI * 2); c.fill();
+  // arms + baton
+  const front = drawArms(c, f, ch.color, crouch, atkA, idle ? { back: [-18, -50 + k], front: [18, -52 + k] } : null);
+  c.strokeStyle = '#1b1230'; c.lineWidth = 4; c.lineCap = 'round'; c.beginPath(); c.moveTo(front[0], front[1]); c.lineTo(front[0] + (atkA ? 18 : 6), front[1] - (atkA ? 4 : 16)); c.stroke();
+  // head
+  const hy = -94 + k;
+  c.fillStyle = ch.color; c.beginPath(); c.ellipse(6, hy, 21, 14, 0, 0, Math.PI * 2); c.fill();
+  c.fillStyle = ch.accent; c.beginPath(); c.ellipse(12, hy + 7, 13, 5, 0, 0, Math.PI); c.fill();
+  c.strokeStyle = ch.color2; c.lineWidth = 2; c.beginPath(); c.moveTo(8, hy + 6); c.lineTo(26, hy + 4); c.stroke();
+  if (f.anim % 70 < 12) { c.strokeStyle = '#ff4d4d'; c.lineWidth = 2; c.beginPath(); c.moveTo(27, hy + 5); c.lineTo(36, hy + 4); c.lineTo(40, hy + 1); c.moveTo(36, hy + 4); c.lineTo(40, hy + 7); c.stroke(); }
+  const hurt = drawEyes(c, f, hy - 3, 10, null, 4);
+  if (!hurt) { c.strokeStyle = '#1b1230'; c.lineWidth = 2.5; c.beginPath(); c.moveTo(3, hy - 13); c.lineTo(16, hy - 8); c.stroke(); }
+  // police cap (always on; the belled hat adds a siren on top)
+  c.fillStyle = '#1b2a6b'; c.beginPath(); c.moveTo(-14, hy - 10); c.quadraticCurveTo(-14, hy - 26, 2, hy - 26); c.quadraticCurveTo(20, hy - 26, 20, hy - 10); c.closePath(); c.fill();
+  c.fillStyle = '#1b1230'; rr(c, -2, hy - 12, 30, 5, 2); c.fill();
+  c.fillStyle = '#ffcf33'; c.beginPath(); c.arc(4, hy - 18, 3.5, 0, Math.PI * 2); c.fill();
+  return { hy, htop: hy - 24, hr: 14 };
+}
 function drawFighter(c, f, hats, miniAlpha) {
   const ch = f.ch, s = ch.scale;
   c.save();
@@ -1104,6 +1254,7 @@ function drawFighter(c, f, hats, miniAlpha) {
   c.scale(f.facing * s * (f.state === 'charge' ? 1.05 : 1) / f.squash, s * f.squash);
   if (f.state === 'hitstun' && f.tumble) c.rotate(f.anim * 0.35 * f.facing);
   if (f.state === 'broken') c.rotate(Math.sin(f.anim * 0.2) * 0.1);
+  if (f.state === 'attack' && ch.id === 'baggy' && (f.atkName === 'sideb' || f.atk.final)) c.rotate(f.frame * (f.atk.final ? 0.5 : 0.35));
   if (f.state === 'attack' && f.atk && f.atk.dive && f.frame >= f.atk.s && !f.grounded && f.atk.meteor) c.rotate(0.15);
   const run = f.grounded && Math.abs(f.vx) > 0.6 && (f.state === 'ground');
   const legA = run ? Math.sin(f.anim * 0.45) * 9 : 0;
@@ -1114,6 +1265,9 @@ function drawFighter(c, f, hats, miniAlpha) {
   if (ch.id === 'spike') head = drawSpike(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'noodles') head = drawNoodles(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'penny') head = drawPenny(c, f, ch, crouch, legA, atkA, idle);
+  else if (ch.id === 'boot') head = drawBoot(c, f, ch, crouch, legA, atkA, idle);
+  else if (ch.id === 'baggy') head = drawBaggy(c, f, ch, crouch, legA, atkA, idle);
+  else if (ch.id === 'snakey') head = drawSnakey(c, f, ch, crouch, legA, atkA, idle);
   else head = drawGeneric(c, f, ch, crouch, legA, atkA);
   if (hats) drawCharHat(c, ch.id, 0, head.htop, head.hr, f.anim);
   if (f.state === 'broken') { c.fillStyle = '#ffcf33'; for (let i = 0; i < 3; i++) { const a = f.anim * 0.15 + i * 2.1; c.beginPath(); c.arc(Math.cos(a) * 22, head.htop - 14 + Math.sin(a) * 6, 4, 0, Math.PI * 2); c.fill(); } }
@@ -1121,6 +1275,7 @@ function drawFighter(c, f, hats, miniAlpha) {
   if (f.state === 'shield') {
     c.save(); c.globalAlpha = 0.5; c.fillStyle = ch.color; c.beginPath(); c.arc(sx, sy - 40 * s, (14 + 36 * f.shield / 100) * s, 0, Math.PI * 2); c.fill(); c.globalAlpha = 0.9; c.strokeStyle = '#fff'; c.lineWidth = 2; c.stroke(); c.restore();
   }
+  if (f.state === 'attack' && f.atk && f.atk.counter && f.frame >= f.atk.s && f.frame <= f.atk.e) { c.save(); c.globalAlpha = 0.5 + 0.3 * Math.sin(f.frame); c.strokeStyle = '#fff'; c.lineWidth = 3; c.beginPath(); c.arc(sx, sy - 50 * s, 48 * s, 0, Math.PI * 2); c.stroke(); c.restore(); }
   if (f.state === 'charge') { c.save(); c.globalAlpha = 0.25 + f.charge / 60 * 0.4; c.fillStyle = '#fff'; c.beginPath(); c.arc(sx, sy - 40 * s, 30 + f.charge * 0.5, 0, Math.PI * 2); c.fill(); c.restore(); }
   if (f.state === 'attack' && f.atk && f.atk.dmg && f.atk.box && f.frame >= f.atk.s && f.frame <= f.atk.e + 3) {
     const b = f.atkBox(), t = Math.min(1, (f.frame - f.atk.s) / Math.max(1, Math.min(f.atk.e, f.atk.s + 12) - f.atk.s + 3));
@@ -1138,6 +1293,8 @@ function drawProjectile(c, p) {
   else if (p.kind === 'seed') { c.beginPath(); c.ellipse(0, 0, p.r, p.r * 0.75, p.spin, 0, Math.PI * 2); c.fill(); c.fillStyle = '#d8ffe6'; c.beginPath(); c.ellipse(2, -2, p.r * 0.4, p.r * 0.25, 0.4, 0, Math.PI * 2); c.fill(); }
   else if (p.kind === 'spout') { c.fillStyle = '#4fb3ff'; c.beginPath(); c.ellipse(0, 0, p.r, p.r * 0.8, 0, 0, Math.PI * 2); c.fill(); c.fillStyle = 'rgba(255,255,255,.85)'; c.beginPath(); c.arc(-3, -3, p.r * 0.35, 0, Math.PI * 2); c.fill(); c.fillStyle = '#4fb3ff'; for (let i = 0; i < 3; i++) { c.beginPath(); c.arc(-(p.r + i * 5) * sign(p.vx), Math.sin(p.spin + i) * 4, 2.5 - i * 0.5, 0, Math.PI * 2); c.fill(); } }
   else if (p.kind === 'shaving') { c.rotate(Math.atan2(p.vy, p.vx)); c.fillStyle = '#ffb020'; rr(c, -p.r * 1.6, -p.r * 0.5, p.r * 2.4, p.r, 2); c.fill(); c.fillStyle = '#2b2b33'; c.beginPath(); c.moveTo(p.r * 0.8, -p.r * 0.5); c.lineTo(p.r * 1.9, 0); c.lineTo(p.r * 0.8, p.r * 0.5); c.closePath(); c.fill(); }
+  else if (p.kind === 'junk') { const v = Math.floor(p.spin * 0) + (Math.floor(p.life / 1000) + Math.floor(Math.abs(p.vx * 7))) % 3; c.rotate(p.spin); if (v === 0) { c.fillStyle = '#ffcf33'; c.beginPath(); c.ellipse(0, 0, p.r * 1.3, p.r * 0.5, 0.6, 0, Math.PI * 2); c.fill(); c.fillStyle = '#5a3a10'; c.beginPath(); c.arc(p.r, -p.r * 0.6, 2, 0, Math.PI * 2); c.fill(); } else if (v === 1) { c.fillStyle = '#c9ced9'; rr(c, -p.r * 0.6, -p.r, p.r * 1.2, p.r * 2, 3); c.fill(); c.fillStyle = '#ff4d4d'; c.fillRect(-p.r * 0.6, -p.r * 0.3, p.r * 1.2, p.r * 0.6); } else { c.fillStyle = '#fff'; rr(c, -p.r, -p.r * 0.5, p.r * 1.4, p.r, 4); c.fill(); rr(c, -p.r * 0.2, -p.r * 0.5, p.r * 0.7, p.r * 1.6, 4); c.fill(); c.fillStyle = '#3d7bff'; c.fillRect(-p.r, -p.r * 0.5, p.r * 1.4, 3); } }
+  else if (p.kind === 'ticket') { c.rotate(Math.sin(p.spin) * 0.3); c.fillStyle = '#fff'; rr(c, -p.r * 1.2, -p.r * 0.8, p.r * 2.4, p.r * 1.6, 1); c.fill(); c.strokeStyle = '#1b2a6b'; c.lineWidth = 1; for (let i = -1; i <= 1; i++) { c.beginPath(); c.moveTo(-p.r * 0.8, i * p.r * 0.4); c.lineTo(p.r * 0.8, i * p.r * 0.4); c.stroke(); } c.fillStyle = '#ff4d4d'; c.fillRect(-p.r * 1.2, -p.r * 0.8, 3, p.r * 1.6); }
   else if (p.kind === 'bag') { c.rotate(Math.sin(p.spin + p.life * 0.1) * 0.3); c.fillStyle = '#c9a66b'; c.beginPath(); c.moveTo(-4, -p.r); c.lineTo(4, -p.r); c.quadraticCurveTo(p.r * 1.2, -p.r * 0.3, p.r, p.r * 0.6); c.quadraticCurveTo(0, p.r * 1.2, -p.r, p.r * 0.6); c.quadraticCurveTo(-p.r * 1.2, -p.r * 0.3, -4, -p.r); c.fill(); c.strokeStyle = '#5a4520'; c.lineWidth = 2; c.beginPath(); c.moveTo(-6, -p.r + 3); c.lineTo(6, -p.r + 3); c.stroke(); c.fillStyle = '#5a4520'; c.font = '900 ' + p.r + 'px Nunito, sans-serif'; c.textAlign = 'center'; c.fillText('$', 0, p.r * 0.7); }
   else if (p.kind === 'wave') { const d = sign(p.vx); c.fillStyle = 'rgba(79,179,255,.85)'; c.beginPath(); c.moveTo(-p.r * d, 10); c.quadraticCurveTo(-p.r * 0.6 * d, -p.r * 1.6, p.r * 0.3 * d, -p.r * 1.2); c.quadraticCurveTo(p.r * 0.9 * d, -p.r * 1.1, p.r * 0.5 * d, -p.r * 0.6); c.quadraticCurveTo(p.r * 0.9 * d, -p.r * 0.2, p.r * d, 10); c.closePath(); c.fill(); c.fillStyle = 'rgba(255,255,255,.9)'; for (let i = 0; i < 6; i++) { c.beginPath(); c.arc((p.r * 0.3 + Math.sin(p.spin * 2 + i) * 8) * d, -p.r * 1.15 + i * 5, 5 - i * 0.5, 0, Math.PI * 2); c.fill(); } c.restore(); return; }
   else { c.fillStyle = '#fff'; c.beginPath(); c.moveTo(p.r * 1.6 * sign(p.vx), 0); c.lineTo(-p.r * sign(p.vx), -p.r * 0.8); c.lineTo(-p.r * 0.2 * sign(p.vx), 0); c.lineTo(-p.r * sign(p.vx), p.r * 0.8); c.closePath(); c.fill(); c.strokeStyle = p.color; c.lineWidth = 2; c.stroke(); }
@@ -1247,6 +1404,7 @@ function drawStage(c, st) {
   if (st.theme === 'cove') { c.fillStyle = 'rgba(0,0,0,.12)'; for (let x = m.x + 30; x < m.x + m.w - 20; x += 70) { c.beginPath(); c.arc(x, m.y + 8, 3, 0, Math.PI * 2); c.fill(); } }
   c.fillStyle = 'rgba(255,255,255,.35)'; c.fillRect(m.x, m.y, 6, 14); c.fillRect(m.x + m.w - 6, m.y, 6, 14);
 }
+function uiColor(ch) { return (ch.id === 'noodles' || ch.id === 'baggy') ? ch.accent : ch.color; }
 function pctColor(p) { if (p < 50) return '#ffffff'; if (p < 100) return '#ffd24d'; if (p < 150) return '#ff8a3d'; return '#ff3d3d'; }
 function drawHUD(c, m) {
   const n = m.fighters.length;
@@ -1258,8 +1416,9 @@ function drawHUD(c, m) {
     c.strokeStyle = f.idx === 0 ? '#ff4d4d' : '#3d7bff'; c.lineWidth = 3; rr(c, cx - 150, by - 96, 300, 96, 16); c.stroke();
     // portrait
     c.save(); c.beginPath(); c.arc(cx - 100, by - 48, 36, 0, Math.PI * 2); c.closePath(); c.fillStyle = f.ch.color2; c.fill(); c.clip();
-    const fake = Object.assign(Object.create(Fighter.prototype), f, { x: cx - 100, y: by + 12, finalSmash: false, hitlag: 0, inv: 0, state: f.state === 'hitstun' ? 'hitstun' : 'ground', trail: [], squash: 1, crouch: false, facing: 1, grounded: true, vx: 0, ko: false, atk: null, tumble: 0 });
-    c.save(); c.translate(cx - 100, by - 48); c.scale(0.95, 0.95); c.translate(-(cx - 100), -(by - 48)); drawFighter(c, fake, true); c.restore();
+    const pk = 0.95 * Math.min(1, 1.15 / f.ch.scale), headY = ({ boot: 100, penny: 74, baggy: 84, snakey: 94 })[f.ch.id] || 70;
+    const fake = Object.assign(Object.create(Fighter.prototype), f, { x: cx - 100, y: by - 48 + headY * pk * f.ch.scale, finalSmash: false, hitlag: 0, inv: 0, state: f.state === 'hitstun' ? 'hitstun' : 'ground', trail: [], squash: 1, crouch: false, facing: 1, grounded: true, vx: 0, ko: false, atk: null, tumble: 0 });
+    c.save(); c.translate(cx - 100, by - 48); c.scale(pk, pk); c.translate(-(cx - 100), -(by - 48)); drawFighter(c, fake, true); c.restore();
     c.restore();
     c.strokeStyle = '#fff'; c.lineWidth = 2; c.beginPath(); c.arc(cx - 100, by - 48, 36, 0, Math.PI * 2); c.stroke();
     // name + tag
@@ -1272,7 +1431,8 @@ function drawHUD(c, m) {
     c.font = '26px "Lilita One", Impact, sans-serif'; c.fillText('%', cx + 138, by - 20);
     c.shadowColor = 'transparent';
     // stocks
-    for (let s = 0; s < Math.max(f.stocks, 0); s++) { c.fillStyle = f.ch.id === 'noodles' ? f.ch.accent : f.ch.color; c.beginPath(); c.arc(cx - 48 + s * 20, by - 50, 7, 0, Math.PI * 2); c.fill(); c.strokeStyle = '#fff'; c.lineWidth = 1.5; c.stroke(); drawCharHat(c, f.ch.id, cx - 48 + s * 20, by - 57, 5, frameCount); }
+    for (let s = 0; s < Math.max(f.stocks, 0); s++) { c.fillStyle = uiColor(f.ch); c.beginPath(); c.arc(cx - 48 + s * 20, by - 50, 7, 0, Math.PI * 2); c.fill(); c.strokeStyle = '#fff'; c.lineWidth = 1.5; c.stroke(); drawCharHat(c, f.ch.id, cx - 48 + s * 20, by - 57, 5, frameCount); }
+    
     if (f.finalSmash) { c.fillStyle = 'hsl(' + ((frameCount * 4) % 360) + ',100%,65%)'; c.font = '900 11px Nunito, sans-serif'; c.textAlign = 'left'; c.fillText('★ FINAL SMASH READY (press Special)', cx - 56, by - 8); }
     c.restore();
   });
@@ -1428,7 +1588,7 @@ const portraitCanvases = [];
 function drawPortrait(c, ch, size) {
   c.clearRect(0, 0, size, size);
   const f = Object.assign(Object.create(Fighter.prototype), { ch, idx: 0, x: size / 2, y: size * 0.86, vx: 0, vy: 0, state: 'ground', grounded: true, facing: 1, anim: 0, hitlag: 0, inv: 0, trail: [], squash: 1, crouch: false, ko: false, atk: null, tumble: 0, shield: 100, frame: 0 });
-  c.save(); c.translate(size / 2, size * 0.86); c.scale(size / 130, size / 130); c.translate(-size / 2, -size * 0.86); drawFighter(c, f, true); c.restore();
+  const pk = (size / 130) * Math.min(1, 1.15 / ch.scale); c.save(); c.translate(size / 2, size * 0.86); c.scale(pk, pk); c.translate(-size / 2, -size * 0.86); drawFighter(c, f, true); c.restore();
 }
 function renderPortraits() {
   for (const { canvas, ch } of portraitCanvases) drawPortrait(canvas.getContext('2d'), ch, canvas.width);
@@ -1441,7 +1601,7 @@ function buildSelect() {
     const card = document.createElement('button'); card.className = 'card'; card.type = 'button'; card.id = 'card-' + ch.id;
     const pc = document.createElement('canvas'); pc.width = pc.height = 160;
     card.appendChild(pc);
-    const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = ch.name; nm.style.color = ch.color; card.appendChild(nm);
+    const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = ch.name; nm.style.color = uiColor(ch); card.appendChild(nm);
     const ti = document.createElement('div'); ti.className = 'ti'; ti.textContent = ch.title; card.appendChild(ti);
     const sg = document.createElement('div'); sg.className = 'sg'; sg.textContent = ch.sig || ''; card.appendChild(sg);
     const fs = document.createElement('div'); fs.className = 'ti'; fs.textContent = 'Final: ' + ch.final.name + ' · Hat: ' + HAT_NAMES[ch.id]; card.appendChild(fs);
@@ -1481,7 +1641,7 @@ function showResults(m) {
   win.innerHTML = ''; const small = document.createElement('small'); small.textContent = 'WINNER'; win.appendChild(small); win.appendChild(document.createTextNode(w ? (w.cpu ? 'CPU · ' : 'P' + (w.idx + 1) + ' · ') + w.ch.name : 'NO CONTEST'));
   const grid = $('statsGrid'); grid.innerHTML = '';
   for (const f of m.fighters) {
-    const d = document.createElement('div'); d.className = 'stat'; d.style.borderTop = '4px solid ' + f.ch.color;
+    const d = document.createElement('div'); d.className = 'stat'; d.style.borderTop = '4px solid ' + uiColor(f.ch);
     const v = document.createElement('div'); v.className = 'v'; v.textContent = f.kos + ' KO' + (f.kos === 1 ? '' : 's');
     const k = document.createElement('div'); k.className = 'k'; k.textContent = (f.cpu ? 'CPU' : 'P' + (f.idx + 1)) + ' ' + f.ch.name + ' · ' + Math.round(f.dmgDealt) + '% dealt · ' + f.falls + ' falls';
     d.appendChild(v); d.appendChild(k); grid.appendChild(d);

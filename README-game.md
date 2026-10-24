@@ -21,8 +21,11 @@ Works offline. The only thing that needs internet is the fancy font.
 | Spike | headbutting goat | Goat Ram, Horn Toss, Hoof Stomp | Mega Ram | Pirate Tricorn |
 | Noodles | flexing orca | Breach, Spout, Belly Flop | Tidal Wave | Sailor Cap |
 | Penny | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist | Robber Beanie |
+| Bootisaurus Rex | T. Rex made of boots, twice the size | Chomp, Lace Whip, Boot Stomp | Boot Quake | Spur Cowboy Hat |
+| Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
+| Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
 
-Spike, Noodles and Penny were drawn on napkins first.
+Spike, Noodles, Penny, Bootisaurus, Baggy and Snakey were drawn on paper first.
 
 ## Stages
 
