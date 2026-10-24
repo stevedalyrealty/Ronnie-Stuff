@@ -153,6 +153,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b>Smash-style moves</b><br>Flick a direction + Attack at the same time = <b>Smash attack</b> (hold to charge).<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.</div>
+          <div class="kbd"><b>Signature mechanics</b><br><b>Spike</b>: smashes have armor, weak hits won't stop them. <b>Noodles</b>: bites chew shields twice as fast. <b>Pency</b>: land the tip of a stab for a TIP! bonus. <b>Bootisaurus</b>: heavy armor on smashes and Lace Whip. <b>Baggy</b>: Pogo Stomp bounces off whoever it hits. <b>Snakey</b>: Baton Combo chains three hits, Tail Trip pulls the opponent in.</div>
           <div class="kbd"><b>Final Smashes</b><br>Every 60 seconds a random fighter glows. Press <b>Special</b> with no direction to unleash it. Lose a stock and you lose it.<br>Spike Mega Ram · Noodles Tidal Wave · Pency Bank Heist · Bootisaurus Boot Quake · Baggy Trash Tornado · Snakey Full Arrest.</div>
           <div class="kbd"><b>Stages</b><br>Six arenas, one home stage per fighter. Goat Peak has high side ledges, Orca Cove has a drifting boat, Pency's Vault has a platform that rides up and down, Boot Canyon is one giant boot, Baggy's Dump has rolling tires, Snakey's Precinct has patrolling squad cars. Pick Random to shuffle.</div>
           <div class="kbd"><b>Defense &amp; specials</b><br>Shield + Left/Right = roll · Shield + Down = spot dodge · Shield in the air = air dodge.<br>Up + Special = recovery. Special alone = projectile. Side + Special = lunge.<br>Fall near the edge to grab the ledge. <kbd>Esc</kbd> pauses.</div>
@@ -497,6 +498,120 @@ const ATK = {
   downb: { dur: 44, s: 14, e: 22, dmg: 12, ang: 60,  bkb: 9, kbg: 85,  box: { x: 0,  y: -50, w: 144, h: 62 }, special: 'down', lag: 12 },
 };
 
+// Personalized normal attacks. Each fighter gets its own names, reach, angles and a signature mechanic:
+//  Spike   - armor on smashes: hits under the armor value do damage but never knock him out of the move.
+//  Noodles - bites chew through shields (double shield damage), several multi-hit chomps.
+//  Pency   - tipper: land the point (far end of a stab) for bonus damage and launch.
+//  Boot    - heavy armor on smashes and Lace Whip, every ground hit kicks up dust.
+//  Baggy   - Pogo Stomp bounces him back up on hit, Dropkick lunges, Rustle multi-hits.
+//  Snakey  - Baton Combo three-hit jab, Tail Trip pulls the opponent in for a follow-up.
+const NORMALS = {
+  spike: {
+    jab:   { name: 'Hoof Jab', dur: 14, s: 3, e: 6, dmg: 3, ang: 70, bkb: 5, kbg: 25, box: { x: 30, y: -46, w: 42, h: 32 } },
+    ftilt: { name: 'Horn Poke', dur: 24, s: 6, e: 11, dmg: 9, ang: 38, bkb: 7, kbg: 68, box: { x: 42, y: -60, w: 56, h: 36 } },
+    utilt: { name: 'Head Toss', dur: 24, s: 6, e: 12, dmg: 9, ang: 90, bkb: 8, kbg: 80, box: { x: 6, y: -100, w: 60, h: 54 } },
+    dtilt: { name: 'Hoof Sweep', dur: 22, s: 5, e: 10, dmg: 7, ang: 25, bkb: 6, kbg: 55, box: { x: 36, y: -16, w: 56, h: 24 } },
+    fsmash:{ name: 'Full Headbutt', dur: 42, s: 15, e: 20, dmg: 18, ang: 35, bkb: 10, kbg: 105, box: { x: 46, y: -60, w: 74, h: 54 }, smash: true, armor: 9 },
+    usmash:{ name: 'Horn Launcher', dur: 40, s: 12, e: 20, dmg: 15, ang: 88, bkb: 9, kbg: 102, box: { x: 4, y: -118, w: 60, h: 76 }, smash: true, armor: 9 },
+    dsmash:{ name: 'Double Hoof', dur: 40, s: 12, e: 18, dmg: 13, ang: 30, bkb: 8, kbg: 95, box: { x: 0, y: -24, w: 128, h: 32 }, smash: true, armor: 9 },
+    dash:  { name: 'Charging Horns', dur: 30, s: 6, e: 15, dmg: 10, ang: 50, bkb: 7, kbg: 62, box: { x: 32, y: -56, w: 54, h: 50 }, move: true },
+    nair:  { name: 'Spin Kick', dur: 30, s: 5, e: 20, dmg: 7, ang: 50, bkb: 6, kbg: 60, box: { x: 0, y: -58, w: 86, h: 72 }, air: true, lag: 6 },
+    fair:  { name: 'Air Headbutt', dur: 28, s: 8, e: 14, dmg: 11, ang: 42, bkb: 7, kbg: 82, box: { x: 38, y: -62, w: 56, h: 48 }, air: true, lag: 9 },
+    bair:  { name: 'Mule Kick', dur: 26, s: 7, e: 11, dmg: 15, ang: 35, bkb: 9, kbg: 95, box: { x: -40, y: -50, w: 58, h: 44 }, air: true, lag: 10 },
+    uair:  { name: 'Horn Flip', dur: 26, s: 6, e: 13, dmg: 9, ang: 85, bkb: 6, kbg: 85, box: { x: 0, y: -110, w: 62, h: 52 }, air: true, lag: 7 },
+    dair:  { name: 'Hoof Stomp', dur: 32, s: 12, e: 18, dmg: 12, ang: 280, bkb: 6, kbg: 70, box: { x: 0, y: -8, w: 52, h: 42 }, air: true, lag: 12, meteor: true },
+  },
+  noodles: {
+    jab:   { name: 'Chomp Chomp', dur: 22, s: 3, e: 14, dmg: 3, ang: 70, bkb: 4, kbg: 20, rehit: 6, box: { x: 30, y: -50, w: 48, h: 38 }, shieldMul: 2 },
+    ftilt: { name: 'Tail Slap', dur: 26, s: 7, e: 12, dmg: 10, ang: 40, bkb: 7, kbg: 66, box: { x: 40, y: -50, w: 58, h: 40 } },
+    utilt: { name: 'Fin Uppercut', dur: 24, s: 6, e: 12, dmg: 8, ang: 88, bkb: 7, kbg: 78, box: { x: 0, y: -100, w: 60, h: 54 } },
+    dtilt: { name: 'Belly Slide', dur: 26, s: 6, e: 14, dmg: 8, ang: 30, bkb: 6, kbg: 58, box: { x: 34, y: -18, w: 56, h: 26 }, lunge: { vx: 5 }, move: true },
+    fsmash:{ name: 'Mega Chomp', dur: 42, s: 15, e: 20, dmg: 17, ang: 40, bkb: 9, kbg: 100, box: { x: 44, y: -60, w: 70, h: 56 }, smash: true, shieldMul: 2.5 },
+    usmash:{ name: 'Breach Spike', dur: 40, s: 12, e: 20, dmg: 15, ang: 85, bkb: 9, kbg: 100, box: { x: 0, y: -118, w: 68, h: 76 }, smash: true },
+    dsmash:{ name: 'Big Splash', dur: 40, s: 12, e: 18, dmg: 13, ang: 32, bkb: 8, kbg: 95, box: { x: 0, y: -26, w: 134, h: 36 }, smash: true },
+    dash:  { name: 'Torpedo', dur: 30, s: 6, e: 15, dmg: 9, ang: 55, bkb: 7, kbg: 60, box: { x: 30, y: -55, w: 54, h: 50 }, move: true },
+    nair:  { name: 'Barrel Roll', dur: 32, s: 5, e: 24, dmg: 4, ang: 50, bkb: 4, kbg: 30, rehit: 7, box: { x: 0, y: -58, w: 90, h: 76 }, air: true, lag: 7 },
+    fair:  { name: 'Snap Bite', dur: 28, s: 8, e: 14, dmg: 13, ang: 42, bkb: 7, kbg: 85, box: { x: 40, y: -62, w: 60, h: 50 }, air: true, lag: 9, shieldMul: 2 },
+    bair:  { name: 'Tail Whip', dur: 26, s: 7, e: 12, dmg: 13, ang: 35, bkb: 8, kbg: 90, box: { x: -40, y: -58, w: 60, h: 46 }, air: true, lag: 9 },
+    uair:  { name: 'Blowhole', dur: 26, s: 6, e: 13, dmg: 9, ang: 88, bkb: 7, kbg: 85, box: { x: 0, y: -112, w: 58, h: 60 }, air: true, lag: 7 },
+    dair:  { name: 'Dive Bomb', dur: 32, s: 12, e: 18, dmg: 13, ang: 280, bkb: 6, kbg: 70, box: { x: 0, y: -8, w: 56, h: 44 }, air: true, lag: 12, meteor: true },
+  },
+  penny: {
+    jab:   { name: 'Point Poke', dur: 13, s: 3, e: 6, dmg: 3, ang: 60, bkb: 5, kbg: 25, box: { x: 40, y: -60, w: 54, h: 20 }, tipper: true },
+    ftilt: { name: 'Lead Lunge', dur: 24, s: 6, e: 11, dmg: 9, ang: 28, bkb: 7, kbg: 68, box: { x: 48, y: -58, w: 66, h: 24 }, tipper: true },
+    utilt: { name: 'Eraser Flick', dur: 22, s: 5, e: 11, dmg: 9, ang: 90, bkb: 7, kbg: 80, box: { x: 0, y: -128, w: 42, h: 62 } },
+    dtilt: { name: 'Shaving Scrape', dur: 20, s: 5, e: 9, dmg: 6, ang: 20, bkb: 5, kbg: 55, box: { x: 40, y: -14, w: 60, h: 22 } },
+    fsmash:{ name: 'Lance', dur: 40, s: 14, e: 18, dmg: 16, ang: 26, bkb: 9, kbg: 105, box: { x: 58, y: -60, w: 90, h: 28 }, smash: true, tipper: true },
+    usmash:{ name: 'Sharpen Spin', dur: 40, s: 12, e: 22, dmg: 4, ang: 88, bkb: 5, kbg: 30, rehit: 5, box: { x: 0, y: -110, w: 70, h: 90 }, smash: true, finalHit: { dmg: 12, ang: 85, bkb: 9, kbg: 100 } },
+    dsmash:{ name: 'Pencil Sweep', dur: 40, s: 12, e: 18, dmg: 12, ang: 24, bkb: 8, kbg: 95, box: { x: 0, y: -22, w: 150, h: 28 }, smash: true },
+    dash:  { name: 'Getaway Stab', dur: 28, s: 6, e: 14, dmg: 9, ang: 50, bkb: 7, kbg: 60, box: { x: 40, y: -56, w: 60, h: 36 }, move: true, tipper: true },
+    nair:  { name: 'Scribble', dur: 30, s: 5, e: 22, dmg: 3, ang: 50, bkb: 4, kbg: 25, rehit: 5, box: { x: 0, y: -60, w: 84, h: 90 }, air: true, lag: 6 },
+    fair:  { name: 'Tip Stab', dur: 26, s: 8, e: 13, dmg: 10, ang: 40, bkb: 7, kbg: 82, box: { x: 46, y: -62, w: 64, h: 28 }, air: true, lag: 9, tipper: true },
+    bair:  { name: 'Eraser Smack', dur: 26, s: 7, e: 12, dmg: 14, ang: 36, bkb: 9, kbg: 92, box: { x: -40, y: -60, w: 58, h: 46 }, air: true, lag: 10 },
+    uair:  { name: 'Up Poke', dur: 24, s: 6, e: 12, dmg: 10, ang: 88, bkb: 6, kbg: 88, box: { x: 0, y: -132, w: 44, h: 62 }, air: true, lag: 7, tipper: true },
+    dair:  { name: 'Point Drop', dur: 32, s: 12, e: 18, dmg: 12, ang: 280, bkb: 6, kbg: 72, box: { x: 0, y: -6, w: 40, h: 46 }, air: true, lag: 12, meteor: true },
+  },
+  boot: {
+    jab:   { name: 'Toe Kick', dur: 18, s: 4, e: 8, dmg: 5, ang: 70, bkb: 5, kbg: 28, box: { x: 36, y: -40, w: 46, h: 92 }, dust: true },
+    ftilt: { name: 'Boot Shove', dur: 28, s: 8, e: 13, dmg: 11, ang: 40, bkb: 8, kbg: 66, box: { x: 40, y: -38, w: 58, h: 86 }, dust: true },
+    utilt: { name: 'Sole Lift', dur: 26, s: 7, e: 13, dmg: 10, ang: 90, bkb: 8, kbg: 78, box: { x: 0, y: -70, w: 72, h: 150 } },
+    dtilt: { name: 'Heel Scrape', dur: 24, s: 6, e: 11, dmg: 8, ang: 28, bkb: 6, kbg: 58, box: { x: 36, y: -16, w: 60, h: 36 }, dust: true },
+    fsmash:{ name: 'Stomp Kick', dur: 46, s: 17, e: 22, dmg: 20, ang: 38, bkb: 10, kbg: 100, box: { x: 48, y: -38, w: 78, h: 92 }, smash: true, armor: 13, dust: true },
+    usmash:{ name: 'Chomp Up', dur: 44, s: 14, e: 22, dmg: 17, ang: 86, bkb: 9, kbg: 100, box: { x: 0, y: -80, w: 72, h: 164 }, smash: true, armor: 13 },
+    dsmash:{ name: 'Double Stomp', dur: 44, s: 14, e: 20, dmg: 15, ang: 30, bkb: 9, kbg: 95, box: { x: 0, y: -20, w: 134, h: 44 }, smash: true, armor: 13, dust: true },
+    dash:  { name: 'Rex Rush', dur: 34, s: 8, e: 17, dmg: 11, ang: 55, bkb: 8, kbg: 60, box: { x: 32, y: -36, w: 58, h: 82 }, move: true, dust: true },
+    nair:  { name: 'Boot Spin', dur: 32, s: 6, e: 22, dmg: 8, ang: 50, bkb: 6, kbg: 60, box: { x: 0, y: -40, w: 92, h: 100 }, air: true, lag: 8 },
+    fair:  { name: 'Lace Lash', dur: 30, s: 9, e: 15, dmg: 12, ang: 42, bkb: 7, kbg: 82, box: { x: 38, y: -40, w: 62, h: 92 }, air: true, lag: 10 },
+    bair:  { name: 'Tail Lace Whip', dur: 28, s: 8, e: 13, dmg: 14, ang: 35, bkb: 8, kbg: 90, box: { x: -40, y: -40, w: 64, h: 92 }, air: true, lag: 10 },
+    uair:  { name: 'Bite Up', dur: 28, s: 7, e: 14, dmg: 10, ang: 85, bkb: 6, kbg: 85, box: { x: 0, y: -90, w: 68, h: 112 }, air: true, lag: 8 },
+    dair:  { name: 'Boot Drop', dur: 34, s: 13, e: 20, dmg: 14, ang: 280, bkb: 6, kbg: 70, box: { x: 0, y: -8, w: 56, h: 44 }, air: true, lag: 14, meteor: true },
+  },
+  baggy: {
+    jab:   { name: 'Headbonk', dur: 16, s: 3, e: 7, dmg: 3, ang: 70, bkb: 5, kbg: 25, box: { x: 26, y: -78, w: 40, h: 36 } },
+    ftilt: { name: 'Side Kick', dur: 24, s: 6, e: 11, dmg: 8, ang: 40, bkb: 7, kbg: 65, box: { x: 36, y: -28, w: 56, h: 30 } },
+    utilt: { name: 'Flip Kick', dur: 24, s: 6, e: 12, dmg: 8, ang: 90, bkb: 7, kbg: 78, box: { x: 0, y: -104, w: 56, h: 56 } },
+    dtilt: { name: 'Trip Kick', dur: 20, s: 5, e: 9, dmg: 6, ang: 22, bkb: 6, kbg: 55, box: { x: 34, y: -14, w: 54, h: 22 } },
+    fsmash:{ name: 'Dropkick', dur: 42, s: 15, e: 21, dmg: 15, ang: 42, bkb: 9, kbg: 100, box: { x: 44, y: -34, w: 70, h: 44 }, smash: true, lunge: { vx: 5 }, move: true },
+    usmash:{ name: 'Bag Pop', dur: 40, s: 12, e: 20, dmg: 14, ang: 88, bkb: 9, kbg: 100, box: { x: 0, y: -100, w: 90, h: 90 }, smash: true },
+    dsmash:{ name: 'Split Kick', dur: 40, s: 12, e: 18, dmg: 12, ang: 28, bkb: 8, kbg: 95, box: { x: 0, y: -20, w: 130, h: 30 }, smash: true },
+    dash:  { name: 'Tumble', dur: 30, s: 6, e: 15, dmg: 9, ang: 55, bkb: 7, kbg: 60, box: { x: 28, y: -50, w: 54, h: 60 }, move: true },
+    nair:  { name: 'Rustle Spin', dur: 32, s: 5, e: 24, dmg: 3, ang: 50, bkb: 4, kbg: 28, rehit: 6, box: { x: 0, y: -56, w: 84, h: 90 }, air: true, lag: 6 },
+    fair:  { name: 'Flying Kick', dur: 28, s: 8, e: 14, dmg: 11, ang: 42, bkb: 7, kbg: 82, box: { x: 40, y: -40, w: 56, h: 46 }, air: true, lag: 9 },
+    bair:  { name: 'Back Kick', dur: 26, s: 7, e: 12, dmg: 13, ang: 35, bkb: 8, kbg: 90, box: { x: -38, y: -40, w: 56, h: 46 }, air: true, lag: 9 },
+    uair:  { name: 'Bag Flip', dur: 26, s: 6, e: 13, dmg: 9, ang: 85, bkb: 6, kbg: 85, box: { x: 0, y: -112, w: 60, h: 56 }, air: true, lag: 7 },
+    dair:  { name: 'Pogo Stomp', dur: 30, s: 10, e: 16, dmg: 10, ang: 280, bkb: 5, kbg: 65, box: { x: 0, y: -6, w: 48, h: 40 }, air: true, lag: 10, meteor: true, pogo: true },
+  },
+  snakey: {
+    jab:   { name: 'Baton Combo', dur: 26, s: 3, e: 17, dmg: 2.5, ang: 70, bkb: 4, kbg: 18, rehit: 7, box: { x: 34, y: -72, w: 48, h: 28 }, finalHit: { dmg: 5, ang: 55, bkb: 6, kbg: 45 } },
+    ftilt: { name: 'Baton Swing', dur: 26, s: 7, e: 12, dmg: 10, ang: 40, bkb: 7, kbg: 68, box: { x: 42, y: -66, w: 60, h: 36 } },
+    utilt: { name: 'Tail Flick', dur: 24, s: 6, e: 12, dmg: 8, ang: 90, bkb: 7, kbg: 78, box: { x: -4, y: -108, w: 60, h: 56 } },
+    dtilt: { name: 'Tail Trip', dur: 24, s: 6, e: 11, dmg: 6, ang: 165, bkb: 7, kbg: 20, box: { x: 38, y: -16, w: 62, h: 26 } },
+    fsmash:{ name: 'Nightstick', dur: 42, s: 15, e: 20, dmg: 17, ang: 40, bkb: 9, kbg: 100, box: { x: 48, y: -70, w: 74, h: 54 }, smash: true },
+    usmash:{ name: 'Siren Spin', dur: 40, s: 12, e: 20, dmg: 15, ang: 86, bkb: 9, kbg: 100, box: { x: 0, y: -124, w: 70, h: 80 }, smash: true },
+    dsmash:{ name: 'Coil Sweep', dur: 40, s: 12, e: 18, dmg: 13, ang: 28, bkb: 8, kbg: 95, box: { x: 0, y: -24, w: 140, h: 34 }, smash: true },
+    dash:  { name: 'Hot Pursuit', dur: 30, s: 6, e: 15, dmg: 9, ang: 55, bkb: 7, kbg: 60, box: { x: 32, y: -60, w: 54, h: 54 }, move: true },
+    nair:  { name: 'Coil Spin', dur: 30, s: 5, e: 20, dmg: 7, ang: 50, bkb: 6, kbg: 60, box: { x: 0, y: -62, w: 86, h: 80 }, air: true, lag: 6 },
+    fair:  { name: 'Baton Smack', dur: 28, s: 8, e: 14, dmg: 11, ang: 42, bkb: 7, kbg: 82, box: { x: 42, y: -66, w: 58, h: 46 }, air: true, lag: 9 },
+    bair:  { name: 'Tail Whip', dur: 26, s: 7, e: 12, dmg: 13, ang: 35, bkb: 8, kbg: 90, box: { x: -40, y: -56, w: 60, h: 46 }, air: true, lag: 9 },
+    uair:  { name: 'Flashlight Flick', dur: 24, s: 6, e: 12, dmg: 9, ang: 85, bkb: 6, kbg: 85, box: { x: 0, y: -120, w: 56, h: 56 }, air: true, lag: 7 },
+    dair:  { name: 'Tail Stomp', dur: 32, s: 12, e: 18, dmg: 12, ang: 280, bkb: 6, kbg: 70, box: { x: 0, y: -8, w: 50, h: 44 }, air: true, lag: 12, meteor: true },
+  },
+};
+const SPECIAL_NAMES = {
+  spike: { neutralb: 'Horn Toss', sideb: 'Goat Ram', upb: 'Cliff Hop', downb: 'Hoof Stomp', downbGround: 'Stomp Quake' },
+  noodles: { neutralb: 'Spout', sideb: 'Breach', upb: 'Tail Flip', downb: 'Belly Flop', downbGround: 'Splash' },
+  penny: { neutralb: 'Shaving Shot', sideb: 'Bag Swing', upb: 'Eraser Spring', downb: 'Pencil Drop', downbGround: 'Sharpen Spin' },
+  boot: { neutralb: 'Chomp', sideb: 'Lace Whip', upb: 'Boot Rocket', downb: 'Boot Drop', downbGround: 'Boot Stomp' },
+  baggy: { neutralb: 'Bag of Tricks', sideb: 'Bag Roll', upb: 'Updraft', downb: 'Crumple Drop', downbGround: 'Puff Up' },
+  snakey: { neutralb: 'Ticket Toss', sideb: 'Slither Charge', upb: 'Spring Coil', downb: 'Coil Counter', counterhit: 'Cuffed!' },
+};
+for (const ch of CHARS) {
+  ch.moves = ch.moves || {};
+  Object.assign(ch.moves, NORMALS[ch.id] || {});
+  for (const k in (SPECIAL_NAMES[ch.id] || {})) if (ch.moves[k]) ch.moves[k].name = SPECIAL_NAMES[ch.id][k];
+  if (ch.id === 'boot' && ch.moves.sideb) ch.moves.sideb.armor = 13;
+}
+
 const STAGES = [
   // Spike's home turf: snowy summit with two high side ledges. Falling snow.
   { name: 'Goat Peak', theme: 'peak', main: { x: 390, y: 540, w: 500, h: 70 }, plats: [{ x: 230, y: 400, w: 140 }, { x: 910, y: 400, w: 140 }, { x: 560, y: 290, w: 160 }], sky: ['#0d1b33', '#2c4a7a', '#bfe3ff'], ground: '#f2f6fb', dirt: '#5c6473', platStyle: 'snow' },
@@ -563,6 +678,7 @@ class Fighter {
   startAttack(name, charge = 0) {
     const a = this.getAtk(name), ch = this.ch;
     this.state = 'attack'; this.atk = a; this.atkName = name; this.frame = 0; this.hitIds = new Set(); this.charge = charge; this.crouch = false; this.runFrames = 0;
+    if (a.name && !a.final) this.moveLabel = { text: a.name, t: 0 };
     if (a.special === 'up') { this.vy = ch.jump * 1.3; this.vx = this.facing * 2.5; this.grounded = false; this.onPlat = null; this.jumpsLeft = 0; this.afterHelpless = true; this.y -= 3; particles.burst(this.x, this.y - 30, ch.accent, 10, 6); }
     if (a.lunge) { this.vx = this.facing * a.lunge.vx; if (a.lunge.vy !== undefined && !this.grounded) { this.vy = a.lunge.vy; } else if (a.lunge.vy !== undefined) { this.vy = a.lunge.vy; this.grounded = false; this.onPlat = null; this.y -= 3; } particles.dust(this.x, this.y, 6); }
     else if (a.special === 'side') { this.vx = this.facing * ch.speed * 1.7; }
@@ -580,6 +696,7 @@ class Fighter {
     if (f.ko) return;
     if (f.hitlag > 0) { f.hitlag--; return; }
     f.inv = Math.max(0, f.inv - 1); f.ledgeCool = Math.max(0, f.ledgeCool - 1); f.anim++;
+    if (f.moveLabel) { f.moveLabel.t++; if (f.moveLabel.t > 40) f.moveLabel = null; }
     if (f.state !== 'shield' && f.state !== 'broken' && f.shield < 100) f.shield = Math.min(100, f.shield + 0.12);
     f.squash = lerp(f.squash, 1, 0.2);
     const pr = k => ip[k] && !ip.prev[k];
@@ -752,6 +869,7 @@ class Fighter {
     if (a.special === 'rain' && f.frame >= a.s && f.frame <= a.e && (f.frame - a.s) % a.rain.every === 0) { const mn = stage.main; const foes = fighters.filter(g => g !== f && !g.ko); const aimed = foes.length && (f.frame - a.s) % (a.rain.every * 2) === 0; const rx = aimed ? foes[Math.floor(Math.random() * foes.length)].x + rnd(-40, 40) : mn.x - 60 + Math.random() * (mn.w + 120);
       projectiles.push({ owner: f, x: rx, y: cam.y - 420 / cam.z, vx: rnd(-1, 1), vy: 3, grav: 0.45, dmg: a.rain.dmg, r: a.rain.r, life: a.rain.life, kind: 'bag', color: '#c9a66b', spin: rnd(0, 6), ang: a.rain.ang, bkb: a.rain.bkb, kbg: a.rain.kbg }); if (f.frame % 12 === 0) SFX.proj(); }
     if (a.special === 'wave' && f.frame === a.s) { const w = a.wave; projectiles.push({ owner: f, x: f.x + f.facing * 40, y: f.y - 10, vx: f.facing * w.speed, vy: 0, grav: 0, dmg: w.dmg, r: w.r, life: w.life, kind: 'wave', color: '#4fb3ff', spin: 0, ang: w.ang, bkb: w.bkb, kbg: w.kbg, pierce: true, hitSet: new Set() }); SFX.hit(60); }
+    if (a.dust && f.frame === a.s && f.grounded) { particles.dust(f.x + f.facing * 30 * ch.scale, f.y, 10); shake = Math.max(shake, 3); }
     if (a.rehit && f.frame > a.s && (f.frame - a.s) % a.rehit === 0) { f.hitIds.clear(); if (a.final && a.special === 'burst') { shake = Math.max(shake, 10); particles.dust(f.x, f.y, 12); particles.burst(f.x, f.y - 40 * ch.scale, ch.accent, 8, 6); } }
     if (a.finalHit && f.frame === a.e) f.hitIds.clear();
     if (a.move) f.vx *= 0.95; else if (f.grounded) f.vx *= 0.8;
@@ -763,8 +881,12 @@ class Fighter {
         const h = g.hurt();
         if (box.x < h.x + h.w && box.x + box.w > h.x && box.y < h.y + h.h && box.y + box.h > h.y) {
           const prm = (a.finalHit && f.frame === a.e) ? a.finalHit : a;
-          const dmg = prm.dmg * (a.final ? 1 : ch.dmgMul) * (a.smash ? 1 + f.charge / 60 * 0.4 : 1);
-          applyHit(f, g, { dmg, ang: prm.ang, bkb: prm.bkb, kbg: prm.kbg, meteor: a.meteor }, f.x, (h.x + h.w / 2 + box.cx) / 2, (h.y + h.h / 2 + box.cy) / 2);
+          let dmg = prm.dmg * (a.final ? 1 : ch.dmgMul) * (a.smash ? 1 + f.charge / 60 * 0.4 : 1), kbg = prm.kbg;
+          let tip = false;
+          if (a.tipper) { const fwd = ((h.x + h.w / 2) - f.x) * f.facing, near = box.cx * 0 + (a.box.x * ch.scale - box.w / 2), far = a.box.x * ch.scale + box.w / 2; tip = (fwd - near) / (far - near) > 0.62; if (tip) { dmg *= 1.35; kbg *= 1.15; f.moveLabel = { text: 'TIP!', t: 0, hot: true }; } }
+          const before = g.percent;
+          applyHit(f, g, { dmg, ang: prm.ang, bkb: prm.bkb, kbg, meteor: a.meteor, shieldMul: a.shieldMul, tip }, f.x, (h.x + h.w / 2 + box.cx) / 2, (h.y + h.h / 2 + box.cy) / 2);
+          if (a.pogo && !f.grounded && g.percent !== before) { f.vy = -11.5; f.jumpsLeft = Math.max(f.jumpsLeft, 1); particles.burst(f.x, f.y, ch.accent, 8, 4); }
           f.hitIds.add(g.idx);
         }
       }
@@ -786,8 +908,15 @@ function applyHit(att, vic, p, srcX, hx, hy) {
     if (match) match.banner = { text: 'COUNTER!', sub: vic.ch.name + ' says freeze', t: 100, color: vic.ch.color };
     return;
   }
+  const armorMove = vic.state === 'attack' ? vic.atk : (vic.state === 'charge' ? vic.getAtk(vic.pendingAtk) : null);
+  if (armorMove && armorMove.armor && p.dmg < armorMove.armor && !p.ignoreArmor) { // heavy armor: take the damage, keep swinging
+    vic.percent = Math.min(999, vic.percent + p.dmg); att.dmgDealt += p.dmg; vic.hitlag = 3; att.hitlag = 4;
+    vic.moveLabel = { text: 'ARMOR', t: 0, hot: true }; particles.burst(hx, hy, '#c9ced9', 6, 3); SFX.shield();
+    return;
+  }
   if (vic.state === 'shield') {
-    vic.shield -= p.dmg * 1.3; vic.vx = sign(vic.x - srcX) * 4; vic.hitlag = 5; att.hitlag = 5;
+    vic.shield -= p.dmg * 1.3 * (p.shieldMul || 1); vic.vx = sign(vic.x - srcX) * 4; vic.hitlag = 5; att.hitlag = 5;
+    if (p.shieldMul) { particles.burst(hx, hy, '#4fb3ff', 10, 5); vic.moveLabel = { text: 'CHEWED', t: 0, hot: true }; }
     particles.burst(hx, hy, '#fff', 6, 4); SFX.shield();
     if (vic.shield <= 0) vic.breakShield();
     return;
@@ -809,7 +938,7 @@ function applyHit(att, vic, p, srcX, hx, hy) {
   const hl = Math.min(16, Math.floor(p.dmg * 0.55 + 4));
   vic.hitlag = hl; att.hitlag = hl;
   att.dmgDealt += p.dmg;
-  particles.hitSpark(hx, hy, kb);
+  particles.hitSpark(hx, hy, p.tip ? kb * 1.6 : kb);
   shake = Math.max(shake, Math.min(22, kb * 0.14));
   if (kb > 95) { flash = 0.5; slowmo = 14; }
   SFX.hit(kb);
@@ -1282,11 +1411,52 @@ function drawFighter(c, f, hats, miniAlpha) {
   if (f.state === 'charge') { c.save(); c.globalAlpha = 0.25 + f.charge / 60 * 0.4; c.fillStyle = '#fff'; c.beginPath(); c.arc(sx, sy - 40 * s, 30 + f.charge * 0.5, 0, Math.PI * 2); c.fill(); c.restore(); }
   if (f.state === 'attack' && f.atk && f.atk.dmg && f.atk.box && f.frame >= f.atk.s && f.frame <= f.atk.e + 3) {
     const b = f.atkBox(), t = Math.min(1, (f.frame - f.atk.s) / Math.max(1, Math.min(f.atk.e, f.atk.s + 12) - f.atk.s + 3));
-    c.save(); c.globalAlpha = 0.75 * (1 - t * 0.5); c.strokeStyle = f.atk.smash || f.atk.special ? '#fff' : ch.accent; c.lineWidth = f.atk.smash ? 7 : 4; c.lineCap = 'round';
-    c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, Math.PI * (0.1 + t), Math.PI * (1.2 + t)); c.stroke();
-    c.globalAlpha *= 0.25; c.fillStyle = ch.color; c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, 0, Math.PI * 2); c.fill();
-    c.restore();
+    drawAtkFx(c, f, b, t);
   }
+  if (f.moveLabel) {
+    const L = f.moveLabel, a2 = L.t < 30 ? 1 : 1 - (L.t - 30) / 10;
+    c.save(); c.globalAlpha = Math.max(0, a2); c.font = (L.hot ? '900 16px' : '900 12px') + ' Nunito, sans-serif'; c.textAlign = 'center';
+    c.lineWidth = 3; c.strokeStyle = 'rgba(0,0,0,.7)'; c.fillStyle = L.hot ? '#ffcf33' : '#fff';
+    const ly = sy - (110 * s) - L.t * 0.6; c.strokeText(L.text, sx, ly); c.fillText(L.text, sx, ly); c.restore();
+  }
+}
+// Each fighter's swing looks like the fighter: horn wedges, water arcs, pencil lines, boot slabs, paper crinkles, baton flashes.
+function drawAtkFx(c, f, b, t) {
+  const ch = f.ch, heavy = f.atk.smash || f.atk.special, d = f.facing;
+  c.save(); c.globalAlpha = 0.8 * (1 - t * 0.5); c.lineCap = 'round'; c.lineJoin = 'round';
+  switch (ch.id) {
+    case 'spike': // sharp horn wedge
+      c.fillStyle = heavy ? '#fff' : '#e8e2d8'; c.beginPath(); c.moveTo(b.cx - d * b.w * 0.45, b.cy - b.h * 0.35); c.lineTo(b.cx + d * b.w * (0.5 + t * 0.1), b.cy); c.lineTo(b.cx - d * b.w * 0.45, b.cy + b.h * 0.35); c.closePath(); c.fill();
+      c.strokeStyle = '#8c7a58'; c.lineWidth = heavy ? 5 : 3; c.beginPath(); c.moveTo(b.cx - d * b.w * 0.4, b.cy); c.lineTo(b.cx + d * b.w * 0.5, b.cy); c.stroke();
+      break;
+    case 'noodles': // water arc with droplets
+      c.strokeStyle = '#4fb3ff'; c.lineWidth = heavy ? 9 : 5; c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, Math.PI * (0.1 + t), Math.PI * (1.2 + t)); c.stroke();
+      c.fillStyle = '#fff'; for (let i = 0; i < 6; i++) { const a2 = t * 4 + i * 1.05; c.beginPath(); c.arc(b.cx + Math.cos(a2) * b.w * 0.55, b.cy + Math.sin(a2) * b.h * 0.55, 3 + (i % 2) * 2, 0, Math.PI * 2); c.fill(); }
+      c.globalAlpha *= 0.3; c.fillStyle = '#4fb3ff'; c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, 0, Math.PI * 2); c.fill();
+      break;
+    case 'penny': // thin graphite stroke, scribble on multi-hit
+      c.strokeStyle = '#2b2b33'; c.lineWidth = heavy ? 4 : 2.5;
+      if (f.atk.rehit) { c.beginPath(); for (let i = 0; i < 10; i++) c.lineTo(b.cx + (Math.sin(i * 2.3 + t * 9) * b.w) / 2, b.cy + (Math.cos(i * 1.7 + t * 7) * b.h) / 2); c.stroke(); }
+      else { c.beginPath(); c.moveTo(b.cx - d * b.w / 2, b.cy + b.h * 0.2); c.lineTo(b.cx + d * b.w / 2, b.cy - b.h * 0.1); c.stroke(); c.fillStyle = '#ffb020'; c.beginPath(); c.arc(b.cx + d * b.w * 0.45, b.cy - b.h * 0.08, heavy ? 7 : 4, 0, Math.PI * 2); c.fill(); }
+      c.fillStyle = '#2b2b33'; for (let i = 0; i < 4; i++) { c.beginPath(); c.arc(b.cx + d * (b.w * 0.5 - i * 10), b.cy + Math.sin(i + t * 5) * 6, 1.5, 0, Math.PI * 2); c.fill(); }
+      break;
+    case 'boot': // heavy brown slab with dust
+      c.fillStyle = 'rgba(138,90,43,.55)'; rr(c, b.x, b.y + b.h * t * 0.2, b.w, b.h * (1 - t * 0.2), 10); c.fill();
+      c.strokeStyle = '#3d2614'; c.lineWidth = heavy ? 8 : 5; c.beginPath(); c.moveTo(b.x + 6, b.y + b.h - 6); c.lineTo(b.x + b.w - 6, b.y + b.h - 6); c.stroke();
+      c.fillStyle = 'rgba(232,201,160,.7)'; for (let i = 0; i < 5; i++) { c.beginPath(); c.arc(b.x + (i + 0.5) * b.w / 5, b.y + b.h - 4 - t * 24 - (i % 2) * 8, 5, 0, Math.PI * 2); c.fill(); }
+      break;
+    case 'baggy': // paper crinkle arcs and confetti bits
+      c.strokeStyle = '#e8e2d8'; c.lineWidth = heavy ? 6 : 3; for (let k = 0; k < 2; k++) { c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2 - k * 8, b.h / 2 - k * 6, 0, Math.PI * (0.1 + t + k * 0.3), Math.PI * (1.1 + t + k * 0.3)); c.stroke(); }
+      const cols = ['#ff4d4d', '#3d7bff', '#ffcf33', '#39c66b']; for (let i = 0; i < 6; i++) { c.fillStyle = cols[i % 4]; c.save(); c.translate(b.cx + Math.cos(i * 1.1 + t * 3) * b.w * 0.4, b.cy + Math.sin(i * 1.7 + t * 3) * b.h * 0.4); c.rotate(i + t * 6); c.fillRect(-4, -2, 8, 4); c.restore(); }
+      break;
+    case 'snakey': // black baton streak with siren sparks
+      c.strokeStyle = '#1b1230'; c.lineWidth = heavy ? 8 : 5; c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, Math.PI * (0.1 + t), Math.PI * (1.0 + t)); c.stroke();
+      for (let i = 0; i < 5; i++) { c.fillStyle = i % 2 ? '#ff4d4d' : '#3d7bff'; const a2 = Math.PI * (0.1 + t) + i * 0.4; c.beginPath(); c.arc(b.cx + Math.cos(a2) * b.w * 0.5, b.cy + Math.sin(a2) * b.h * 0.5, 3.5, 0, Math.PI * 2); c.fill(); }
+      break;
+    default:
+      c.strokeStyle = heavy ? '#fff' : ch.accent; c.lineWidth = heavy ? 7 : 4; c.beginPath(); c.ellipse(b.cx, b.cy, b.w / 2, b.h / 2, 0, Math.PI * (0.1 + t), Math.PI * (1.2 + t)); c.stroke();
+  }
+  c.restore();
 }
 function drawProjectile(c, p) {
   c.save(); c.translate(p.x, p.y);

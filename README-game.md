@@ -36,6 +36,19 @@ Every fighter was drawn on paper first.
 
 Pick Random on the select screen to shuffle.
 
+## Signature mechanics
+
+Every fighter has its own named normal attacks, its own reach and angles, and one trick nobody else has:
+
+- **Spike**: smash attacks have armor. Weak hits do damage but never knock him out of the swing.
+- **Noodles**: bites chew through shields at double speed. Chomp Chomp and Barrel Roll hit several times.
+- **Pency**: tipper. Land the very point of a stab for bonus damage and launch, marked TIP!
+- **Bootisaurus Rex**: heavy armor on smashes and Lace Whip. Ground attacks kick up dust.
+- **Baggy**: Pogo Stomp bounces him back up off whoever it hits. Dropkick lunges, Rustle Spin multi-hits.
+- **Snakey**: Baton Combo is a three-hit jab. Tail Trip pulls the opponent toward him for a follow-up.
+
+Move names flash above the fighter when they come out.
+
 ## Rules
 
 - Damage percent goes up, knockback goes up. Get launched past the edge of the screen and you lose a stock.
