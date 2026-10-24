@@ -40,6 +40,9 @@ Spike, Noodles, Penny, Bootisaurus, Baggy and Snakey were drawn on paper first.
 | Bell Tower | tiny main stage, four platforms, ledges everywhere |
 | Lava Lift | both side platforms ride up and down over lava |
 | Orbit Station | low gravity, platforms slide sideways |
+| Boot Canyon | Bootisaurus' home: the stage is a giant boot |
+| Baggy's Dump | Baggy's home: tires roll back and forth as platforms |
+| Snakey's Precinct | Snakey's home: squad cars patrol as platforms, lights flash |
 | Rooftop Rush | wide flat roof with one long platform |
 
 Pick Random on the select screen to shuffle.
@@ -54,6 +57,6 @@ Pick Random on the select screen to shuffle.
 
 **Player 1:** A / D move, W or Space jump, S crouch or fast fall, J attack, K special, L or Shift shield.
 **Player 2:** Arrow keys, `,` attack, `.` special, `/` shield (or Numpad 1 2 3, Numpad 0 jump).
-**Phone:** left thumb joystick, right thumb A / B / JUMP / SHIELD.
+**Phone:** left thumb joystick, right thumb A / B / JUMP / SHIELD. Only the JUMP button jumps. Start your thumb a little in from the screen edge so the phone's back-swipe doesn't grab it.
 
 Flick a direction and attack at the same time for a smash attack (hold to charge). Shield plus a direction rolls. Shield in the air is an air dodge. Fall near an edge to grab the ledge. Esc pauses.
