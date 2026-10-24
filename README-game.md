@@ -14,10 +14,6 @@ Works offline. The only thing that needs internet is the fancy font.
 
 | Fighter | Who | Signature | Final Smash | Hat |
 |---|---|---|---|---|
-| Rook | all-rounder | Disc Throw | Disc Storm | Jester Cap |
-| Tank | heavyweight | Boulder | Meteor Slam | Viking Helm |
-| Fern | floaty, triple jump | Seed Lob | Overgrowth | Garden Hat |
-| Zip | speedster | Spark Bolt | Lightning Rush | Propeller Cap |
 | Spike | headbutting goat | Goat Ram, Horn Toss, Hoof Stomp | Mega Ram | Pirate Tricorn |
 | Noodles | flexing orca | Breach, Spout, Belly Flop | Tidal Wave | Sailor Cap |
 | Pency | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist | Robber Beanie |
@@ -25,7 +21,7 @@ Works offline. The only thing that needs internet is the fancy font.
 | Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
 | Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
 
-Spike, Noodles, Pency, Bootisaurus, Baggy and Snakey were drawn on paper first.
+Every fighter was drawn on paper first.
 
 ## Stages
 
