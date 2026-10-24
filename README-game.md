@@ -23,6 +23,7 @@ Works offline. The only thing that needs internet is the fancy font.
 | Cloudy | a cloud with fists and no legs, hovers | Lightning Bolt, Gust, Rain Dance | Super Storm | Umbrella Hat |
 | Franchesca | a fish with legs and eyelashes | Bubble Shot, Fish Flop, Splash Zone | School of Fish | Fishing Hat |
 | Shoean | a shoe with a lace bow, fastest runner | Lace Shot, Lace Lasso, Spring Sole | Marathon Dash | Sock Beanie |
+| Luke Lava | a blob of red-hot lava, no arms or legs | Fireball, Lava Flow, Magma Pool | Eruption | Volcano Cap |
 
 Every fighter was drawn on paper first.
 
@@ -39,7 +40,7 @@ Every fighter was drawn on paper first.
 | Cloud Nine | Cloudy's home: a cloud stage in the sky, side clouds drift, rainbow behind |
 | Fish Tank | Franchesca's home: inside an aquarium, slow falls, seaweed platforms sway |
 | Shoebox Stack | Shoean's home: a shoe store, shoebox platforms, the top one slides |
-| Lava Lift | hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles |
+| Lava Lift | Luke Lava's home and a hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles. Luke is immune |
 
 Pick Random on the select screen to shuffle.
 
@@ -56,6 +57,7 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Cloudy**: five jumps and a hover (hold JUMP in the air). Lightning moves crackle, Gust shoves opponents a long way.
 - **Franchesca**: slippery. Rolls go half again as far. Flop moves flip her whole body over.
 - **Shoean**: fastest runner. The longer the run-up before a Sprint Kick, the harder it hits (SPRINT!). Lace Lasso pulls opponents in.
+- **Luke Lava**: every hit sets the opponent on fire for two seconds of extra damage. Lava and burning puddles can't hurt him. Magma Pool leaves a burning puddle under him.
 
 Move names flash above the fighter when they come out, and every attack is acted out: jaws open on bites, legs swing on kicks, heads lunge on headbutts, the body thrusts on stabs, batons sweep on swings, with a wind-up and follow-through.
 
