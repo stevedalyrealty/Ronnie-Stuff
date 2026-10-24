@@ -21,6 +21,8 @@ Works offline. The only thing that needs internet is the fancy font.
 | Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
 | Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
 | Cloudy | a cloud with fists and no legs, hovers | Lightning Bolt, Gust, Rain Dance | Super Storm | Umbrella Hat |
+| Franchesca | a fish with legs and eyelashes | Bubble Shot, Fish Flop, Splash Zone | School of Fish | Fishing Hat |
+| Shoean | a shoe with a lace bow, fastest runner | Lace Shot, Lace Lasso, Spring Sole | Marathon Dash | Sock Beanie |
 
 Every fighter was drawn on paper first.
 
@@ -35,6 +37,8 @@ Every fighter was drawn on paper first.
 | Baggy's Dump | Baggy's home: tires roll back and forth as platforms |
 | Snakey's Precinct | Snakey's home: squad cars patrol as platforms, lights flash |
 | Cloud Nine | Cloudy's home: a cloud stage in the sky, side clouds drift, rainbow behind |
+| Fish Tank | Franchesca's home: inside an aquarium, slow falls, seaweed platforms sway |
+| Shoebox Stack | Shoean's home: a shoe store, shoebox platforms, the top one slides |
 
 Pick Random on the select screen to shuffle.
 
@@ -49,6 +53,8 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Baggy**: Pogo Stomp bounces him back up off whoever it hits. Dropkick lunges, Rustle Spin multi-hits.
 - **Snakey**: Baton Combo is a three-hit jab. Tail Trip pulls the opponent toward him for a follow-up.
 - **Cloudy**: five jumps and a hover (hold JUMP in the air). Lightning moves crackle, Gust shoves opponents a long way.
+- **Franchesca**: slippery. Rolls go half again as far. Flop moves flip her whole body over.
+- **Shoean**: fastest runner. The longer the run-up before a Sprint Kick, the harder it hits (SPRINT!). Lace Lasso pulls opponents in.
 
 Move names flash above the fighter when they come out, and every attack is acted out: jaws open on bites, legs swing on kicks, heads lunge on headbutts, the body thrusts on stabs, batons sweep on swings, with a wind-up and follow-through.
 
