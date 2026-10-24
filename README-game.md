@@ -50,7 +50,7 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Snakey**: Baton Combo is a three-hit jab. Tail Trip pulls the opponent toward him for a follow-up.
 - **Cloudy**: five jumps and a hover (hold JUMP in the air). Lightning moves crackle, Gust shoves opponents a long way.
 
-Move names flash above the fighter when they come out.
+Move names flash above the fighter when they come out, and every attack is acted out: jaws open on bites, legs swing on kicks, heads lunge on headbutts, the body thrusts on stabs, batons sweep on swings, with a wind-up and follow-through.
 
 ## Personalized visuals
 
