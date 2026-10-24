@@ -2,13 +2,30 @@
 
 A Smash-style platform fighter that runs in any browser. One file, no install.
 
-## Play it
+## Install it as an app
+
+The game is a Progressive Web App. Once the repo is published with GitHub Pages it lives at
+https://stevedalyrealty.github.io/Ronnie-Stuff/ and installs like a normal app:
+
+- **Android / Chrome / Edge:** open the link, tap the Install button on the title screen (or browser menu → Install app).
+- **iPhone / iPad:** open the link in Safari, tap Share, then Add to Home Screen.
+- **Windows / Mac:** open the link in Chrome or Edge, click the install icon in the address bar or the Install button on the title screen.
+
+It gets its own icon, launches fullscreen, and works offline after the first load.
+
+## Or just download the file
 
 1. Download `Super-Hat-Bros.html`.
 2. Double-click it (computer) or open it from your Files / Downloads app (phone).
 3. On a phone, turn it sideways. A joystick and buttons appear when the fight starts.
 
 Works offline. The only thing that needs internet is the fancy font.
+
+## Files
+
+- `index.html`, `manifest.webmanifest`, `sw.js`, `icons/`: the installable app. Drop this folder on any static host (GitHub Pages, Netlify, your own server) and it installs.
+- `Super-Hat-Bros.html`: the single-file version.
+- `.github/workflows/pages.yml`: deploys the app to GitHub Pages on every push to main.
 
 ## Fighters
 

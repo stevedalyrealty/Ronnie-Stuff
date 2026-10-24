@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Super Hat Bros">
 <meta name="theme-color" content="#0b1024">
+<meta name="description" content="Super Hat Bros: a platform fighter starring ten napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%} [hidden]{display:none!important}</style>
 </head>
 <body>
@@ -146,7 +149,9 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         <div class="row">
           <button class="btn" id="btnPlay">PLAY</button>
           <button class="btn alt" id="btnHowTo">HOW TO PLAY</button>
+          <button class="btn alt" id="btnInstall" hidden>📲 INSTALL APP</button>
         </div>
+        <p class="hint" id="installHint" hidden></p>
         <div class="controls" id="howto" hidden>
           <div class="kbd"><b>Player 1</b><br>Move <kbd>A</kbd> <kbd>D</kbd> · Jump <kbd>W</kbd> / <kbd>Space</kbd> · Crouch / fast fall <kbd>S</kbd><br>Attack <kbd>J</kbd> · Special <kbd>K</kbd> · Shield <kbd>L</kbd> or <kbd>Shift</kbd></div>
           <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Jump <kbd>↑</kbd> · Crouch <kbd>↓</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> (or Numpad 1 2 3, jump Numpad 0)</div>
@@ -2391,6 +2396,22 @@ $('btnResume').addEventListener('click', () => togglePause());
 $('btnQuit').addEventListener('click', () => { paused = false; $('pause').hidden = true; scene = 'select'; startDemo(); show('select'); });
 $('btnRematch').addEventListener('click', () => { audioInit(); goFullscreen(); startFight(); });
 $('btnChange').addEventListener('click', () => { scene = 'select'; startDemo(); show('select'); });
+
+/* ---------------- Install as an app (PWA) ---------------- */
+let deferredInstall = null;
+const hasManifest = !!document.querySelector('link[rel="manifest"]');
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; $('btnInstall').hidden = false; });
+$('btnInstall').addEventListener('click', async () => { if (!deferredInstall) return; deferredInstall.prompt(); try { await deferredInstall.userChoice; } catch (err) {} deferredInstall = null; $('btnInstall').hidden = true; });
+window.addEventListener('appinstalled', () => { $('btnInstall').hidden = true; showToast('Installed! Launch Super Hat Bros from your home screen or app list.'); });
+(function installHint() {
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  if (!hasManifest || standalone) return;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const h = $('installHint');
+  if (ios) { h.textContent = 'iPhone / iPad: tap Share, then "Add to Home Screen" to install the app.'; h.hidden = false; }
+  else { h.textContent = 'Install it as an app: use the Install button, or your browser menu → "Install Super Hat Bros" / "Add to Home screen".'; h.hidden = false; }
+})();
+if (hasManifest && 'serviceWorker' in navigator && location.protocol.startsWith('http')) { navigator.serviceWorker.register('sw.js').catch(() => {}); }
 
 /* ---------------- Resize ---------------- */
 function resize() {
