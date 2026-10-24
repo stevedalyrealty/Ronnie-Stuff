@@ -20,12 +20,12 @@ Works offline. The only thing that needs internet is the fancy font.
 | Zip | speedster | Spark Bolt | Lightning Rush | Propeller Cap |
 | Spike | headbutting goat | Goat Ram, Horn Toss, Hoof Stomp | Mega Ram | Pirate Tricorn |
 | Noodles | flexing orca | Breach, Spout, Belly Flop | Tidal Wave | Sailor Cap |
-| Penny | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist | Robber Beanie |
+| Pency | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist | Robber Beanie |
 | Bootisaurus Rex | T. Rex made of boots, twice the size | Chomp, Lace Whip, Boot Stomp | Boot Quake | Spur Cowboy Hat |
 | Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
 | Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
 
-Spike, Noodles, Penny, Bootisaurus, Baggy and Snakey were drawn on paper first.
+Spike, Noodles, Pency, Bootisaurus, Baggy and Snakey were drawn on paper first.
 
 ## Stages
 
@@ -36,7 +36,7 @@ Spike, Noodles, Penny, Bootisaurus, Baggy and Snakey were drawn on paper first.
 | Skyline Loft | wide side platforms over the city |
 | Goat Peak | snowy summit, two high side ledges |
 | Orca Cove | a boat platform drifts back and forth |
-| Penny's Vault | gold-bar platforms, the middle one rides up and down |
+| Pency's Vault | gold-bar platforms, the middle one rides up and down |
 | Bell Tower | tiny main stage, four platforms, ledges everywhere |
 | Lava Lift | both side platforms ride up and down over lava |
 | Orbit Station | low gravity, platforms slide sideways |

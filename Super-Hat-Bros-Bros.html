@@ -152,9 +152,9 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Jump <kbd>↑</kbd> · Crouch <kbd>↓</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> (or Numpad 1 2 3, jump Numpad 0)</div>
           <div class="kbd"><b>Smash-style moves</b><br>Flick a direction + Attack at the same time = <b>Smash attack</b> (hold to charge).<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
-          <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Penny</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.</div>
-          <div class="kbd"><b>Final Smashes</b><br>Every 60 seconds a random fighter glows. Press <b>Special</b> with no direction to unleash it. Lose a stock and you lose it.<br>Rook Disc Storm · Tank Meteor Slam · Fern Overgrowth · Zip Lightning Rush · Spike Mega Ram · Noodles Tidal Wave · Penny Bank Heist · Bootisaurus Boot Quake · Baggy Trash Tornado · Snakey Full Arrest.</div>
-          <div class="kbd"><b>Stages</b><br>Thirteen arenas. Every napkin fighter has a home stage. Orca Cove has a drifting boat, Snakey's Precinct has patrolling squad cars, Baggy's Dump has rolling tires, Boot Canyon is one giant boot, Penny's Vault and Lava Lift have platforms that ride up and down, Orbit Station slides sideways in low gravity, Bell Tower is tiny with ledges everywhere. Pick Random to shuffle.</div>
+          <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.</div>
+          <div class="kbd"><b>Final Smashes</b><br>Every 60 seconds a random fighter glows. Press <b>Special</b> with no direction to unleash it. Lose a stock and you lose it.<br>Rook Disc Storm · Tank Meteor Slam · Fern Overgrowth · Zip Lightning Rush · Spike Mega Ram · Noodles Tidal Wave · Pency Bank Heist · Bootisaurus Boot Quake · Baggy Trash Tornado · Snakey Full Arrest.</div>
+          <div class="kbd"><b>Stages</b><br>Thirteen arenas. Every napkin fighter has a home stage. Orca Cove has a drifting boat, Snakey's Precinct has patrolling squad cars, Baggy's Dump has rolling tires, Boot Canyon is one giant boot, Pency's Vault and Lava Lift have platforms that ride up and down, Orbit Station slides sideways in low gravity, Bell Tower is tiny with ledges everywhere. Pick Random to shuffle.</div>
           <div class="kbd"><b>Defense &amp; specials</b><br>Shield + Left/Right = roll · Shield + Down = spot dodge · Shield in the air = air dodge.<br>Up + Special = recovery. Special alone = projectile. Side + Special = lunge.<br>Fall near the edge to grab the ledge. <kbd>Esc</kbd> pauses.</div>
         </div>
         <p class="hint">Three stocks. Higher damage % = farther launch. Last fighter standing wins. Every minute one random fighter gets a Final Smash: press Special to unleash it. The hat button in the bottom-left puts a hat on everyone, bells and all.</p>
@@ -416,8 +416,8 @@ const CHARS = [
       downb: { dur: 90, s: 12, e: 90, dmg: 15, ang: 60, bkb: 8, kbg: 70, box: { x: 0, y: -20, w: 70, h: 56 }, special: 'dive', dive: true, lag: 20 },
       downbGround: { dur: 44, s: 14, e: 22, dmg: 10, ang: 75, bkb: 8, kbg: 70, box: { x: 0, y: -28, w: 176, h: 60 }, special: 'splash', lag: 12 },
     }, final: { name: 'Tidal Wave', final: true, dur: 50, s: 10, e: 10, special: 'wave', wave: { speed: 5.5, dmg: 28, r: 75, ang: 70, bkb: 12, kbg: 90, life: 220 }, lag: 12 }, },
-  // Penny: angry pencil who robs banks. Long thin pokes, a triple shaving shot, a slow money-bag swing that kills.
-  { id: 'penny', name: 'PENNY', title: 'The Bank-Robbing Pencil', sig: 'Shaving Shot ×3 · Bag Swing · Pencil Drop', color: '#ffb020', color2: '#5a3a10', accent: '#ffe6b3', weight: 72, speed: 5.8, accel: 1.1, airSpeed: 4.6, airAccel: 0.4, jump: -14, gravity: 0.6, fall: 11.5, jumps: 2, dmgMul: 0.95, scale: 1, hurtH: 96,
+  // Pency: angry pencil who robs banks. Long thin pokes, a triple shaving shot, a slow money-bag swing that kills.
+  { id: 'penny', name: 'PENCY', title: 'The Bank-Robbing Pencil', sig: 'Shaving Shot ×3 · Bag Swing · Pencil Drop', color: '#ffb020', color2: '#5a3a10', accent: '#ffe6b3', weight: 72, speed: 5.8, accel: 1.1, airSpeed: 4.6, airAccel: 0.4, jump: -14, gravity: 0.6, fall: 11.5, jumps: 2, dmgMul: 0.95, scale: 1, hurtH: 96,
     proj: { speed: 12, grav: 0, dmg: 4, r: 6, life: 55, kind: 'shaving' },
     moves: {
       jab: { dmg: 3, dur: 14, s: 3, e: 6, box: { x: 38, y: -60, w: 52, h: 22 } },
@@ -498,8 +498,8 @@ const STAGES = [
   { name: 'Goat Peak', theme: 'peak', main: { x: 390, y: 540, w: 500, h: 70 }, plats: [{ x: 230, y: 400, w: 140 }, { x: 910, y: 400, w: 140 }, { x: 560, y: 290, w: 160 }], sky: ['#0d1b33', '#2c4a7a', '#bfe3ff'], ground: '#f2f6fb', dirt: '#5c6473', platStyle: 'snow' },
   // Noodles' beach. One boat platform drifts back and forth over the water.
   { name: 'Orca Cove', theme: 'cove', main: { x: 330, y: 560, w: 620, h: 70 }, plats: [{ x: 540, y: 420, w: 200, mx: 230, period: 640 }], sky: ['#ff7a59', '#ffb347', '#ffe9a8'], ground: '#f0d9a0', dirt: '#c9a66b', platStyle: 'boat' },
-  // Penny's job site. Gold-bar platforms, the middle one rides up and down.
-  { name: "Penny's Vault", theme: 'vault', main: { x: 300, y: 530, w: 680, h: 70 }, plats: [{ x: 360, y: 430, w: 130 }, { x: 790, y: 430, w: 130 }, { x: 575, y: 330, w: 130, my: 70, period: 460 }], sky: ['#15161c', '#2a2b35', '#3d3f4e'], ground: '#5d6270', dirt: '#2f323d', platStyle: 'gold' },
+  // Pency's job site. Gold-bar platforms, the middle one rides up and down.
+  { name: "Pency's Vault", theme: 'vault', main: { x: 300, y: 530, w: 680, h: 70 }, plats: [{ x: 360, y: 430, w: 130 }, { x: 790, y: 430, w: 130 }, { x: 575, y: 330, w: 130, my: 70, period: 460 }], sky: ['#15161c', '#2a2b35', '#3d3f4e'], ground: '#5d6270', dirt: '#2f323d', platStyle: 'gold' },
   // Tall and narrow. Small main stage, lots of platforms, edge play everywhere. Bells swing in the tower.
   { name: 'Bell Tower', theme: 'tower', main: { x: 480, y: 560, w: 320, h: 70 }, plats: [{ x: 370, y: 460, w: 120 }, { x: 790, y: 460, w: 120 }, { x: 520, y: 360, w: 240 }, { x: 580, y: 250, w: 120 }], sky: ['#1b1230', '#4b2a9e', '#ffcf33'], ground: '#8a5a3a', dirt: '#5a3a24', platStyle: 'wood' },
   // Two side platforms ride up and down over a lava lake. Don't miss the jump.
@@ -1123,8 +1123,8 @@ function drawNoodles(c, f, ch, crouch, legA, atkA, idle) {
   if (!hurt && (f.state === 'attack' || f.state === 'charge')) { c.strokeStyle = '#f4f6fb'; c.lineWidth = 2; c.beginPath(); c.moveTo(-4, hy - 13); c.lineTo(8, hy - 10); c.stroke(); }
   return { hy, htop: hy - 15, hr: 17 };
 }
-// Penny: a tall pencil. Graphite point up top, robber mask over angry eyes, scar on the shaft, ferrule band, pink eraser, money bag in hand.
-function drawPenny(c, f, ch, crouch, legA, atkA, idle) {
+// Pency: a tall pencil. Graphite point up top, robber mask over angry eyes, scar on the shaft, ferrule band, pink eraser, money bag in hand.
+function drawPency(c, f, ch, crouch, legA, atkA, idle) {
   drawLegs(c, '#1b1230', crouch, legA, false);
   const top = -118 + crouch * 0.6, shaftTop = -96 + crouch * 0.6, shaftH = 82 - crouch * 0.6;
   c.fillStyle = ch.color; rr(c, -15, shaftTop, 30, shaftH, 3); c.fill();
@@ -1271,7 +1271,7 @@ function drawFighter(c, f, hats, miniAlpha) {
   let head;
   if (ch.id === 'spike') head = drawSpike(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'noodles') head = drawNoodles(c, f, ch, crouch, legA, atkA, idle);
-  else if (ch.id === 'penny') head = drawPenny(c, f, ch, crouch, legA, atkA, idle);
+  else if (ch.id === 'penny') head = drawPency(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'boot') head = drawBoot(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'baggy') head = drawBaggy(c, f, ch, crouch, legA, atkA, idle);
   else if (ch.id === 'snakey') head = drawSnakey(c, f, ch, crouch, legA, atkA, idle);
@@ -1664,7 +1664,7 @@ function renderPortraits() {
   for (const { canvas, ch } of portraitCanvases) drawPortrait(canvas.getContext('2d'), ch, canvas.width);
   if (scene === 'results' && match && match.winner) drawPortrait($('winnerPortrait').getContext('2d'), match.winner.ch, 160);
 }
-const HOME = { spike: 'Goat Peak', noodles: 'Orca Cove', penny: "Penny's Vault", boot: 'Boot Canyon', baggy: "Baggy's Dump", snakey: "Snakey's Precinct" };
+const HOME = { spike: 'Goat Peak', noodles: 'Orca Cove', penny: "Pency's Vault", boot: 'Boot Canyon', baggy: "Baggy's Dump", snakey: "Snakey's Precinct" };
 let picking = 1;
 function buildSelect() {
   const grid = $('charGrid'); grid.innerHTML = ''; portraitCanvases.length = 0;
