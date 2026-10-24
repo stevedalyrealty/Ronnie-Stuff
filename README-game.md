@@ -20,6 +20,7 @@ Works offline. The only thing that needs internet is the fancy font.
 | Bootisaurus Rex | T. Rex made of boots, twice the size | Chomp, Lace Whip, Boot Stomp | Boot Quake | Spur Cowboy Hat |
 | Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
 | Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
+| Cloudy | a cloud with fists and no legs, hovers | Lightning Bolt, Gust, Rain Dance | Super Storm | Umbrella Hat |
 
 Every fighter was drawn on paper first.
 
@@ -33,6 +34,7 @@ Every fighter was drawn on paper first.
 | Boot Canyon | Bootisaurus' home: the stage is a giant boot |
 | Baggy's Dump | Baggy's home: tires roll back and forth as platforms |
 | Snakey's Precinct | Snakey's home: squad cars patrol as platforms, lights flash |
+| Cloud Nine | Cloudy's home: a cloud stage in the sky, side clouds drift, rainbow behind |
 
 Pick Random on the select screen to shuffle.
 
@@ -46,6 +48,7 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Bootisaurus Rex**: heavy armor on smashes and Lace Whip. Ground attacks kick up dust.
 - **Baggy**: Pogo Stomp bounces him back up off whoever it hits. Dropkick lunges, Rustle Spin multi-hits.
 - **Snakey**: Baton Combo is a three-hit jab. Tail Trip pulls the opponent toward him for a follow-up.
+- **Cloudy**: five jumps and a hover (hold JUMP in the air). Lightning moves crackle, Gust shoves opponents a long way.
 
 Move names flash above the fighter when they come out.
 
