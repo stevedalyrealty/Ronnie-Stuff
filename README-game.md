@@ -24,6 +24,23 @@ Works offline. The only thing that needs internet is the fancy font.
 
 Spike, Noodles and Penny were drawn on napkins first.
 
+## Stages
+
+| Stage | Twist |
+|---|---|
+| Hat Haven | classic three-platform layout |
+| Brim Point | flat, no platforms |
+| Skyline Loft | wide side platforms over the city |
+| Goat Peak | snowy summit, two high side ledges |
+| Orca Cove | a boat platform drifts back and forth |
+| Penny's Vault | gold-bar platforms, the middle one rides up and down |
+| Bell Tower | tiny main stage, four platforms, ledges everywhere |
+| Lava Lift | both side platforms ride up and down over lava |
+| Orbit Station | low gravity, platforms slide sideways |
+| Rooftop Rush | wide flat roof with one long platform |
+
+Pick Random on the select screen to shuffle.
+
 ## Rules
 
 - Damage percent goes up, knockback goes up. Get launched past the edge of the screen and you lose a stock.
