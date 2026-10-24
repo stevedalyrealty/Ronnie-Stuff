@@ -27,19 +27,12 @@ Every fighter was drawn on paper first.
 
 | Stage | Twist |
 |---|---|
-| Hat Haven | classic three-platform layout |
-| Brim Point | flat, no platforms |
-| Skyline Loft | wide side platforms over the city |
 | Goat Peak | snowy summit, two high side ledges |
 | Orca Cove | a boat platform drifts back and forth |
 | Pency's Vault | gold-bar platforms, the middle one rides up and down |
-| Bell Tower | tiny main stage, four platforms, ledges everywhere |
-| Lava Lift | both side platforms ride up and down over lava |
-| Orbit Station | low gravity, platforms slide sideways |
 | Boot Canyon | Bootisaurus' home: the stage is a giant boot |
 | Baggy's Dump | Baggy's home: tires roll back and forth as platforms |
 | Snakey's Precinct | Snakey's home: squad cars patrol as platforms, lights flash |
-| Rooftop Rush | wide flat roof with one long platform |
 
 Pick Random on the select screen to shuffle.
 
