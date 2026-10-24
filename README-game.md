@@ -1,10 +1,10 @@
-# Super Hat Bros Bros
+# Super Hat Bros
 
 A Smash-style platform fighter that runs in any browser. One file, no install.
 
 ## Play it
 
-1. Download `Super-Hat-Bros-Bros.html`.
+1. Download `Super-Hat-Bros.html`.
 2. Double-click it (computer) or open it from your Files / Downloads app (phone).
 3. On a phone, turn it sideways. A joystick and buttons appear when the fight starts.
 
@@ -48,6 +48,10 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Snakey**: Baton Combo is a three-hit jab. Tail Trip pulls the opponent toward him for a follow-up.
 
 Move names flash above the fighter when they come out.
+
+## Personalized visuals
+
+Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spike taps a hoof and leans into his run, Noodles pumps a flex and sprays water, Pency swings the money bag and hops stiffly, Bootisaurus sways his tail and shakes the ground when he runs, Baggy sways like paper and sheds scraps, Snakey twirls his baton and slithers. Shields are a water bubble, a leather dome, a paper bag, a pink eraser, a horned bubble and a police badge.
 
 ## Rules
 
