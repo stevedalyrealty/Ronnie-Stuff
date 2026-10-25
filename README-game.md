@@ -108,8 +108,12 @@ Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spi
 
 ## Controls
 
-**Player 1:** A / D move, W or Space jump, S crouch or fast fall, J attack, K special, L or Shift shield.
-**Player 2:** Arrow keys, `,` attack, `.` special, `/` shield (or Numpad 1 2 3, Numpad 0 jump).
+Every action has its own key now, so nothing overlaps.
+
+**Player 1:** A / D move, W up, S crouch or fast fall, Space jump, J attack, K special, I smash (U also works), L or Shift shield.
+**Player 2:** Arrow keys move, ↑ up, ↓ crouch, Enter jump, `,` attack, `.` special, M smash, `/` shield (or Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash).
 **Phone:** left thumb joystick, right thumb A / B / JUMP / SHIELD. Only the JUMP button jumps. Start your thumb a little in from the screen edge so the phone's back-swipe doesn't grab it.
 
-Flick a direction and attack at the same time for a smash attack (hold to charge). Shield plus a direction rolls. Shield in the air is an air dodge. Fall near an edge to grab the ledge. Esc pauses.
+Smash attacks: hold a direction and press the Smash key (keep holding to charge). Flicking a direction plus Attack still works too. Up (W / ↑) only does up-attacks by default so you never jump by accident. If you'd rather jump with W / ↑, pick "Also W / ↑" under Jump key on the fighter select screen.
+
+Hold a direction plus Attack for a tilt. Attack while running for a dash attack. Shield plus a direction rolls. Shield in the air is an air dodge. Fall near an edge to grab the ledge. Esc pauses.

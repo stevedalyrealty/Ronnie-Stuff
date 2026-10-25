@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Super Hat Bros">
 <meta name="theme-color" content="#0b1024">
-<meta name="description" content="Super Hat Bros: a platform fighter starring ten napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.">
+<meta name="description" content="Super Hat Bros: a platform fighter starring sixteen napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -156,9 +156,9 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         </div>
         <p class="hint" id="installHint" hidden></p>
         <div class="controls" id="howto" hidden>
-          <div class="kbd"><b>Player 1</b><br>Move <kbd>A</kbd> <kbd>D</kbd> · Jump <kbd>W</kbd> / <kbd>Space</kbd> · Crouch / fast fall <kbd>S</kbd><br>Attack <kbd>J</kbd> · Special <kbd>K</kbd> · Shield <kbd>L</kbd> or <kbd>Shift</kbd></div>
-          <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Jump <kbd>↑</kbd> · Crouch <kbd>↓</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> (or Numpad 1 2 3, jump Numpad 0)</div>
-          <div class="kbd"><b>Smash-style moves</b><br>Flick a direction + Attack at the same time = <b>Smash attack</b> (hold to charge).<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor.</div>
+          <div class="kbd"><b>Player 1</b><br>Move <kbd>A</kbd> <kbd>D</kbd> · Up <kbd>W</kbd> · Crouch / fast fall <kbd>S</kbd> · Jump <kbd>Space</kbd><br>Attack <kbd>J</kbd> · Special <kbd>K</kbd> · Shield <kbd>L</kbd> or <kbd>Shift</kbd> · <b>Smash</b> <kbd>I</kbd></div>
+          <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Enter</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd> (or Numpad 1 2 3, 0 jump, 4 smash)</div>
+          <div class="kbd"><b>Smash-style moves</b><br>Hold a direction + <b>Smash</b> key = Smash attack (keep holding to charge). Flick a direction + Attack also works.<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor. Up is only for up-attacks unless you turn on "Also W / ↑" for jumping.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.<br><b>Cloudy</b> (cloud, no legs): five jumps, hold JUMP in the air to hover. B Lightning Bolt, Side+B Gust pushes far, Down+B Thunderhead Drop or Rain Dance.<br><b>Franchesca</b> (fish with legs): rolls go farther and faster. B Bubble Shot floats up, Side+B Fish Flop hops forward, Down+B Belly Flop or Splash Zone.<br><b>Shoean</b> (shoe): fastest runner. B Lace Shot, Side+B Lace Lasso pulls them in, Down+B Heel Drop or Scuff. Run longer before a dash attack for a SPRINT! bonus.<br><b>Luke Lava</b> (lava blob): every hit sets you on fire for 2 seconds. Lava can't hurt him. B Fireball, Side+B Lava Flow multi-hit slide, Down+B Meteor Drop or Magma Pool, which leaves a burning puddle under him.<br><b>Kayden</b> (ninja knife): hits from behind do 30% more, rolls are shadow steps. B three Shuriken, Side+B Blade Dash, Down+B Smoke Bomb turns him near-invisible.<br><b>Po-po</b> (bead cop): bounces when he lands hard. B Donut Toss, Side+B Cuff Toss pulls them in, Down+B Siren Spin.<br><b>Larry</b> (giraffe): the longest reach in the game, especially upward. B Neck Snap, Side+B Gallop, Down+B Hoof Drop or Leaf Shower.<br><b>Raggy</b> (jailbird sack): Side+B Sack Swing is a huge wide whip, Down+B Bag Over Head pulls them in. B Rock Toss.<br><b>Ian</b> (elephant): heaviest fighter, armor on smashes. B Trumpet shoves everything away, Side+B Trunk Grab pulls them in, Down+B Belly Drop or Big Stomp.<br><b>Gary</b> (sheep mayor): wool softens every hit he takes by 15%. B Campaign Flyers, Side+B Wool Roll, Down+B Gavel Drop or Town Meeting.</div>
           <div class="kbd"><b>Signature mechanics</b><br><b>Spike</b>: smashes have armor, weak hits won't stop them. <b>Noodles</b>: bites chew shields twice as fast. <b>Pency</b>: land the tip of a stab for a TIP! bonus. <b>Bootisaurus</b>: heavy armor on smashes and Lace Whip. <b>Baggy</b>: Pogo Stomp bounces off whoever it hits. <b>Snakey</b>: Baton Combo chains three hits, Tail Trip pulls the opponent in. <b>Cloudy</b>: hover by holding JUMP, zap moves crackle with lightning. <b>Franchesca</b>: slippery rolls. <b>Shoean</b>: Sprint Kick scales with run-up. <b>Luke Lava</b>: burning hits, immune to lava. <b>Kayden</b>: backstabs. <b>Po-po</b>: bounces. <b>Larry</b>: reach. <b>Raggy</b>: pulls. <b>Ian</b>: armor and weight. <b>Gary</b>: wool armor.</div>
@@ -180,6 +180,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="opt"><label for="optLevel">CPU level</label><select id="optLevel"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
           <div class="opt"><label for="optStocks">Stocks</label><select id="optStocks"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
           <div class="opt"><label for="optStage">Stage</label><select id="optStage"></select></div>
+          <div class="opt"><label for="optJump">Jump key</label><select id="optJump"><option value="space">Space / Enter only (recommended)</option><option value="up">Also W / ↑</option></select></div>
         </div>
         <div class="row">
           <button class="btn" id="btnFight" disabled>FIGHT!</button>
@@ -192,6 +193,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
     <div id="pause" class="overlay" hidden>
       <div class="panel" style="max-width:420px;text-align:center">
         <h2>Paused</h2>
+        <p class="hint" style="margin:0 0 12px">P1: WASD move · Space jump · J attack · K special · L shield · I smash<br>P2: Arrows move · Enter jump · , attack · . special · / shield · M smash</p>
         <div class="row">
           <button class="btn" id="btnResume">Resume</button>
           <button class="btn alt" id="btnQuit">Quit to select</button>
@@ -897,11 +899,11 @@ const STAGES = [
 ];
 
 function makeInput() {
-  return { left: false, right: false, up: false, down: false, jump: false, attack: false, special: false, shield: false,
-    prev: { left: false, right: false, up: false, down: false, jump: false, attack: false, special: false, shield: false },
+  return { left: false, right: false, up: false, down: false, jump: false, attack: false, special: false, shield: false, smash: false,
+    prev: { left: false, right: false, up: false, down: false, jump: false, attack: false, special: false, shield: false, smash: false },
     at: { left: -99, right: -99, up: -99, down: -99 } };
 }
-const KEYNAMES = ['left', 'right', 'up', 'down', 'jump', 'attack', 'special', 'shield'];
+const KEYNAMES = ['left', 'right', 'up', 'down', 'jump', 'attack', 'special', 'shield', 'smash'];
 
 class Fighter {
   constructor(ch, idx, cpu, lvl) {
@@ -1009,7 +1011,7 @@ class Fighter {
       case 'charge':
         f.charge = Math.min(60, f.charge + 1); f.vx *= 0.7;
         if (f.charge % 6 === 0) particles.burst(f.x, f.y - 40, '#fff', 1, 2);
-        if (!ip.attack || f.charge >= 60) f.startAttack(f.pendingAtk, f.charge);
+        if (!ip[f.chargeKey || 'attack'] || f.charge >= 60) f.startAttack(f.pendingAtk, f.charge);
         break;
       case 'attack': f.updateAttack(dirX, fighters, stage); break;
       case 'shield':
@@ -1091,7 +1093,9 @@ class Fighter {
       f.crouch = false;
       if (pr('shield')) { if (dirX) { f.startDodge('roll', dirX); } else if (ip.down) { f.startDodge('spot', 0); } else { f.state = 'shield'; } return; }
       if (ip.shield) { f.state = 'shield'; return; }
+      if (pr('smash')) { f.chargeKey = 'smash'; if (ip.up) f.chargeSmash('usmash'); else if (ip.down) f.chargeSmash('dsmash'); else { if (dirX) f.facing = dirX; f.chargeSmash('fsmash'); } return; }
       if (pr('attack')) {
+        f.chargeKey = 'attack';
         if (flick('up')) f.chargeSmash('usmash');
         else if (flick('down')) f.chargeSmash('dsmash');
         else if (dirX && (flick('left') || flick('right'))) { f.facing = dirX; f.chargeSmash('fsmash'); }
@@ -1113,7 +1117,7 @@ class Fighter {
       else { f.runFrames = 0; f.vx *= 0.75; if (Math.abs(f.vx) < 0.2) f.vx = 0; f.crouch = !!ip.down; }
     } else {
       if (f.state !== 'helpless') {
-        if (pr('attack')) {
+        if (pr('attack') || pr('smash')) {
           if (ip.up) f.startAttack('uair'); else if (ip.down) f.startAttack('dair'); else if (dirX === f.facing && dirX) f.startAttack('fair'); else if (dirX === -f.facing && dirX) f.startAttack('bair'); else f.startAttack('nair');
           return;
         }
@@ -1368,7 +1372,7 @@ function cpuThink(f, t, stage) {
 /* ---------------- Match ---------------- */
 let scene = 'title', demo = true;
 let match = null;
-const settings = { mode: 'cpu', level: 5, stocks: 3, stage: 0, p1: null, p2: null };
+const settings = { mode: 'cpu', level: 5, stocks: 3, stage: 0, p1: null, p2: null, tapJump: false };
 let cam = { x: W / 2, y: H / 2 - 40, z: 1 };
 
 function newMatch(p1ch, p2ch, opts) {
@@ -2538,9 +2542,9 @@ function loop(ts) {
 
 /* ---------------- Input ---------------- */
 const KEYS = {
-  KeyA: [0, 'left'], KeyD: [0, 'right'], KeyW: [0, 'up'], KeyS: [0, 'down'], Space: [0, 'jump'], KeyJ: [0, 'attack'], KeyK: [0, 'special'], KeyL: [0, 'shield'], ShiftLeft: [0, 'shield'],
-  ArrowLeft: [1, 'left'], ArrowRight: [1, 'right'], ArrowUp: [1, 'up'], ArrowDown: [1, 'down'], Comma: [1, 'attack'], Period: [1, 'special'], Slash: [1, 'shield'],
-  Numpad1: [1, 'attack'], Numpad2: [1, 'special'], Numpad3: [1, 'shield'], Numpad0: [1, 'jump'], ShiftRight: [1, 'shield'],
+  KeyA: [0, 'left'], KeyD: [0, 'right'], KeyW: [0, 'up'], KeyS: [0, 'down'], Space: [0, 'jump'], KeyJ: [0, 'attack'], KeyK: [0, 'special'], KeyL: [0, 'shield'], ShiftLeft: [0, 'shield'], KeyI: [0, 'smash'], KeyU: [0, 'smash'],
+  ArrowLeft: [1, 'left'], ArrowRight: [1, 'right'], ArrowUp: [1, 'up'], ArrowDown: [1, 'down'], Comma: [1, 'attack'], Period: [1, 'special'], Slash: [1, 'shield'], KeyM: [1, 'smash'], Enter: [1, 'jump'], NumpadEnter: [1, 'jump'],
+  Numpad1: [1, 'attack'], Numpad2: [1, 'special'], Numpad3: [1, 'shield'], Numpad0: [1, 'jump'], Numpad4: [1, 'smash'], ShiftRight: [1, 'shield'],
 };
 function setKey(p, k, v) { if (!match || match.demo) return; const f = match.fighters[p]; if (f && !f.cpu) f.input[k] = v; }
 window.addEventListener('keydown', e => {
@@ -2556,7 +2560,7 @@ window.addEventListener('touchmove', e => { if (scene === 'fight') e.preventDefa
 const touchEl = $('touch'); let touchMode = 'auto';
 function touchVisible() { return scene === 'fight' && (touchMode === 'on' || (touchMode === 'auto' && isCoarse())); }
 function refreshRotate() { $('rotate').classList.toggle('show', scene === 'fight' && isCoarse()); }
-function refreshTouch() { const v = touchVisible(); touchEl.hidden = !v; document.querySelector('.topbar').classList.toggle('hide', v); refreshRotate(); if (match) for (const f of match.fighters) if (!f.cpu) f.input.noTapJump = v && f.idx === 0; if (!v) { stickEnd(); releaseAllTouch(); } }
+function refreshTouch() { const v = touchVisible(); touchEl.hidden = !v; document.querySelector('.topbar').classList.toggle('hide', v); refreshRotate(); if (match) for (const f of match.fighters) if (!f.cpu) f.input.noTapJump = !settings.tapJump || (v && f.idx === 0); if (!v) { stickEnd(); releaseAllTouch(); } }
 const heldButtons = new Map();
 function releaseAllTouch() { for (const [b] of heldButtons) { b.classList.remove('held'); setKey(0, b.dataset.k, false); } heldButtons.clear(); }
 for (const b of touchEl.querySelectorAll('.tbtn')) {
@@ -2684,7 +2688,7 @@ function startDemo() {
   match.phase = 'fight';
 }
 function startFight() {
-  settings.mode = $('optMode').value; settings.level = +$('optLevel').value; settings.stocks = +$('optStocks').value; settings.stage = $('optStage').value === 'random' ? 'random' : +$('optStage').value;
+  settings.mode = $('optMode').value; settings.tapJump = $('optJump').value === 'up'; settings.level = +$('optLevel').value; settings.stocks = +$('optStocks').value; settings.stage = $('optStage').value === 'random' ? 'random' : +$('optStage').value;
   match = newMatch(CHARS[settings.p1], CHARS[settings.p2], { p1cpu: false, p2cpu: settings.mode === 'cpu', level: settings.level, stocks: settings.stocks, stage: settings.stage, demo: false });
   scene = 'fight'; paused = false; show(null);
 }
@@ -2750,6 +2754,5 @@ if (window.claude && window.claude.hot && window.claude.hot.snapshot) window.cla
 if (window.claude && window.claude.hot && window.claude.hot.ready) window.claude.hot.ready(start); else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
 })();
 </script>
-
 </body>
 </html>
