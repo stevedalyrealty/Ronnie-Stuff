@@ -44,7 +44,7 @@ Works offline. The only thing that needs internet is the fancy font.
 | Kayden | a knife who is a ninja and a bad guy | Shuriken, Blade Dash, Smoke Bomb | Thousand Blades | Straw Kasa |
 | Po-po | a bead who is a police cop | Donut Toss, Cuff Toss, Siren Spin | Riot Charge | Donut Hat |
 | Larry | a giraffe with the longest reach | Neck Snap, Gallop, Leaf Shower | Tall Order | Pith Helmet |
-| Raggy | a rolled-up rug and a bad guy, lives in jail | Dust Puff, Unroll, Wrap Up | Jailbreak | Jailbird Cap |
+| Raggy | a burlap sack and a bad guy, lives in jail | Rock Toss, Sack Swing, Bag Over Head | Jailbreak | Jailbird Cap |
 | Ian | an elephant, the heaviest fighter | Trumpet, Trunk Grab, Big Stomp | Stampede | Circus Plume |
 | Gary | a sheep who is the mayor | Campaign Flyer, Wool Roll, Town Meeting | Mayor's Parade | Ribbon Top Hat |
 
@@ -89,7 +89,7 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Kayden**: hits from behind do 30% more. Rolls are shadow steps. Smoke Bomb makes him near-invisible for a moment.
 - **Po-po**: bounces back up when he lands hard. Cuff Toss pulls opponents in.
 - **Larry**: the longest reach in the game, especially straight up.
-- **Raggy**: Unroll is a huge flat whip, Wrap Up pulls opponents in.
+- **Raggy**: Sack Swing is a huge wide whip, Bag Over Head pulls opponents in.
 - **Ian**: heaviest fighter, armor on his smashes, Trumpet shoves everyone away, Trunk Grab pulls them in.
 - **Gary**: wool softens every hit he takes by 15%.
 - **Luke Lava**: every hit sets the opponent on fire for two seconds of extra damage. Lava and burning puddles can't hurt him. Magma Pool leaves a burning puddle under him.
