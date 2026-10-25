@@ -41,6 +41,12 @@ Works offline. The only thing that needs internet is the fancy font.
 | Franchesca | a fish with legs and eyelashes | Bubble Shot, Fish Flop, Splash Zone | School of Fish | Fishing Hat |
 | Shoean | a shoe with a lace bow, fastest runner | Lace Shot, Lace Lasso, Spring Sole | Marathon Dash | Sock Beanie |
 | Luke Lava | a blob of red-hot lava, no arms or legs | Fireball, Lava Flow, Magma Pool | Eruption | Volcano Cap |
+| Kayden | a knife who is a ninja and a bad guy | Shuriken, Blade Dash, Smoke Bomb | Thousand Blades | Straw Kasa |
+| Po-po | a bead who is a police cop | Donut Toss, Cuff Toss, Siren Spin | Riot Charge | Donut Hat |
+| Larry | a giraffe with the longest reach | Neck Snap, Gallop, Leaf Shower | Tall Order | Pith Helmet |
+| Rollo | a rolled-up rug and a bad guy, lives in jail | Dust Puff, Unroll, Wrap Up | Jailbreak | Jailbird Cap |
+| Ian | an elephant, the heaviest fighter | Trumpet, Trunk Grab, Big Stomp | Stampede | Circus Plume |
+| Gary | a sheep who is the mayor | Campaign Flyer, Wool Roll, Town Meeting | Mayor's Parade | Ribbon Top Hat |
 
 Every fighter was drawn on paper first.
 
@@ -57,6 +63,12 @@ Every fighter was drawn on paper first.
 | Cloud Nine | Cloudy's home: a cloud stage in the sky, side clouds drift, rainbow behind |
 | Fish Tank | Franchesca's home: inside an aquarium, slow falls, seaweed platforms sway |
 | Shoebox Stack | Shoean's home: a shoe store, shoebox platforms, the top one slides |
+| Shadow Dojo | Kayden's home: a dojo at night with paper lantern platforms |
+| Traffic Stop | Po-po's home: a highway at night, two cars drive past as platforms |
+| Savanna Treetops | Larry's home: acacia branch platforms over a sunset |
+| The Slammer | Rollo's home: jail, because he got caught. Bunk platforms, bars, a searchlight |
+| Watering Hole | Ian's home: a pond with drifting log platforms |
+| Town Hall | Gary's home: the steps of Town Hall with podium platforms and confetti |
 | Lava Lift | Luke Lava's home and a hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles. Luke is immune |
 
 Pick Random on the select screen to shuffle.
@@ -74,6 +86,12 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Cloudy**: five jumps and a hover (hold JUMP in the air). Lightning moves crackle, Gust shoves opponents a long way.
 - **Franchesca**: slippery. Rolls go half again as far. Flop moves flip her whole body over.
 - **Shoean**: fastest runner. The longer the run-up before a Sprint Kick, the harder it hits (SPRINT!). Lace Lasso pulls opponents in.
+- **Kayden**: hits from behind do 30% more. Rolls are shadow steps. Smoke Bomb makes him near-invisible for a moment.
+- **Po-po**: bounces back up when he lands hard. Cuff Toss pulls opponents in.
+- **Larry**: the longest reach in the game, especially straight up.
+- **Rollo**: Unroll is a huge flat whip, Wrap Up pulls opponents in.
+- **Ian**: heaviest fighter, armor on his smashes, Trumpet shoves everyone away, Trunk Grab pulls them in.
+- **Gary**: wool softens every hit he takes by 15%.
 - **Luke Lava**: every hit sets the opponent on fire for two seconds of extra damage. Lava and burning puddles can't hurt him. Magma Pool leaves a burning puddle under him.
 
 Move names flash above the fighter when they come out, and every attack is acted out: jaws open on bites, legs swing on kicks, heads lunge on headbutts, the body thrusts on stabs, batons sweep on swings, with a wind-up and follow-through.
