@@ -33,7 +33,7 @@ Works offline. The only thing that needs internet is the fancy font.
 |---|---|---|---|---|
 | Spike | headbutting goat | Goat Ram, Horn Toss, Hoof Stomp | Mega Ram | Pirate Tricorn |
 | Noodles | flexing orca | Breach, Spout, Belly Flop | Tidal Wave | Sailor Cap |
-| Pency | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist | Robber Beanie |
+| Pency | bank-robbing pencil | Shaving Shot x3, Bag Swing, Pencil Drop | Bank Heist (money bags that land on Pency heal him) | Robber Beanie |
 | Bootisaurus Rex | T. Rex made of boots, twice the size | Chomp, Lace Whip, Boot Stomp | Boot Quake | Spur Cowboy Hat |
 | Baggy | a bag with no arms, four jumps | Bag of Tricks, Bag Roll, Puff Up | Trash Tornado | Nightcap |
 | Snakey | snake police officer | Ticket Toss, Slither Charge, Coil Counter | Full Arrest | Siren Cap |
@@ -44,7 +44,7 @@ Works offline. The only thing that needs internet is the fancy font.
 | Kayden | a knife who is a ninja and a bad guy | Shuriken, Blade Dash, Smoke Bomb | Thousand Blades | Straw Kasa |
 | Po-po | a bead who is a police cop | Donut Toss, Cuff Toss, Siren Spin | Riot Charge | Donut Hat |
 | Larry | a giraffe with the longest reach | Neck Snap, Gallop, Leaf Shower | Tall Order | Pith Helmet |
-| Rollo | a rolled-up rug and a bad guy, lives in jail | Dust Puff, Unroll, Wrap Up | Jailbreak | Jailbird Cap |
+| Raggy | a rolled-up rug and a bad guy, lives in jail | Dust Puff, Unroll, Wrap Up | Jailbreak | Jailbird Cap |
 | Ian | an elephant, the heaviest fighter | Trumpet, Trunk Grab, Big Stomp | Stampede | Circus Plume |
 | Gary | a sheep who is the mayor | Campaign Flyer, Wool Roll, Town Meeting | Mayor's Parade | Ribbon Top Hat |
 
@@ -66,7 +66,7 @@ Every fighter was drawn on paper first.
 | Shadow Dojo | Kayden's home: a dojo at night with paper lantern platforms |
 | Traffic Stop | Po-po's home: a highway at night, two cars drive past as platforms |
 | Savanna Treetops | Larry's home: acacia branch platforms over a sunset |
-| The Slammer | Rollo's home: jail, because he got caught. Bunk platforms, bars, a searchlight |
+| The Slammer | Raggy's home: jail, because he got caught. Bunk platforms, bars, a searchlight |
 | Watering Hole | Ian's home: a pond with drifting log platforms |
 | Town Hall | Gary's home: the steps of Town Hall with podium platforms and confetti |
 | Lava Lift | Luke Lava's home and a hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles. Luke is immune |
@@ -89,7 +89,7 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Kayden**: hits from behind do 30% more. Rolls are shadow steps. Smoke Bomb makes him near-invisible for a moment.
 - **Po-po**: bounces back up when he lands hard. Cuff Toss pulls opponents in.
 - **Larry**: the longest reach in the game, especially straight up.
-- **Rollo**: Unroll is a huge flat whip, Wrap Up pulls opponents in.
+- **Raggy**: Unroll is a huge flat whip, Wrap Up pulls opponents in.
 - **Ian**: heaviest fighter, armor on his smashes, Trumpet shoves everyone away, Trunk Grab pulls them in.
 - **Gary**: wool softens every hit he takes by 15%.
 - **Luke Lava**: every hit sets the opponent on fire for two seconds of extra damage. Lava and burning puddles can't hurt him. Magma Pool leaves a burning puddle under him.
