@@ -108,10 +108,10 @@ Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spi
 
 ## Controls
 
-Every action has its own key now, so nothing overlaps.
+Two people share one keyboard without touching: Player 1 only uses the left half, Player 2 only uses the right half. The HOW TO PLAY screen shows a color-coded keyboard map.
 
-**Player 1:** A / D move, W up, S crouch or fast fall, Space jump, J attack, K special, I smash (U also works), L or Shift shield.
-**Player 2:** Arrow keys move, ↑ up, ↓ crouch, Enter jump, `,` attack, `.` special, M smash, `/` shield (or Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash).
+**Player 1 (left half):** left hand on W A S D (up, left, crouch, right) with Space to jump. Right hand on F attack, G special, H shield, T smash (R also works). Left Shift also shields.
+**Player 2 (right half):** right hand on the arrow keys (↑ up, ↓ crouch) with Right Shift to jump (Enter also works). Left hand on `,` attack, `.` special, `/` shield, M smash. Numpad 1 / 2 / 3 / 0 / 4 are attack, special, shield, jump, smash if you have one.
 **Phone:** left thumb joystick, right thumb A / B / JUMP / SHIELD. Only the JUMP button jumps. Start your thumb a little in from the screen edge so the phone's back-swipe doesn't grab it.
 
 Smash attacks: hold a direction and press the Smash key (keep holding to charge). Flicking a direction plus Attack still works too. Up (W / ↑) only does up-attacks by default so you never jump by accident. If you'd rather jump with W / ↑, pick "Also W / ↑" under Jump key on the fighter select screen.

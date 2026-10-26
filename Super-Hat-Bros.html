@@ -62,6 +62,12 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:.04em;margin:0
 .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0 6px}
 .kbd{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55;min-width:0}
 .kbd b{color:var(--gold)}
+.kmap{display:flex;flex-direction:column;gap:4px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
+.krow{display:flex;gap:4px;flex-shrink:0}
+.key{width:30px;height:30px;border-radius:6px;background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:11px;line-height:1;color:#6f7bb0;flex-shrink:0}
+.key small{font-size:7px;font-weight:700;letter-spacing:.02em;margin-top:2px;text-transform:uppercase}
+.key.wide{width:48px}.key.space{width:120px}.key.gap{visibility:hidden}
+.key.p1{background:#1e5fc4;border-color:#8ec1ff;color:#fff}.key.p2{background:#b8303c;border-color:#ff8a8a;color:#fff}
 kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-radius:6px;padding:1px 6px;font-family:var(--font-body);font-weight:900;font-size:12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:8px 0 16px}
 .card{position:relative;background:var(--panel2);border:3px solid transparent;border-radius:16px;padding:10px;text-align:center;color:var(--fg);display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .1s}
@@ -153,8 +159,9 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         </div>
         <p class="hint" id="installHint" hidden></p>
         <div class="controls" id="howto" hidden>
-          <div class="kbd"><b>Player 1</b><br>Move <kbd>A</kbd> <kbd>D</kbd> · Up <kbd>W</kbd> · Crouch / fast fall <kbd>S</kbd> · Jump <kbd>Space</kbd><br>Attack <kbd>J</kbd> · Special <kbd>K</kbd> · Shield <kbd>L</kbd> or <kbd>Shift</kbd> · <b>Smash</b> <kbd>I</kbd></div>
-          <div class="kbd"><b>Player 2</b><br>Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Enter</kbd><br>Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd> (or Numpad 1 2 3, 0 jump, 4 smash)</div>
+          <div class="kbd" style="grid-column:1/-1"><b>Two players, one keyboard</b><br>Player 1 sits on the <b style="color:#8ec1ff">left</b> and only uses the left half. Player 2 sits on the <b style="color:#ff8a8a">right</b> and only uses the right half. Nobody crosses the middle.<div class="kmap" id="kmap"></div></div>
+          <div class="kbd"><b style="color:#8ec1ff">Player 1 (left half)</b><br>Left hand: Move <kbd>A</kbd> <kbd>D</kbd> · Up <kbd>W</kbd> · Crouch / fast fall <kbd>S</kbd> · Jump <kbd>Space</kbd><br>Right hand: Attack <kbd>F</kbd> · Special <kbd>G</kbd> · Shield <kbd>H</kbd> · <b>Smash</b> <kbd>T</kbd> (or <kbd>R</kbd>)</div>
+          <div class="kbd"><b style="color:#ff8a8a">Player 2 (right half)</b><br>Right hand: Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Right Shift</kbd> (or <kbd>Enter</kbd>)<br>Left hand: Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd><br>Got a numpad? Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash.</div>
           <div class="kbd"><b>Smash-style moves</b><br>Hold a direction + <b>Smash</b> key = Smash attack (keep holding to charge). Flick a direction + Attack also works.<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor. Up is only for up-attacks unless you turn on "Also W / ↑" for jumping.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.<br><b>Cloudy</b> (cloud, no legs): five jumps, hold JUMP in the air to hover. B Lightning Bolt, Side+B Gust pushes far, Down+B Thunderhead Drop or Rain Dance.<br><b>Franchesca</b> (fish with legs): rolls go farther and faster. B Bubble Shot floats up, Side+B Fish Flop hops forward, Down+B Belly Flop or Splash Zone.<br><b>Shoean</b> (shoe): fastest runner. B Lace Shot, Side+B Lace Lasso pulls them in, Down+B Heel Drop or Scuff. Run longer before a dash attack for a SPRINT! bonus.<br><b>Luke Lava</b> (lava blob): every hit sets you on fire for 2 seconds. Lava can't hurt him. B Fireball, Side+B Lava Flow multi-hit slide, Down+B Meteor Drop or Magma Pool, which leaves a burning puddle under him.<br><b>Kayden</b> (ninja knife): hits from behind do 30% more, rolls are shadow steps. B three Shuriken, Side+B Blade Dash, Down+B Smoke Bomb turns him near-invisible.<br><b>Po-po</b> (bead cop): bounces when he lands hard. B Donut Toss, Side+B Cuff Toss pulls them in, Down+B Siren Spin.<br><b>Larry</b> (giraffe): the longest reach in the game, especially upward. B Neck Snap, Side+B Gallop, Down+B Hoof Drop or Leaf Shower.<br><b>Raggy</b> (jailbird sack): Side+B Sack Swing is a huge wide whip, Down+B Bag Over Head pulls them in. B Rock Toss.<br><b>Ian</b> (elephant): heaviest fighter, armor on smashes. B Trumpet shoves everything away, Side+B Trunk Grab pulls them in, Down+B Belly Drop or Big Stomp.<br><b>Gary</b> (sheep mayor): wool softens every hit he takes by 15%. B Campaign Flyers, Side+B Wool Roll, Down+B Gavel Drop or Town Meeting.</div>
@@ -190,7 +197,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
     <div id="pause" class="overlay" hidden>
       <div class="panel" style="max-width:420px;text-align:center">
         <h2>Paused</h2>
-        <p class="hint" style="margin:0 0 12px">P1: WASD move · Space jump · J attack · K special · L shield · I smash<br>P2: Arrows move · Enter jump · , attack · . special · / shield · M smash</p>
+        <p class="hint" style="margin:0 0 12px">P1 (left): WASD move · Space jump · F attack · G special · H shield · T smash<br>P2 (right): Arrows move · Right Shift jump · , attack · . special · / shield · M smash</p>
         <div class="row">
           <button class="btn" id="btnResume">Resume</button>
           <button class="btn alt" id="btnQuit">Quit to select</button>
@@ -2539,11 +2546,34 @@ function loop(ts) {
 
 /* ---------------- Input ---------------- */
 const KEYS = {
-  KeyA: [0, 'left'], KeyD: [0, 'right'], KeyW: [0, 'up'], KeyS: [0, 'down'], Space: [0, 'jump'], KeyJ: [0, 'attack'], KeyK: [0, 'special'], KeyL: [0, 'shield'], ShiftLeft: [0, 'shield'], KeyI: [0, 'smash'], KeyU: [0, 'smash'],
-  ArrowLeft: [1, 'left'], ArrowRight: [1, 'right'], ArrowUp: [1, 'up'], ArrowDown: [1, 'down'], Comma: [1, 'attack'], Period: [1, 'special'], Slash: [1, 'shield'], KeyM: [1, 'smash'], Enter: [1, 'jump'], NumpadEnter: [1, 'jump'],
-  Numpad1: [1, 'attack'], Numpad2: [1, 'special'], Numpad3: [1, 'shield'], Numpad0: [1, 'jump'], Numpad4: [1, 'smash'], ShiftRight: [1, 'shield'],
+  // Player 1 owns the LEFT half of the keyboard: left hand on WASD + Space, right hand on F G H (+ R/T for smash).
+  KeyA: [0, 'left'], KeyD: [0, 'right'], KeyW: [0, 'up'], KeyS: [0, 'down'], Space: [0, 'jump'], KeyF: [0, 'attack'], KeyG: [0, 'special'], KeyH: [0, 'shield'], ShiftLeft: [0, 'shield'], KeyR: [0, 'smash'], KeyT: [0, 'smash'],
+  // Player 2 owns the RIGHT half: right hand on the arrows, left hand on M , . / with Right Shift / Enter to jump (numpad works too).
+  ArrowLeft: [1, 'left'], ArrowRight: [1, 'right'], ArrowUp: [1, 'up'], ArrowDown: [1, 'down'], Comma: [1, 'attack'], Period: [1, 'special'], Slash: [1, 'shield'], KeyM: [1, 'smash'], ShiftRight: [1, 'jump'], Enter: [1, 'jump'], NumpadEnter: [1, 'jump'],
+  Numpad1: [1, 'attack'], Numpad2: [1, 'special'], Numpad3: [1, 'shield'], Numpad0: [1, 'jump'], Numpad4: [1, 'smash'],
 };
 function setKey(p, k, v) { if (!match || match.demo) return; const f = match.fighters[p]; if (f && !f.cpu) f.input[k] = v; }
+(function buildKeyMap() {
+  const el = document.getElementById('kmap'); if (!el) return;
+  const P1 = { W: 'up', A: 'left', S: 'down', D: 'right', F: 'attack', G: 'special', H: 'shield', R: 'smash', T: 'smash', Space: 'jump', 'L Shift': 'shield' };
+  const P2 = { '←': 'left', '→': 'right', '↑': 'up', '↓': 'down', ',': 'attack', '.': 'special', '/': 'shield', M: 'smash', 'R Shift': 'jump', Enter: 'jump' };
+  const rows = [
+    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', 'Enter'],
+    ['L Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'R Shift'],
+    ['gap', 'Space', 'gap', '←', '↓', '→']
+  ];
+  const indent = [8, 14, 0, 60];
+  const html = rows.map((r, i) => '<div class="krow" style="margin-left:' + indent[i] + 'px">' + r.map(k => {
+    if (k === 'gap') return '<div class="key gap"></div>';
+    const cls = ['key']; let label = k, sub = '';
+    if (k === 'Space') cls.push('space'); if (k.endsWith('Shift') || k === 'Enter') cls.push('wide');
+    if (P1[k]) { cls.push('p1'); sub = P1[k]; } else if (P2[k]) { cls.push('p2'); sub = P2[k]; }
+    return '<div class="' + cls.join(' ') + '">' + label + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
+  }).join('') + '</div>').join('');
+  // The up arrow sits above the down arrow in the real cluster: drop it in as its own mini row.
+  el.innerHTML = html.replace('<div class="krow" style="margin-left:60px">', '<div class="krow" style="margin-left:244px"><div class="key p2">↑<small>up</small></div></div><div class="krow" style="margin-left:60px">');
+})();
 window.addEventListener('keydown', e => {
   if (e.repeat) return;
   if (e.code === 'Escape' || e.code === 'KeyP') { if (scene === 'fight') togglePause(); return; }
