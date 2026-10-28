@@ -47,6 +47,10 @@ Works offline. The only thing that needs internet is the fancy font.
 | Raggy | a burlap sack and a bad guy, lives in jail | Rock Toss, Sack Swing, Bag Over Head | Jailbreak | Jailbird Cap |
 | Ian | an elephant, the heaviest fighter | Trumpet, Trunk Grab, Big Stomp | Stampede | Circus Plume |
 | Gary | a sheep who is the mayor | Campaign Flyer, Wool Roll, Town Meeting | Mayor's Parade | Ribbon Top Hat |
+| Jacc | a jackrabbit in a top hat, the fastest hopper with three jumps | Carrot Toss, Big Hop, Thump | Rabbit Stampede | Stovepipe Hat |
+| Horseshoe Crab | a crab with a sneaker on all six feet, wide and hard to launch | Bubble Blast, Claw Grab, Shoe Stomp | Sneaker Storm | Flip-Flop Hat |
+| Gigi | a monkey in a straitjacket who fights with feet, tail and head | Banana Peel, Tail Whip, Tantrum | Breakout | Banana Beanie |
+| Foxy | a sly fox, the other big bad guy next to Kayden | Fox Fire, Pounce, Sly Trick (counter) | Night Hunt | Bandit Fedora |
 
 Every fighter was drawn on paper first.
 
@@ -69,6 +73,10 @@ Every fighter was drawn on paper first.
 | The Slammer | Raggy's home: jail, because he got caught. Bunk platforms, bars, a searchlight |
 | Watering Hole | Ian's home: a pond with drifting log platforms |
 | Town Hall | Gary's home: the steps of Town Hall with podium platforms and confetti |
+| Desert Hop | Jacc's home: a sunset desert with cactus platforms and a rolling tumbleweed |
+| Tide Pool | Horseshoe Crab's home: a beach with rolling waves, shell platforms and a drifting raft |
+| Jungle Gym | Gigi's home: rainforest vines, bananas and monkey-bar platforms, one bobs up and down |
+| Foxy's Den | Foxy's home: a moonlit pine forest with log platforms and eyes glowing in the burrow |
 | Lava Lift | Luke Lava's home and a hazard stage: side platforms ride up and down, lava rains from the volcano, burns on contact and leaves burning puddles. Luke is immune |
 
 Pick Random on the select screen to shuffle.
@@ -92,6 +100,10 @@ Every fighter has its own named normal attacks, its own reach and angles, and on
 - **Raggy**: Sack Swing is a huge wide whip, Bag Over Head pulls opponents in.
 - **Ian**: heaviest fighter, armor on his smashes, Trumpet shoves everyone away, Trunk Grab pulls them in.
 - **Gary**: wool softens every hit he takes by 15%.
+- **Jacc**: three jumps and the fastest ground speed in the game.
+- **Horseshoe Crab**: shell armor on smashes, takes 8% less damage, Claw Grab pulls the opponent in.
+- **Gigi**: no hands, so every attack is a kick, tail whip or head bonk. Extra-long rolls.
+- **Foxy**: bites chew shields twice as fast, hits from behind do 30% more, Sly Trick counters anyone who swings first.
 - **Luke Lava**: every hit sets the opponent on fire for two seconds of extra damage. Lava and burning puddles can't hurt him. Magma Pool leaves a burning puddle under him.
 
 Move names flash above the fighter when they come out, and every attack is acted out: jaws open on bites, legs swing on kicks, heads lunge on headbutts, the body thrusts on stabs, batons sweep on swings, with a wind-up and follow-through.
