@@ -121,7 +121,7 @@ Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spi
 
 ## Music and sound
 
-The background music is Ronnie's own tunes, played on piano. `music/make-piano.py` listens to each of his recordings (`music/originals/`) in two-second windows, picks the major or minor chord that best matches the notes he is singing, lays down a soft bass note and a broken chord, and plays his melody notes on top. The voice itself is not in the mix, only the piano. Track 1 plays on the menus, track 2 during fights. The Music and Sound buttons in the top-right corner turn either off.
+The background music is Ronnie's own tunes, played on piano, with no vocals. `music/make-piano.py` listened to his recordings in two-second windows, picked the major or minor chord that best matched the notes he was singing, laid down a soft bass note and a broken chord, and played his melody notes on top. The recordings with his voice are not in the game or this repo anymore. Track 1 (piano) plays on the menus. Track 2 is the fight track: the same piano plus a distorted electric guitar riff from `music/make-guitar.py`, which plays palm-muted power-chord chugs, an accent on every bar, a riff fill every other bar and a harmony stab every fourth bar, all following the same chord changes. The Music and Sound buttons in the top-right corner turn either off.
 
 No sound on a phone? iPhone: the ring/silent switch mutes web games until music starts, so flip it to ring or just tap PLAY and the music will unlock the sound effects too. Android: the game uses the media volume, not the ringer, so press volume-up while the game is open.
 
