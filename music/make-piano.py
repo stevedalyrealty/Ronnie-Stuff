@@ -1,5 +1,6 @@
 import numpy as np, wave, sys, struct
 SR = 48000
+MELODY_GAIN = 1.6
 NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
 
 def load_wav(p):
@@ -105,16 +106,17 @@ def render(track_path, out_wav, seed=1):
         midi = 60 + pc
         if pc not in pcs: midi = 60 + min(pcs, key=lambda p: min((p - pc) % 12, (pc - p) % 12)) if np.random.rand() < 0.5 else midi
         vel = 0.22 + 0.28 * min(1, energy[o] / (np.percentile(energy, 95) + 1e-9))
-        add(t, midi, 1.2, vel)
+        add(t, midi, 1.4, vel * MELODY_GAIN)
     out = out[:len(mono)]
     # level: piano RMS ~ 55% of the recording's RMS, then mix
     rec_rms = np.sqrt(np.mean(x ** 2)); p_rms = np.sqrt(np.mean(out ** 2)) + 1e-9
     piano = out * (rec_rms * 0.55 / p_rms)
+    solo = out * (0.09 / p_rms)  # piano alone, normalized to a comfortable level
     mix = x + piano
     mix = np.tanh(mix * 1.1) / np.tanh(1.1)  # gentle soft limiter
     mix *= 0.92 / max(0.92, np.abs(mix).max())
     save_wav(out_wav, mix)
-    save_wav(out_wav.replace('.wav', '-piano-only.wav'), piano * 2)
+    solo = np.tanh(solo * 1.05) / np.tanh(1.05); solo *= min(1, 0.9 / max(1e-6, np.abs(solo).max())); save_wav(out_wav.replace('.wav', '-piano-only.wav'), solo)
     return NAMES[root] + ' ' + mode, chords
 
 if __name__ == '__main__':
