@@ -175,6 +175,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b style="color:#ff8a8a">Player 2 (right half)</b><br>Right hand: Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Right Shift</kbd> (or <kbd>Enter</kbd>)<br>Left hand: Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd><br>Got a numpad? Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash.</div>
           <div class="kbd"><b>Smash-style moves</b><br>Hold a direction + <b>Smash</b> key = Smash attack (keep holding to charge). Flick a direction + Attack also works.<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor. Up is only for up-attacks unless you turn on "Also W / ↑" for jumping.</div>
           <div class="kbd"><b>Online, two phones</b><br>Tap <b>ONLINE (2 PHONES)</b>. One phone taps <b>HOST</b> and gets a 4-letter code. The other taps <b>JOIN</b> and types it. The host is Player 1, picks the stage and starts the fight; both players pick their own fighter.<br>Best on the same Wi-Fi. Keep both phones awake: switching apps drops the game. If it won't connect across two different networks, that's a carrier firewall, not you.</div>
+          <div class="kbd"><b>Sound &amp; music</b><br>The music is Ronnie's own recordings with a piano that follows his melody: track 1 on the menus, track 2 during fights. Use the Music and Sound buttons in the top-right to turn either off.<br><b>No sound on a phone?</b> iPhone: flip the ring/silent switch to ring, or turn up the volume after the game starts playing music. Android: the game uses the <b>media</b> volume, not the ringer, so press volume-up while the game is open.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.<br><b>Cloudy</b> (cloud, no legs): five jumps, hold JUMP in the air to hover. B Lightning Bolt, Side+B Gust pushes far, Down+B Thunderhead Drop or Rain Dance.<br><b>Franchesca</b> (fish with legs): rolls go farther and faster. B Bubble Shot floats up, Side+B Fish Flop hops forward, Down+B Belly Flop or Splash Zone.<br><b>Shoean</b> (shoe): fastest runner. B Lace Shot, Side+B Lace Lasso pulls them in, Down+B Heel Drop or Scuff. Run longer before a dash attack for a SPRINT! bonus.<br><b>Luke Lava</b> (lava blob): every hit sets you on fire for 2 seconds. Lava can't hurt him. B Fireball, Side+B Lava Flow multi-hit slide, Down+B Meteor Drop or Magma Pool, which leaves a burning puddle under him.<br><b>Kayden</b> (ninja knife): hits from behind do 30% more, rolls are shadow steps. B three Shuriken, Side+B Blade Dash, Down+B Smoke Bomb turns him near-invisible.<br><b>Po-po</b> (bead cop): bounces when he lands hard. B Donut Toss, Side+B Cuff Toss pulls them in, Down+B Siren Spin.<br><b>Larry</b> (giraffe): the longest reach in the game, especially upward. B Neck Snap, Side+B Gallop, Down+B Hoof Drop or Leaf Shower.<br><b>Raggy</b> (jailbird sack): Side+B Sack Swing is a huge wide whip, Down+B Bag Over Head pulls them in. B Rock Toss.<br><b>Ian</b> (elephant): heaviest fighter, armor on smashes. B Trumpet shoves everything away, Side+B Trunk Grab pulls them in, Down+B Belly Drop or Big Stomp.<br><b>Gary</b> (sheep mayor): wool softens every hit he takes by 15%. B Campaign Flyers, Side+B Wool Roll, Down+B Gavel Drop or Town Meeting.</div>
           <div class="kbd"><b>Signature mechanics</b><br><b>Spike</b>: smashes have armor, weak hits won't stop them. <b>Noodles</b>: bites chew shields twice as fast. <b>Pency</b>: land the tip of a stab for a TIP! bonus. <b>Bootisaurus</b>: heavy armor on smashes and Lace Whip. <b>Baggy</b>: Pogo Stomp bounces off whoever it hits. <b>Snakey</b>: Baton Combo chains three hits, Tail Trip pulls the opponent in. <b>Cloudy</b>: hover by holding JUMP, zap moves crackle with lightning. <b>Franchesca</b>: slippery rolls. <b>Shoean</b>: Sprint Kick scales with run-up. <b>Luke Lava</b>: burning hits, immune to lava. <b>Kayden</b>: backstabs. <b>Po-po</b>: bounces. <b>Larry</b>: reach. <b>Raggy</b>: pulls. <b>Ian</b>: armor and weight. <b>Gary</b>: wool armor.</div>
@@ -258,7 +259,8 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
 </div>
 
 <div class="topbar">
-  <button class="mini" id="btnMute" aria-label="Toggle sound">Sound: on</button>
+  <button class="mini" id="btnMute" aria-label="Toggle sound effects">Sound: on</button>
+  <button class="mini" id="btnMusic" aria-label="Toggle music">Music: on</button>
   <button class="mini" id="btnTouch" aria-label="Toggle touch controls">Touch: auto</button>
 </div>
 
@@ -269,6 +271,9 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
 </div>
 <div id="rotate">📱 Turn your phone sideways for the full arena</div>
 <div class="netbadge" id="netBadge" hidden></div>
+<!-- Ronnie's music. Menu track and fight track, each with a piano layer that follows his melody. -->
+<audio id="bgmMenu" loop preload="auto" playsinline src="music/ronnie-1.mp3"></audio>
+<audio id="bgmFight" loop preload="auto" playsinline src="music/ronnie-2.mp3"></audio>
 
 <button class="hatbtn" id="hatBtn" aria-label="Put a hat on everyone">
   <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -474,8 +479,34 @@ function drawCharHat(c, id, cx, top, r, t) {
 let AC = null, muted = false;
 function audioInit() {
   if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; } }
-  if (AC && AC.state === 'suspended') AC.resume().catch(() => {});
+  if (AC && AC.state !== 'running') { try { const p = AC.resume(); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
 }
+const BGM = { menu: document.getElementById('bgmMenu'), fight: document.getElementById('bgmFight') };
+let musicOn = true, bgmKind = null; const bgmUnlocked = new Set();
+for (const k in BGM) { BGM[k].volume = 0.5; BGM[k].addEventListener('error', () => { bgmUnlocked.add(k); }); }
+function bgmPlay() {
+  if (!musicOn || !bgmKind) return;
+  const el = BGM[bgmKind]; if (!el || !el.paused) return;
+  try { const p = el.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
+}
+function setMusic(kind) {
+  if (kind === bgmKind) { bgmPlay(); return; }
+  for (const k in BGM) if (k !== kind && !BGM[k].paused) { BGM[k].pause(); BGM[k].currentTime = 0; }
+  bgmKind = kind; bgmPlay();
+}
+function unlockAudio() {
+  audioInit();
+  // Prime every music element inside this gesture so later src switches are allowed, then play the one we want.
+  for (const k in BGM) {
+    if (bgmUnlocked.has(k)) continue; bgmUnlocked.add(k);
+    const el = BGM[k];
+    if (k === bgmKind && musicOn) continue;
+    try { const p = el.play(); if (p && p.then) p.then(() => { if (k !== bgmKind || !musicOn) { el.pause(); el.currentTime = 0; } }).catch(() => {}); } catch (e) {}
+  }
+  bgmPlay();
+}
+for (const ev of ['pointerup', 'touchend', 'click', 'keydown']) window.addEventListener(ev, unlockAudio, { capture: true, passive: true });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { for (const k in BGM) BGM[k].pause(); } else { audioInit(); bgmPlay(); } });
 function tone(f, dur, type = 'square', vol = 0.12, slide = 0) {
   if (!AC || muted) return;
   const o = AC.createOscillator(), g = AC.createGain(), t = AC.currentTime;
@@ -2894,6 +2925,7 @@ function goFullscreen() {
 }
 $('btnTouch').addEventListener('click', () => { touchMode = touchMode === 'auto' ? 'on' : touchMode === 'on' ? 'off' : 'auto'; $('btnTouch').textContent = 'Touch: ' + touchMode; refreshTouch(); $('btnTouch').blur(); });
 $('btnMute').addEventListener('click', () => { muted = !muted; $('btnMute').textContent = 'Sound: ' + (muted ? 'off' : 'on'); $('btnMute').blur(); });
+$('btnMusic').addEventListener('click', () => { musicOn = !musicOn; $('btnMusic').textContent = 'Music: ' + (musicOn ? 'on' : 'off'); if (!musicOn) { for (const k in BGM) BGM[k].pause(); } else bgmPlay(); $('btnMusic').blur(); });
 
 /* ---------------- Hat button ---------------- */
 const hatBtn = $('hatBtn'), hatLabel = $('hatLabel'), toast = $('toast');
@@ -2956,7 +2988,7 @@ function refreshSelect() {
   $('optLevel').parentElement.style.opacity = settings.mode === 'cpu' ? 1 : 0.4;
   netRefreshSelect();
 }
-function show(id) { for (const o of ['title', 'select', 'pause', 'results', 'online']) $(o).hidden = o !== id; refreshTouch(); }
+function show(id) { for (const o of ['title', 'select', 'pause', 'results', 'online']) $(o).hidden = o !== id; refreshTouch(); if (id === 'title' || id === 'select' || id === 'online') setMusic('menu'); else if (id === null) setMusic('fight'); }
 function startDemo() {
   const a = Math.floor(Math.random() * CHARS.length), b = (a + 1 + Math.floor(Math.random() * (CHARS.length - 1))) % CHARS.length;
   match = newMatch(CHARS[a], CHARS[b], { p1cpu: true, p2cpu: true, level: 6, stocks: 99, stage: Math.floor(Math.random() * STAGES.length), demo: true });
