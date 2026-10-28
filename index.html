@@ -15,6 +15,7 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%} [hidden]{display:none!important}</style>
 </head>
 <body>
+<meta charset="utf-8">
 <title>Super Hat Bros</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;900&display=swap">
@@ -65,6 +66,12 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:.04em;margin:0
 .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0 6px}
 .kbd{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55;min-width:0}
 .kbd b{color:var(--gold)}
+.code{font-family:var(--font-display);font-size:64px;letter-spacing:.3em;color:var(--gold);margin:6px 0 2px;text-shadow:0 4px 0 #7a4b00}
+#joinCode{font-family:var(--font-display);font-size:40px;letter-spacing:.3em;text-align:center;width:240px;max-width:90%;background:#0e1330;border:2px solid var(--line);color:#fff;border-radius:12px;padding:8px 8px 8px 16px;text-transform:uppercase;outline:none;margin:4px 0 10px}
+#joinCode:focus{border-color:var(--gold)}
+.netline{font-weight:900;color:#8ec1ff;margin:0 0 10px;text-align:center}
+.netbadge{position:fixed;top:max(10px,env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:45;background:rgba(14,19,46,.85);border:1px solid #39c66b;color:#39c66b;font-size:12px;font-weight:900;padding:6px 10px;border-radius:999px;pointer-events:none}
+.netbadge.bad{border-color:#ff4d4d;color:#ff4d4d}
 .kmap{display:flex;flex-direction:column;gap:4px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
 .krow{display:flex;gap:4px;flex-shrink:0}
 .key{width:30px;height:30px;border-radius:6px;background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:11px;line-height:1;color:#6f7bb0;flex-shrink:0}
@@ -157,6 +164,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         <p class="tag">A platform fighter. Rack up damage, launch them off the stage, and remember: everyone looks better in a hat.</p>
         <div class="row">
           <button class="btn" id="btnPlay">PLAY</button>
+          <button class="btn alt" id="btnOnline">📶 ONLINE (2 PHONES)</button>
           <button class="btn alt" id="btnHowTo">HOW TO PLAY</button>
           <button class="btn alt" id="btnInstall" hidden>📲 INSTALL APP</button>
         </div>
@@ -166,6 +174,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b style="color:#8ec1ff">Player 1 (left half)</b><br>Left hand: Move <kbd>A</kbd> <kbd>D</kbd> · Up <kbd>W</kbd> · Crouch / fast fall <kbd>S</kbd> · Jump <kbd>Space</kbd><br>Right hand: Attack <kbd>F</kbd> · Special <kbd>G</kbd> · Shield <kbd>H</kbd> · <b>Smash</b> <kbd>T</kbd> (or <kbd>R</kbd>)</div>
           <div class="kbd"><b style="color:#ff8a8a">Player 2 (right half)</b><br>Right hand: Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Right Shift</kbd> (or <kbd>Enter</kbd>)<br>Left hand: Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd><br>Got a numpad? Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash.</div>
           <div class="kbd"><b>Smash-style moves</b><br>Hold a direction + <b>Smash</b> key = Smash attack (keep holding to charge). Flick a direction + Attack also works.<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor. Up is only for up-attacks unless you turn on "Also W / ↑" for jumping.</div>
+          <div class="kbd"><b>Online, two phones</b><br>Tap <b>ONLINE (2 PHONES)</b>. One phone taps <b>HOST</b> and gets a 4-letter code. The other taps <b>JOIN</b> and types it. The host is Player 1, picks the stage and starts the fight; both players pick their own fighter.<br>Best on the same Wi-Fi. Keep both phones awake: switching apps drops the game. If it won't connect across two different networks, that's a carrier firewall, not you.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.<br><b>Cloudy</b> (cloud, no legs): five jumps, hold JUMP in the air to hover. B Lightning Bolt, Side+B Gust pushes far, Down+B Thunderhead Drop or Rain Dance.<br><b>Franchesca</b> (fish with legs): rolls go farther and faster. B Bubble Shot floats up, Side+B Fish Flop hops forward, Down+B Belly Flop or Splash Zone.<br><b>Shoean</b> (shoe): fastest runner. B Lace Shot, Side+B Lace Lasso pulls them in, Down+B Heel Drop or Scuff. Run longer before a dash attack for a SPRINT! bonus.<br><b>Luke Lava</b> (lava blob): every hit sets you on fire for 2 seconds. Lava can't hurt him. B Fireball, Side+B Lava Flow multi-hit slide, Down+B Meteor Drop or Magma Pool, which leaves a burning puddle under him.<br><b>Kayden</b> (ninja knife): hits from behind do 30% more, rolls are shadow steps. B three Shuriken, Side+B Blade Dash, Down+B Smoke Bomb turns him near-invisible.<br><b>Po-po</b> (bead cop): bounces when he lands hard. B Donut Toss, Side+B Cuff Toss pulls them in, Down+B Siren Spin.<br><b>Larry</b> (giraffe): the longest reach in the game, especially upward. B Neck Snap, Side+B Gallop, Down+B Hoof Drop or Leaf Shower.<br><b>Raggy</b> (jailbird sack): Side+B Sack Swing is a huge wide whip, Down+B Bag Over Head pulls them in. B Rock Toss.<br><b>Ian</b> (elephant): heaviest fighter, armor on smashes. B Trumpet shoves everything away, Side+B Trunk Grab pulls them in, Down+B Belly Drop or Big Stomp.<br><b>Gary</b> (sheep mayor): wool softens every hit he takes by 15%. B Campaign Flyers, Side+B Wool Roll, Down+B Gavel Drop or Town Meeting.</div>
           <div class="kbd"><b>Signature mechanics</b><br><b>Spike</b>: smashes have armor, weak hits won't stop them. <b>Noodles</b>: bites chew shields twice as fast. <b>Pency</b>: land the tip of a stab for a TIP! bonus. <b>Bootisaurus</b>: heavy armor on smashes and Lace Whip. <b>Baggy</b>: Pogo Stomp bounces off whoever it hits. <b>Snakey</b>: Baton Combo chains three hits, Tail Trip pulls the opponent in. <b>Cloudy</b>: hover by holding JUMP, zap moves crackle with lightning. <b>Franchesca</b>: slippery rolls. <b>Shoean</b>: Sprint Kick scales with run-up. <b>Luke Lava</b>: burning hits, immune to lava. <b>Kayden</b>: backstabs. <b>Po-po</b>: bounces. <b>Larry</b>: reach. <b>Raggy</b>: pulls. <b>Ian</b>: armor and weight. <b>Gary</b>: wool armor.</div>
@@ -177,13 +186,37 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
       </div>
     </div>
 
+    <div id="online" class="overlay" hidden>
+      <div class="panel" style="max-width:540px;text-align:center">
+        <h2>Play online, two phones</h2>
+        <p class="hint">One phone hosts and gets a 4-letter code. The other phone types that code to join. Works best when both phones are on the same Wi-Fi.</p>
+        <div id="onlinePick" class="row">
+          <button class="btn" id="btnHost">HOST A GAME</button>
+          <button class="btn alt" id="btnJoinMode">JOIN WITH A CODE</button>
+        </div>
+        <div id="onlineHost" hidden>
+          <p class="hint" style="margin:10px 0 0">Tell your friend this code:</p>
+          <div class="code" id="roomCode">····</div>
+          <p class="hint" id="hostStatus">Setting up…</p>
+        </div>
+        <div id="onlineJoin" hidden>
+          <p class="hint" style="margin:10px 0 4px">Type the host's code:</p>
+          <input id="joinCode" maxlength="4" placeholder="CODE" autocapitalize="characters" autocomplete="off" spellcheck="false" inputmode="latin">
+          <div class="row"><button class="btn" id="btnJoin">JOIN</button></div>
+          <p class="hint" id="joinStatus"></p>
+        </div>
+        <div class="row" style="margin-top:14px"><button class="btn alt" id="btnOnlineBack">Back</button></div>
+      </div>
+    </div>
+
     <div id="select" class="overlay" hidden>
       <div class="panel">
         <h2>Choose your fighter</h2>
+        <p class="netline" id="netLine" hidden></p>
         <p class="hint" id="selHint" style="margin:0 0 10px">Click a fighter for Player 1.</p>
         <div class="grid" id="charGrid"></div>
         <div class="opts">
-          <div class="opt"><label for="optMode">Mode</label><select id="optMode"><option value="cpu">1 Player vs CPU</option><option value="2p">2 Players (same keyboard)</option></select></div>
+          <div class="opt"><label for="optMode">Mode</label><select id="optMode"><option value="cpu">1 Player vs CPU</option><option value="2p">2 Players (same keyboard)</option><option value="online">Online (2 phones)</option></select></div>
           <div class="opt"><label for="optLevel">CPU level</label><select id="optLevel"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
           <div class="opt"><label for="optStocks">Stocks</label><select id="optStocks"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
           <div class="opt"><label for="optStage">Stage</label><select id="optStage"></select></div>
@@ -193,6 +226,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <button class="btn" id="btnFight" disabled>FIGHT!</button>
           <button class="btn alt" id="btnRandom">Random both</button>
           <button class="btn alt" id="btnBack">Back</button>
+          <button class="btn alt" id="btnLeave" hidden>Leave online</button>
         </div>
       </div>
     </div>
@@ -216,6 +250,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         <div class="row">
           <button class="btn" id="btnRematch">Rematch</button>
           <button class="btn alt" id="btnChange">Change fighters</button>
+          <button class="btn alt" id="btnLeaveRes" hidden>Leave online</button>
         </div>
       </div>
     </div>
@@ -233,6 +268,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
   <div class="tbtn" data-k="pause">II</div>
 </div>
 <div id="rotate">📱 Turn your phone sideways for the full arena</div>
+<div class="netbadge" id="netBadge" hidden></div>
 
 <button class="hatbtn" id="hatBtn" aria-label="Put a hat on everyone">
   <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -1395,6 +1431,7 @@ function newMatch(p1ch, p2ch, opts) {
   cam = { x: W / 2, y: H / 2 - 40, z: 1 };
   return m;
 }
+function puddleSpark(pu) { if (pu.t % 3 === 0) particles.list.push({ x: pu.x + rnd(-pu.w / 2, pu.w / 2), y: pu.y, vx: 0, vy: rnd(-1.5, -0.5), life: 20, max: 20, color: Math.random() < 0.5 ? '#ffcf33' : '#ff6a2b', size: rnd(2, 4), g: -0.02 }); }
 function respawn(f, m, first) {
   const main = m.stage.main;
   f.reset(main.x + main.w * (f.idx === 0 ? 0.3 : 0.7), first ? main.y - 120 : main.y - 300);
@@ -1421,18 +1458,13 @@ function updateMatch(m) {
   }
   if (m.puddles.length) {
     for (let i = m.puddles.length - 1; i >= 0; i--) { const pu = m.puddles[i]; pu.t--; if (pu.t <= 0) { m.puddles.splice(i, 1); continue; }
-      if (pu.t % 3 === 0) particles.list.push({ x: pu.x + rnd(-pu.w / 2, pu.w / 2), y: pu.y, vx: 0, vy: rnd(-1.5, -0.5), life: 20, max: 20, color: Math.random() < 0.5 ? '#ffcf33' : '#ff6a2b', size: rnd(2, 4), g: -0.02 });
+      puddleSpark(pu);
       if (pu.pl) { pu.x = pu.pl.x + pu.ox; pu.y = pu.pl.y; }
       for (const g of m.fighters) { if (g.ko || g.ch.molten || !g.grounded || g.inv > 0 || Math.abs(g.x - pu.x) > pu.w / 2 + 10 || Math.abs(g.y - pu.y) > 4) continue; if ((g.burnT || 0) > 0) continue; g.burnT = 30; applyHit(pu.owner && !pu.owner.ko ? pu.owner : STAGE_ATT, g, { dmg: 4, ang: 85, bkb: 7, kbg: 30 }, g.x - 10, g.x, g.y - 30); g.moveLabel = { text: 'BURN!', t: 0, hot: true }; }
     }
     for (const g of m.fighters) if (g.burnT > 0) g.burnT--;
   }
-  for (const pl of m.stage.plats) {
-    if (!pl.mx && !pl.my) continue;
-    const ph = m.t * Math.PI * 2 / pl.period + pl.phase;
-    const nx = pl.bx + (pl.mx ? Math.sin(ph) * pl.mx : 0), ny = pl.by + (pl.my ? Math.sin(ph) * pl.my : 0);
-    pl.dx = nx - pl.x; pl.dy = ny - pl.y; pl.x = nx; pl.y = ny;
-  }
+  movePlats(m);
   const [a, b] = m.fighters;
   for (const f of m.fighters) {
     const other = f === a ? b : a;
@@ -1493,7 +1525,17 @@ function updateMatch(m) {
     if (alive.length <= 1) { m.phase = 'game'; m.phaseT = 0; m.winner = alive[0] || null; SFX.go(); }
   }
   if (m.phase === 'game') { m.phaseT++; if (m.phaseT === 150) { scene = 'results'; showResults(m); } }
-  // camera
+  updateCam(m);
+}
+function movePlats(m) {
+  for (const pl of m.stage.plats) {
+    if (!pl.mx && !pl.my) continue;
+    const ph = m.t * Math.PI * 2 / pl.period + pl.phase;
+    const nx = pl.bx + (pl.mx ? Math.sin(ph) * pl.mx : 0), ny = pl.by + (pl.my ? Math.sin(ph) * pl.my : 0);
+    pl.dx = nx - pl.x; pl.dy = ny - pl.y; pl.x = nx; pl.y = ny;
+  }
+}
+function updateCam(m) {
   const live = m.fighters.filter(f => !f.ko);
   if (live.length) {
     let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity;
@@ -2530,12 +2572,14 @@ function render() {
 let last = 0, acc = 0, paused = false;
 function step() {
   frameCount++;
+  if (net.role === 'guest' && match && !match.demo) { netGuestStep(); return; }
   if (slowmo > 0) { slowmo--; if (frameCount % 3 !== 0) { shake *= 0.9; return; } }
   if (match) updateMatch(match);
   shake *= 0.85; if (shake < 0.3) shake = 0;
   flash = Math.max(0, flash - 0.06);
   // roll input edges
   if (match) for (const f of match.fighters) { const ip = f.input; for (const k of KEYNAMES) { if (ip[k] && !ip.prev[k] && ip.at[k] !== undefined) ip.at[k] = frameCount; ip.prev[k] = ip[k]; } }
+  if (net.role === 'host' && match && !match.demo) netHostSend();
 }
 function loop(ts) {
   requestAnimationFrame(loop);
@@ -2545,7 +2589,207 @@ function loop(ts) {
   let n = 0;
   while (acc >= 1000 / 60 && n < 4) { acc -= 1000 / 60; n++; if (!paused && scene !== 'results') step(); }
   render();
+  netTick();
 }
+
+/* ---------------- Online play (two phones) ----------------
+   Host-authoritative: the host phone runs the whole match. The guest phone sends its button state every frame and
+   receives a compact delta snapshot (fighters, projectiles, effects, sounds) every frame, then just draws it.
+   Transport is WebRTC via PeerJS (free public signaling, direct phone-to-phone data). A BroadcastChannel loopback
+   (?net=bc) stands in for it during automated tests. */
+const NET_VERSION = 1, NET_PFX = 'superhatbros-';
+const net = { role: null, localIdx: 0, conn: null, link: null, code: '', seq: 0, lastRx: 0, lastTx: 0, inbox: [], last: null, sentB: -1, idleFrames: 0, rxFrames: 0, lastFrame: -1 };
+const fxLog = [];
+function logFx(...a) { if (net.role === 'host' && match && !match.demo) fxLog.push(a); }
+for (const n of ['burst', 'dust', 'hitSpark', 'confetti']) { const o = particles[n]; particles[n] = function (...a) { logFx('p', n, ...a); return o.apply(this, a); }; }
+for (const n of Object.keys(SFX)) { const o = SFX[n]; SFX[n] = (...a) => { logFx('s', n, ...a); return o(...a); }; }
+{ const o = charFx; charFx = function (f, kind, x, y, kb) { logFx('c', f.idx, kind, x, y, kb); return o(f, kind, x, y, kb); }; }
+
+function loadPeerJS() {
+  return new Promise((res, rej) => {
+    if (window.Peer) return res();
+    const urls = ['https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js', 'https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.4/peerjs.min.js'];
+    let i = 0;
+    const next = () => { if (i >= urls.length) return rej(new Error('Could not load the online library. Check your internet connection.')); const sc = document.createElement('script'); sc.src = urls[i++]; sc.onload = () => window.Peer ? res() : next(); sc.onerror = next; document.head.appendChild(sc); };
+    next();
+  });
+}
+function wrapPeerConn(c) {
+  return { send: o => { try { c.send(o); } catch (err) {} }, onData: fn => c.on('data', fn), onClose: fn => { c.on('close', fn); c.on('error', fn); }, close: () => { try { c.close(); } catch (err) {} } };
+}
+const peerErr = e => { const t = e && e.type; if (t === 'peer-unavailable') return 'No game found with that code. Check the letters and try again.'; if (t === 'unavailable-id') return 'That code is taken, trying another…'; if (t === 'network' || t === 'server-error' || t === 'socket-error' || t === 'socket-closed') return 'Could not reach the matchmaking server. Check your internet and try again.'; if (t === 'browser-incompatible') return 'This browser cannot do online play. Try Chrome or Safari.'; return 'Online error: ' + (e && (e.message || e.type) || e); };
+function peerTransport() {
+  return {
+    async host(code, h) { await loadPeerJS(); const peer = new Peer(NET_PFX + code, { debug: 0 }); peer.on('open', () => h.onOpen()); peer.on('connection', c => { c.on('open', () => h.onConn(wrapPeerConn(c))); }); peer.on('error', e => h.onError(peerErr(e), e && e.type)); return { destroy: () => { try { peer.destroy(); } catch (err) {} } }; },
+    async join(code, h) { await loadPeerJS(); const peer = new Peer({ debug: 0 }); peer.on('open', () => { const c = peer.connect(NET_PFX + code, { reliable: true, serialization: 'json' }); c.on('open', () => h.onConn(wrapPeerConn(c))); }); peer.on('error', e => h.onError(peerErr(e), e && e.type)); return { destroy: () => { try { peer.destroy(); } catch (err) {} } }; }
+  };
+}
+function bcTransport() { // same-browser loopback for automated tests
+  const mk = (code, me) => { const ch = new BroadcastChannel('shb-' + code); const conn = { h: [], c: [], send: o => ch.postMessage({ from: me, o }), onData: fn => conn.h.push(fn), onClose: fn => conn.c.push(fn), close: () => { ch.postMessage({ from: me, sys: 'bye' }); ch.close(); } }; ch.addEventListener('message', ev => { if (ev.data.from === me) return; if (ev.data.sys === 'bye') { for (const f of conn.c) f(); return; } if (ev.data.sys) return; for (const f of conn.h) f(ev.data.o); }); return { ch, conn }; };
+  return {
+    async host(code, h) { const { ch, conn } = mk(code, 'h'); setTimeout(() => h.onOpen(), 50); ch.addEventListener('message', ev => { if (ev.data.sys === 'knock') { ch.postMessage({ from: 'h', sys: 'welcome' }); h.onConn(conn); } }); return { destroy: () => ch.close() }; },
+    async join(code, h) { const { ch, conn } = mk(code, 'g'); ch.addEventListener('message', ev => { if (ev.data.sys === 'welcome') h.onConn(conn); }); setTimeout(() => ch.postMessage({ from: 'g', sys: 'knock' }), 50); return { destroy: () => ch.close() }; }
+  };
+}
+const transport = /[?&]net=bc/.test(location.search) ? bcTransport() : peerTransport();
+const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+const makeCode = () => { let c = ''; for (let i = 0; i < 4; i++) c += CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]; return c; };
+
+function netSetBadge() { const b = $('netBadge'); if (!net.role || !net.conn) { b.hidden = true; return; } b.hidden = false; b.className = 'netbadge' + (net.conn ? '' : ' bad'); b.textContent = (net.conn ? '📶 ONLINE · ' : '⚠ RECONNECTING · ') + (net.role === 'host' ? 'HOST (P1) · ' : 'P2 · ') + net.code; }
+function netReset() { if (net.conn) { try { net.conn.close(); } catch (err) {} } if (net.link) { try { net.link.destroy(); } catch (err) {} } net.role = null; net.localIdx = 0; net.conn = null; net.link = null; net.code = ''; net.inbox.length = 0; net.last = null; net.sentB = -1; $('optMode').value = 'cpu'; $('optMode').disabled = false; for (const id of ['optStage', 'optStocks', 'optLevel']) $(id).disabled = false; $('btnLeave').hidden = true; $('btnRandom').hidden = false; $('btnBack').hidden = false; $('netLine').hidden = true; $('btnFight').textContent = 'FIGHT!'; netSetBadge(); }
+function netLeave(msg) { if (net.conn) net.send({ t: 'bye' }); netReset(); paused = false; $('pause').hidden = true; scene = 'title'; startDemo(); show('title'); if (msg) showToast(msg); }
+function netLost(msg) { netReset(); paused = false; $('pause').hidden = true; scene = 'title'; startDemo(); show('title'); showToast(msg || 'Connection lost.'); }
+net.send = o => { if (!net.conn) return; net.lastTx = Date.now(); net.conn.send(o); };
+
+function onlineOpen() { audioInit(); scene = 'online'; show('online'); $('onlinePick').hidden = false; $('onlineHost').hidden = true; $('onlineJoin').hidden = true; $('joinStatus').textContent = ''; }
+async function onlineHost() {
+  $('onlinePick').hidden = true; $('onlineHost').hidden = false; $('roomCode').textContent = '····'; $('hostStatus').textContent = 'Setting up…';
+  net.role = 'host'; net.localIdx = 0; net.code = makeCode();
+  const tryHost = async () => {
+    try {
+      net.link = await transport.host(net.code, {
+        onOpen: () => { $('roomCode').textContent = net.code; $('hostStatus').textContent = 'Waiting for the other phone to join…'; netSetBadge(); },
+        onConn: conn => netAttach(conn),
+        onError: (msg, type) => { if (type === 'unavailable-id') { net.code = makeCode(); tryHost(); return; } $('hostStatus').textContent = msg; }
+      });
+    } catch (err) { $('hostStatus').textContent = err.message || String(err); }
+  };
+  tryHost();
+}
+function onlineJoinMode() { $('onlinePick').hidden = true; $('onlineJoin').hidden = false; $('joinCode').value = ''; $('joinStatus').textContent = ''; setTimeout(() => $('joinCode').focus(), 50); }
+async function onlineJoin() {
+  const code = $('joinCode').value.toUpperCase().replace(/[^A-Z]/g, ''); if (code.length !== 4) { $('joinStatus').textContent = 'The code is 4 letters.'; return; }
+  $('joinStatus').textContent = 'Connecting…'; $('btnJoin').disabled = true;
+  net.role = 'guest'; net.localIdx = 1; net.code = code;
+  try {
+    net.link = await transport.join(code, { onConn: conn => netAttach(conn), onError: msg => { $('joinStatus').textContent = msg; $('btnJoin').disabled = false; } });
+  } catch (err) { $('joinStatus').textContent = err.message || String(err); $('btnJoin').disabled = false; }
+}
+function netAttach(conn) {
+  net.conn = conn; net.lastRx = Date.now(); $('btnJoin').disabled = false;
+  conn.onData(msg => { net.lastRx = Date.now(); netOnMessage(msg); });
+  conn.onClose(() => { if (net.conn === conn) netLost(net.role === 'host' ? 'Player 2 disconnected.' : 'Lost the connection to the host.'); });
+  net.send({ t: 'hello', v: NET_VERSION });
+  SFX.select(); showToast(net.role === 'host' ? 'Connected! You are Player 1.' : 'Connected! You are Player 2.');
+  settings.mode = 'online'; $('optMode').value = 'online'; $('optMode').disabled = true;
+  picking = 1; settings.p1 = settings.p1 === null ? 0 : settings.p1; settings.p2 = settings.p2 === null ? 1 : settings.p2;
+  netToSelect(); netSetBadge();
+}
+function netToSelect() { // host sends everyone back to the select screen (guest goes when told)
+  paused = false; $('pause').hidden = true; scene = 'select'; startDemo(); show('select'); refreshSelect();
+  if (net.role === 'host') net.send({ t: 'lobby', p1: settings.p1, p2: settings.p2, stage: $('optStage').value, stocks: $('optStocks').value });
+}
+function netRefreshSelect() {
+  const r = net.role; $('btnLeave').hidden = !r; $('btnRandom').hidden = !!r; $('btnBack').hidden = !!r; $('netLine').hidden = !r;
+  if (!r) return;
+  $('netLine').textContent = r === 'host' ? '📶 Online · code ' + net.code + ' · You are Player 1 (host). Pick your fighter, the stage and stocks, then FIGHT!' : '📶 Online · code ' + net.code + ' · You are Player 2. Pick your fighter. The host picks the stage and starts.';
+  $('selHint').textContent = r === 'host' ? 'Tap a fighter for yourself (P1).' : 'Tap a fighter for yourself (P2).';
+  for (const id of ['optStage', 'optStocks', 'optLevel']) $(id).disabled = r === 'guest' || id === 'optLevel';
+  $('btnFight').textContent = r === 'guest' ? 'Waiting for host…' : 'FIGHT!';
+  $('btnFight').disabled = r === 'guest' || settings.p1 === null || settings.p2 === null;
+  if (r === 'host' && net.conn) net.send({ t: 'lobby', p1: settings.p1, p2: settings.p2, stage: $('optStage').value, stocks: $('optStocks').value });
+}
+function netStartFight() {
+  const si = $('optStage').value === 'random' ? Math.floor(Math.random() * STAGES.length) : +$('optStage').value;
+  const cfg = { p1: settings.p1, p2: settings.p2, stage: si, stocks: +$('optStocks').value, hats: hatsOn };
+  net.send({ t: 'start', cfg }); startOnlineMatch(cfg);
+}
+function startOnlineMatch(cfg) {
+  settings.p1 = cfg.p1; settings.p2 = cfg.p2; settings.stocks = cfg.stocks; settings.stage = cfg.stage; settings.mode = 'online'; settings.tapJump = $('optJump').value === 'up';
+  if (hatsOn !== !!cfg.hats) setHats(!!cfg.hats, true);
+  match = newMatch(CHARS[cfg.p1], CHARS[cfg.p2], { p1cpu: false, p2cpu: false, level: 5, stocks: cfg.stocks, stage: cfg.stage, demo: false });
+  net.last = { f: [{}, {}], m: {}, hats: null }; net.inbox.length = 0; net.sentB = -1; net.lastFrame = -1; fxLog.length = 0;
+  const g = $('guestWait'); if (g) g.remove();
+  scene = 'fight'; paused = false; show(null); refreshTouch();
+}
+function netOnMessage(msg) {
+  if (!msg || typeof msg !== 'object') return;
+  switch (msg.t) {
+    case 'hello': if (msg.v !== NET_VERSION) showToast('The other phone has a different game version. Update both and try again.'); break;
+    case 'ping': break;
+    case 'bye': netLost(net.role === 'host' ? 'Player 2 left the game.' : 'The host left the game.'); break;
+    case 'pick': if (net.role === 'host') { settings.p2 = msg.i; refreshSelect(); } break;
+    case 'lobby': if (net.role === 'guest') { settings.p1 = msg.p1; settings.p2 = msg.p2; $('optStage').value = msg.stage; $('optStocks').value = msg.stocks; if (scene !== 'select') { paused = false; $('pause').hidden = true; scene = 'select'; startDemo(); show('select'); } refreshSelect(); } break;
+    case 'start': if (net.role === 'guest') startOnlineMatch(msg.cfg); break;
+    case 'pause': if (net.role === 'host') { if (scene === 'fight') { setPaused(!paused); net.send({ t: 'pause', on: paused }); } } else if (scene === 'fight') setPaused(!!msg.on); break;
+    case 'hat': if (net.role === 'host') setHats(!hatsOn); break;
+    case 'i': if (net.role === 'host' && match && !match.demo && msg.s > net.lastFrame) { net.lastFrame = msg.s; const ip = match.fighters[1].input; KEYNAMES.forEach((k, i) => { ip[k] = !!(msg.b & (1 << i)); }); ip.noTapJump = !!(msg.b & 512); } break;
+    case 's': if (net.role === 'guest') { net.inbox.push(msg); if (net.inbox.length > 4) net.inbox.splice(0, net.inbox.length - 2); } break;
+  }
+}
+function netTick() {
+  if (!net.conn) return;
+  const now = Date.now();
+  if (now - net.lastTx > 1500) net.send({ t: 'ping' });
+  if (now - net.lastRx > 12000) netLost('Connection lost (no reply for 12 seconds).');
+  const bad = now - net.lastRx > 2500; const b = $('netBadge'); if (b.classList.contains('bad') !== bad) { b.classList.toggle('bad', bad); b.textContent = (bad ? '⚠ RECONNECTING · ' : '📶 ONLINE · ') + (net.role === 'host' ? 'HOST (P1) · ' : 'P2 · ') + net.code; }
+}
+// ---- host: build and send a delta snapshot every frame
+const SKIP_F = new Set(['ch', 'input', 'atk', 'hitIds', 'lastHitBy', 'onPlat', 'aiQueue', 'idx', 'cpu', 'lvl', 'pose', 'trail']);
+const R2 = v => Math.round(v * 100) / 100;
+function fighterDelta(f, last) {
+  const out = [];
+  for (const k in f) {
+    if (SKIP_F.has(k)) continue;
+    const v = f[k], tv = typeof v; let enc;
+    if (v === null || tv === 'string' || tv === 'boolean') enc = v; else if (tv === 'number') enc = R2(v); else if (tv === 'object') enc = JSON.stringify(v); else continue;
+    if (last[k] !== enc) { last[k] = enc; out.push(k, tv === 'object' && v !== null ? v : enc); }
+  }
+  if (f.trail.length || last.trailN) { last.trailN = f.trail.length; out.push('trail', f.trail.map(t => [R2(t.x), R2(t.y)])); }
+  return out;
+}
+function netHostSend() {
+  if (!net.conn || !net.last) return;
+  const m = match, L = net.last;
+  const msg = { t: 's', n: frameCount, f: [fighterDelta(m.fighters[0], L.f[0]), fighterDelta(m.fighters[1], L.f[1])], g: [R2(shake), R2(flash), hatsOn ? 1 : 0] };
+  const md = []; for (const k of ['t', 'time', 'phase', 'phaseT', 'over']) { if (L.m[k] !== m[k]) { L.m[k] = m[k]; md.push(k, m[k]); } }
+  const wi = m.winner ? m.winner.idx : -1; if (L.m.w !== wi) { L.m.w = wi; md.push('w', wi); }
+  if (md.length) msg.m = md;
+  if (m.banner) msg.b = m.banner;
+  if (projectiles.length) msg.p = projectiles.map(p => { const o = {}; for (const k in p) { const v = p[k], tv = typeof v; if (k === 'owner') o.o = v === STAGE_ATT ? -1 : v.idx; else if (tv === 'number') o[k] = R2(v); else if (tv === 'string' || tv === 'boolean') o[k] = v; } return o; });
+  if (m.puddles.length) msg.u = m.puddles.map(pu => ({ x: R2(pu.x), y: R2(pu.y), w: pu.w, t: pu.t, pl: pu.pl ? m.stage.plats.indexOf(pu.pl) : -1, ox: pu.ox }));
+  if (koBursts.length) msg.k = koBursts;
+  if (fxLog.length) { msg.e = fxLog.slice(); fxLog.length = 0; }
+  net.send(msg);
+}
+// ---- guest: send inputs, apply snapshots, run local-only effects
+function netGuestStep() {
+  const m = match;
+  const ip = m.fighters[net.localIdx].input; let b = 0; KEYNAMES.forEach((k, i) => { if (ip[k]) b |= 1 << i; }); if (ip.noTapJump) b |= 512;
+  net.idleFrames++; if (b !== net.sentB || net.idleFrames >= 6) { net.sentB = b; net.idleFrames = 0; net.send({ t: 'i', s: ++net.seq, b }); }
+  let applied = false;
+  while (net.inbox.length) { applySnapshot(net.inbox.shift(), m); applied = true; }
+  movePlats(m);
+  for (const pu of m.puddles) puddleSpark(pu);
+  particles.update();
+  for (let i = koBursts.length - 1; i >= 0; i--) { koBursts[i].t++; if (koBursts[i].t > 50) koBursts.splice(i, 1); }
+  if (!applied) { shake *= 0.85; if (shake < 0.3) shake = 0; flash = Math.max(0, flash - 0.06); }
+  updateCam(m);
+  if (m.phase === 'game' && m.phaseT >= 150 && scene === 'fight') { scene = 'results'; showResults(m); }
+}
+function applySnapshot(msg, m) {
+  if (msg.n <= net.lastFrame) return; net.lastFrame = msg.n;
+  m.fighters.forEach((f, i) => {
+    const d = msg.f[i]; if (!d) return;
+    for (let j = 0; j < d.length; j += 2) { const k = d[j]; if (k === 'trail') f.trail = d[j + 1].map(t => ({ x: t[0], y: t[1] })); else f[k] = d[j + 1]; }
+    f.atk = f.state === 'attack' && f.atkName ? f.getAtk(f.atkName) : null;
+  });
+  if (msg.m) for (let j = 0; j < msg.m.length; j += 2) { const k = msg.m[j], v = msg.m[j + 1]; if (k === 'w') m.winner = v < 0 ? null : m.fighters[v]; else m[k] = v; }
+  m.banner = msg.b || null;
+  projectiles = msg.p ? msg.p.map(q => { const p = Object.assign({}, q); p.owner = q.o < 0 ? STAGE_ATT : m.fighters[q.o]; delete p.o; return p; }) : [];
+  m.puddles = msg.u ? msg.u.map(u => ({ x: u.x, y: u.y, w: u.w, t: u.t, pl: u.pl >= 0 ? m.stage.plats[u.pl] : null, ox: u.ox })) : [];
+  koBursts.length = 0; if (msg.k) koBursts.push(...msg.k);
+  shake = msg.g[0]; flash = msg.g[1]; if (!!msg.g[2] !== hatsOn) setHats(!!msg.g[2], true);
+  if (msg.e) for (const e of msg.e) { try { if (e[0] === 'p') particles[e[1]](...e.slice(2)); else if (e[0] === 's') SFX[e[1]](...e.slice(2)); else if (e[0] === 'c') charFx(m.fighters[e[1]], e[2], e[3], e[4], e[5]); } catch (err) {} }
+}
+$('btnOnline').addEventListener('click', onlineOpen);
+$('btnHost').addEventListener('click', () => { audioInit(); goFullscreen(); onlineHost(); });
+$('btnJoinMode').addEventListener('click', () => { audioInit(); onlineJoinMode(); });
+$('btnJoin').addEventListener('click', () => { audioInit(); goFullscreen(); onlineJoin(); });
+$('joinCode').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); onlineJoin(); } });
+$('joinCode').addEventListener('input', () => { $('joinCode').value = $('joinCode').value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4); });
+$('btnOnlineBack').addEventListener('click', () => { netReset(); scene = 'title'; show('title'); });
+window.addEventListener('pagehide', () => { if (net.conn) net.send({ t: 'bye' }); });
 
 /* ---------------- Input ---------------- */
 const KEYS = {
@@ -2555,7 +2799,7 @@ const KEYS = {
   ArrowLeft: [1, 'left'], ArrowRight: [1, 'right'], ArrowUp: [1, 'up'], ArrowDown: [1, 'down'], Comma: [1, 'attack'], Period: [1, 'special'], Slash: [1, 'shield'], KeyM: [1, 'smash'], ShiftRight: [1, 'jump'], Enter: [1, 'jump'], NumpadEnter: [1, 'jump'],
   Numpad1: [1, 'attack'], Numpad2: [1, 'special'], Numpad3: [1, 'shield'], Numpad0: [1, 'jump'], Numpad4: [1, 'smash'],
 };
-function setKey(p, k, v) { if (!match || match.demo) return; const f = match.fighters[p]; if (f && !f.cpu) f.input[k] = v; }
+function setKey(p, k, v) { if (!match || match.demo) return; if (net.role) p = net.localIdx; const f = match.fighters[p]; if (f && !f.cpu) f.input[k] = v; }
 (function buildKeyMap() {
   const el = document.getElementById('kmap'); if (!el) return;
   const P1 = { W: 'up', A: 'left', S: 'down', D: 'right', F: 'attack', G: 'special', H: 'shield', R: 'smash', T: 'smash', Space: 'jump', 'L Shift': 'shield' };
@@ -2590,7 +2834,7 @@ window.addEventListener('touchmove', e => { if (scene === 'fight') e.preventDefa
 const touchEl = $('touch'); let touchMode = 'auto';
 function touchVisible() { return scene === 'fight' && (touchMode === 'on' || (touchMode === 'auto' && isCoarse())); }
 function refreshRotate() { $('rotate').classList.toggle('show', scene === 'fight' && isCoarse()); }
-function refreshTouch() { const v = touchVisible(); touchEl.hidden = !v; document.querySelector('.topbar').classList.toggle('hide', v); refreshRotate(); if (match) for (const f of match.fighters) if (!f.cpu) f.input.noTapJump = !settings.tapJump || (v && f.idx === 0); if (!v) { stickEnd(); releaseAllTouch(); } }
+function refreshTouch() { const v = touchVisible(); touchEl.hidden = !v; document.querySelector('.topbar').classList.toggle('hide', v); refreshRotate(); if (match) for (const f of match.fighters) if (!f.cpu && f.idx === net.localIdx) f.input.noTapJump = !settings.tapJump || v; if (!v) { stickEnd(); releaseAllTouch(); } }
 const heldButtons = new Map();
 function releaseAllTouch() { for (const [b] of heldButtons) { b.classList.remove('held'); setKey(0, b.dataset.k, false); } heldButtons.clear(); }
 for (const b of touchEl.querySelectorAll('.tbtn')) {
@@ -2667,7 +2911,7 @@ function setHats(on, silent) {
   }
   renderPortraits();
 }
-hatBtn.addEventListener('click', () => { audioInit(); setHats(!hatsOn); hatBtn.blur(); });
+hatBtn.addEventListener('click', () => { audioInit(); hatBtn.blur(); if (net.role === 'guest' && match && !match.demo) { net.send({ t: 'hat' }); return; } setHats(!hatsOn); });
 
 /* ---------------- Menus ---------------- */
 const portraitCanvases = [];
@@ -2693,7 +2937,7 @@ function buildSelect() {
     const sg = document.createElement('div'); sg.className = 'sg'; sg.textContent = ch.sig || ''; card.appendChild(sg);
     const fs = document.createElement('div'); fs.className = 'ti'; fs.textContent = 'Final: ' + ch.final.name + ' · Hat: ' + HAT_NAMES[ch.id] + (HOME[ch.id] ? ' · Home: ' + HOME[ch.id] : ''); card.appendChild(fs);
     const pick = document.createElement('div'); pick.className = 'pick'; card.appendChild(pick);
-    card.addEventListener('click', () => { audioInit(); SFX.select(); if (picking === 1) { settings.p1 = i; picking = 2; } else { settings.p2 = i; picking = 1; } refreshSelect(); });
+    card.addEventListener('click', () => { audioInit(); SFX.select(); if (net.role === 'host') settings.p1 = i; else if (net.role === 'guest') { settings.p2 = i; net.send({ t: 'pick', i }); } else if (picking === 1) { settings.p1 = i; picking = 2; } else { settings.p2 = i; picking = 1; } refreshSelect(); });
     grid.appendChild(card); portraitCanvases.push({ canvas: pc, ch });
   });
   const stSel = $('optStage'); stSel.innerHTML = ''; const ro = document.createElement('option'); ro.value = 'random'; ro.textContent = '🎲 Random stage'; stSel.appendChild(ro); STAGES.forEach((s, i) => { const o = document.createElement('option'); o.value = i; o.textContent = s.name + (s.plats.some(pl => pl.mx || pl.my) ? ' · moving' : '') + (s.gravMul ? ' · low gravity' : '') + (s.hazard ? ' · HAZARD' : ''); stSel.appendChild(o); });
@@ -2710,8 +2954,9 @@ function refreshSelect() {
   $('selHint').textContent = picking === 1 ? 'Click a fighter for Player 1.' : 'Now pick a fighter for ' + who + '.';
   $('btnFight').disabled = settings.p1 === null || settings.p2 === null;
   $('optLevel').parentElement.style.opacity = settings.mode === 'cpu' ? 1 : 0.4;
+  netRefreshSelect();
 }
-function show(id) { for (const o of ['title', 'select', 'pause', 'results']) $(o).hidden = o !== id; refreshTouch(); }
+function show(id) { for (const o of ['title', 'select', 'pause', 'results', 'online']) $(o).hidden = o !== id; refreshTouch(); }
 function startDemo() {
   const a = Math.floor(Math.random() * CHARS.length), b = (a + 1 + Math.floor(Math.random() * (CHARS.length - 1))) % CHARS.length;
   match = newMatch(CHARS[a], CHARS[b], { p1cpu: true, p2cpu: true, level: 6, stocks: 99, stage: Math.floor(Math.random() * STAGES.length), demo: true });
@@ -2722,7 +2967,8 @@ function startFight() {
   match = newMatch(CHARS[settings.p1], CHARS[settings.p2], { p1cpu: false, p2cpu: settings.mode === 'cpu', level: settings.level, stocks: settings.stocks, stage: settings.stage, demo: false });
   scene = 'fight'; paused = false; show(null);
 }
-function togglePause() { paused = !paused; $('pause').hidden = !paused; }
+function togglePause() { if (net.role === 'guest') { net.send({ t: 'pause' }); return; } setPaused(!paused); if (net.role === 'host') net.send({ t: 'pause', on: paused }); }
+function setPaused(on) { paused = on; $('pause').hidden = !paused; $('btnQuit').textContent = net.role === 'guest' ? 'Leave online game' : 'Quit to select'; }
 function showResults(m) {
   const w = m.winner; const win = $('winnerName');
   win.innerHTML = ''; const small = document.createElement('small'); small.textContent = 'WINNER'; win.appendChild(small); win.appendChild(document.createTextNode(w ? (w.cpu ? 'CPU · ' : 'P' + (w.idx + 1) + ' · ') + w.ch.name : 'NO CONTEST'));
@@ -2734,17 +2980,23 @@ function showResults(m) {
     d.appendChild(v); d.appendChild(k); grid.appendChild(d);
   }
   show('results'); renderPortraits();
+  $('btnRematch').hidden = net.role === 'guest'; $('btnChange').hidden = net.role === 'guest'; $('btnLeaveRes').hidden = !net.role;
+  if (net.role === 'guest') { const d = document.createElement('div'); d.className = 'stat'; d.id = 'guestWait'; d.innerHTML = '<div class="k">Waiting for the host to pick Rematch or Change fighters…</div>'; grid.appendChild(d); }
 }
 $('btnPlay').addEventListener('click', () => { audioInit(); SFX.select(); scene = 'select'; show('select'); });
 $('btnHowTo').addEventListener('click', () => { $('howto').hidden = !$('howto').hidden; });
 $('btnBack').addEventListener('click', () => { scene = 'title'; show('title'); });
 $('btnRandom').addEventListener('click', () => { audioInit(); SFX.select(); settings.p1 = Math.floor(Math.random() * CHARS.length); settings.p2 = Math.floor(Math.random() * CHARS.length); picking = 1; refreshSelect(); });
 $('optMode').addEventListener('change', refreshSelect);
-$('btnFight').addEventListener('click', () => { audioInit(); SFX.go(); goFullscreen(); startFight(); });
+$('btnFight').addEventListener('click', () => { audioInit(); SFX.go(); goFullscreen(); if (net.role === 'host') netStartFight(); else if (!net.role) startFight(); });
 $('btnResume').addEventListener('click', () => togglePause());
-$('btnQuit').addEventListener('click', () => { paused = false; $('pause').hidden = true; scene = 'select'; startDemo(); show('select'); });
-$('btnRematch').addEventListener('click', () => { audioInit(); goFullscreen(); startFight(); });
-$('btnChange').addEventListener('click', () => { scene = 'select'; startDemo(); show('select'); });
+$('btnQuit').addEventListener('click', () => { if (net.role === 'guest') { netLeave('You left the online game.'); return; } paused = false; $('pause').hidden = true; if (net.role === 'host') net.send({ t: 'pause', on: false }); netToSelect(); });
+$('btnRematch').addEventListener('click', () => { audioInit(); goFullscreen(); if (net.role === 'host') netStartFight(); else if (!net.role) startFight(); });
+$('btnChange').addEventListener('click', () => { if (net.role === 'guest') return; netToSelect(); });
+$('btnLeave').addEventListener('click', () => netLeave('You left the online game.'));
+$('btnLeaveRes').addEventListener('click', () => netLeave('You left the online game.'));
+$('optStage').addEventListener('change', refreshSelect);
+$('optStocks').addEventListener('change', refreshSelect);
 
 /* ---------------- Install as an app (PWA) ---------------- */
 let deferredInstall = null;
@@ -2773,7 +3025,7 @@ function resize() {
 window.addEventListener('resize', resize);
 
 /* ---------------- Boot ---------------- */
-window.__shb = () => match; // debug handle used by the automated playtest
+window.__shb = () => match; window.__shbNet = () => net; window.__shbState = () => ({ scene, paused, hatsOn, shake, projectiles: projectiles.length }); // debug handles used by the automated playtest
 function start(saved) {
   if (saved && saved.hatsOn) setHats(true, true);
   buildSelect(); resize(); startDemo(); show('title');

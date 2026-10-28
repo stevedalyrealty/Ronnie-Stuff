@@ -106,6 +106,16 @@ Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spi
 - Every 60 seconds one random fighter gets a Final Smash. Press Special (no direction) to unleash it. Lose a stock and it's gone.
 - The hat button in the bottom-left puts a hat on everyone. Every fighter has their own hat. Every hat has bells.
 
+## Online: two phones, two players
+
+Tap **ONLINE (2 PHONES)** on the title screen.
+
+1. One phone taps **HOST A GAME** and gets a 4-letter code.
+2. The other phone taps **JOIN WITH A CODE** and types it.
+3. Both players pick their own fighter. The host is Player 1, picks the stage and stocks, and taps FIGHT.
+
+How it works: the phones connect directly to each other (WebRTC through PeerJS's free public signaling server, no game server). The host phone runs the match and streams a compact snapshot every frame (about 7 KB/s); the guest phone sends its button presses and draws what it receives. Works best on the same Wi-Fi. Phone-to-phone across two cellular networks sometimes can't connect because of carrier firewalls. Keep both phones awake: switching apps drops the game. Online play needs the hosted version (https://stevedalyrealty.github.io/Ronnie-Stuff/) or the installed app, not the raw file.
+
 ## Controls
 
 Two people share one keyboard without touching: Player 1 only uses the left half, Player 2 only uses the right half. The HOW TO PLAY screen shows a color-coded keyboard map.
