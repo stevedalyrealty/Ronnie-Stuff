@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stevedalyrealty.github.io/Ronnie-Stuff/sitemap.xml

@@ -1,7 +1,7 @@
 {
   "name": "Super Hat Bros",
   "short_name": "Hat Bros",
-  "description": "A platform fighter starring ten napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.",
+  "description": "A platform fighter starring sixteen napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",

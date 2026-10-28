@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Super Hat Bros">
 <meta name="theme-color" content="#0b1024">
-<meta name="description" content="Super Hat Bros: a platform fighter starring sixteen napkin-drawn fighters, each with a home stage, a Final Smash and a belled hat.">
+<meta name="description" content="Play Super Hat Bros free in your browser: a Smash-style platform fighter with 16 fighters drawn on napkins by a kid named Ronnie. Solo vs CPU, 2 players on one keyboard, or online on two phones with a room code. No download, works on iPhone, Android and computers.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%} [hidden]{display:none!important}</style>
 </head>
 <body>
@@ -36,7 +36,9 @@
   color-scheme:dark;
 }
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);overflow:hidden;-webkit-user-select:none;user-select:none;touch-action:none}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);overflow:hidden;-webkit-user-select:none;user-select:none;touch-action:none;overscroll-behavior:none;-webkit-touch-callout:none}
+html{touch-action:none;overscroll-behavior:none}
+button,select,input,.card{touch-action:manipulation}
 #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px;box-sizing:border-box}
 #stage{position:relative;width:100%;max-width:100%}
@@ -181,6 +183,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b>Defense &amp; specials</b><br>Shield + Left/Right = roll · Shield + Down = spot dodge · Shield in the air = air dodge.<br>Up + Special = recovery. Special alone = projectile. Side + Special = lunge.<br>Fall near the edge to grab the ledge. <kbd>Esc</kbd> pauses.</div>
         </div>
         <p class="hint">Three stocks. Higher damage % = farther launch. Last fighter standing wins. Every minute one random fighter gets a Final Smash: press Special to unleash it. The hat button in the bottom-left puts a hat on everyone, bells and all.</p>
+        <p class="hint" style="margin-top:10px;font-weight:600">Super Hat Bros is a free Smash-style platform fighting game you can play in your browser on a phone or computer, no download needed. Sixteen fighters drawn on napkins by a kid named Ronnie: Spike the goat, Noodles the orca, Pency the bank-robbing pencil, Bootisaurus Rex, Baggy, Snakey, Cloudy, Franchesca, Shoean, Luke Lava, Kayden, Po-po, Larry the giraffe, Raggy, Ian the elephant and Mayor Gary. Play solo against the CPU, two players on one keyboard, or online on two phones with a room code. Music by Ronnie.</p>
       </div>
     </div>
 
@@ -2818,6 +2821,31 @@ $('joinCode').addEventListener('keydown', e => { if (e.key === 'Enter') { e.prev
 $('joinCode').addEventListener('input', () => { $('joinCode').value = $('joinCode').value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4); });
 $('btnOnlineBack').addEventListener('click', () => { netReset(); scene = 'title'; show('title'); });
 window.addEventListener('pagehide', () => { if (net.conn) net.send({ t: 'bye' }); });
+
+/* ---------------- Zoom lock (phones) ----------------
+   Two thumbs on the screen at once looks like a pinch to the browser, and a fast double tap looks like a zoom request.
+   Block both, and if the page still ends up zoomed (older Safari ignores some of this), snap it back. */
+(function zoomLock() {
+  const stop = e => { e.preventDefault(); };
+  for (const ev of ['gesturestart', 'gesturechange', 'gestureend']) document.addEventListener(ev, stop, { passive: false });
+  document.addEventListener('touchmove', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+  document.addEventListener('touchstart', e => { if (e.touches.length > 1 && scene === 'fight') e.preventDefault(); }, { passive: false });
+  let lastTap = 0;
+  document.addEventListener('touchend', e => { const now = Date.now(); if (now - lastTap < 320 && scene === 'fight') e.preventDefault(); lastTap = now; }, { passive: false });
+  document.addEventListener('dblclick', stop, { passive: false });
+  document.addEventListener('wheel', e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+  document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) e.preventDefault(); });
+  const vp = document.querySelector('meta[name="viewport"]');
+  function snapBack() {
+    if (!window.visualViewport || !vp) return;
+    if (window.visualViewport.scale > 1.02) {
+      const c = vp.getAttribute('content'); vp.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');
+      setTimeout(() => vp.setAttribute('content', c), 50); window.scrollTo(0, 0);
+    }
+  }
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', snapBack);
+  setInterval(snapBack, 1000);
+})();
 
 /* ---------------- Input ---------------- */
 const KEYS = {
