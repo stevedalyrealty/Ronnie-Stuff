@@ -119,18 +119,27 @@ Each fighter idles, runs, jumps, lands, dodges and shields in its own style: Spi
 - Every 60 seconds one random fighter gets a Final Smash. Press Special (no direction) to unleash it. Lose a stock and it's gone.
 - The hat button in the bottom-left puts a hat on everyone. Every fighter has their own hat. Every hat has bells.
 
+## Ronnie-Mode!
+
+Tap left, up, right, down quickly in a row (keys or joystick) during a fight. Time slows, the camera zooms in, your fighter ties on a red karate headband and runs through a chop, a front kick, a spinning high kick and a bow while "Ronnie-Mode!" pops up over their head, and the music switches to the Ronnie-Mode theme. Then the fight resumes with your fighter powered up for 20 seconds:
+
+- **Attack button**: long-reach karate chops. Karate Chop, Rising Chop, Low Chop, Mega Chop (smash), Air Chop, Falling Chop.
+- **Special button**: Flying Kick (neutral or side), Spinning Jump Kick (up, also your recovery), Dive Kick (down in the air), Sweep Kick (down on the ground).
+
+The headband stays on while it lasts and a timer shows above your HUD panel. Afterwards there is a 15-second cooldown before you can trigger it again. Losing a stock ends it. The Ronnie-Mode theme is an original martial-arts disco tune made by `music/make-ronnie-mode.py`: four-on-the-floor drums, octave-bouncing bass, a plucked pentatonic lead, brass stabs, a gong and a "HA!".
+
 ## Music and sound
 
-The background music is Ronnie's own tunes, played on piano, with no vocals. `music/make-piano.py` listened to his recordings in two-second windows, picked the major or minor chord that best matched the notes he was singing, laid down a soft bass note and a broken chord, and played his melody notes on top. The recordings with his voice are not in the game or this repo anymore. Track 1 (piano) plays on the menus. Track 2 is the fight track: the same piano plus a distorted electric guitar riff from `music/make-guitar.py`, which plays palm-muted power-chord chugs, an accent on every bar, a riff fill every other bar and a harmony stab every fourth bar, all following the same chord changes. The Music and Sound buttons in the top-right corner turn either off.
+The background music is Ronnie's own tunes, played on piano, with no vocals. `music/make-piano.py` listened to his recordings in two-second windows, picked the major or minor chord that best matched the notes he was singing, laid down a soft bass note and a broken chord, and played his melody notes on top. The recordings with his voice are not in the game or this repo anymore. Track 1 (piano) plays on the menus. Track 2 is the fight track: the same piano plus a distorted electric guitar riff from `music/make-guitar.py`, which plays palm-muted power-chord chugs, an accent on every bar, a riff fill every other bar and a harmony stab every fourth bar, all following the same chord changes. During Ronnie-Mode the Ronnie-Mode theme takes over. The Music and Sound buttons in the top-right corner turn either off.
 
 No sound on a phone? iPhone: the ring/silent switch mutes web games until music starts, so flip it to ring or just tap PLAY and the music will unlock the sound effects too. Android: the game uses the media volume, not the ringer, so press volume-up while the game is open.
 
-## Online: two phones, two players
+## Online: two devices, two players
 
-Tap **ONLINE (2 PHONES)** on the title screen.
+Tap **ONLINE (2 DEVICES)** on the title screen. Phones, laptops and desktops all work, in any mix; on a computer either set of keys controls your fighter.
 
-1. One phone taps **HOST A GAME** and gets a 4-letter code.
-2. The other phone taps **JOIN WITH A CODE** and types it.
+1. One device taps **HOST A GAME** and gets a 4-letter code.
+2. The other device taps **JOIN WITH A CODE** and types it.
 3. Both players pick their own fighter. The host is Player 1, picks the stage and stocks, and taps FIGHT.
 
 How it works: the phones connect directly to each other (WebRTC through PeerJS's free public signaling server, no game server). The host phone runs the match and streams a compact snapshot every frame (about 7 KB/s); the guest phone sends its button presses and draws what it receives. Works best on the same Wi-Fi. Phone-to-phone across two cellular networks sometimes can't connect because of carrier firewalls. Keep both phones awake: switching apps drops the game. Online play needs the hosted version (https://stevedalyrealty.github.io/Ronnie-Stuff/) or the installed app, not the raw file.

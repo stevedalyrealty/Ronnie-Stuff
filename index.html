@@ -80,6 +80,11 @@ button{font-family:var(--font-body);font-weight:900;cursor:pointer;border:0;bord
 .btn:active{transform:translateY(3px);box-shadow:0 2px 0 #8a5300}
 .btn.alt{background:linear-gradient(180deg,#3a4a9a,#242d66);color:#fff;box-shadow:0 5px 0 #121735}
 .btn.alt:active{box-shadow:0 2px 0 #121735}
+.btn:disabled{opacity:.4;filter:grayscale(.5);cursor:not-allowed;transform:none}
+.fightbar{position:sticky;bottom:-22px;z-index:5;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;margin:8px -24px -22px;padding:14px 24px 18px;background:linear-gradient(180deg,rgba(14,19,46,0) 0%,rgba(14,19,46,.97) 28%);border-top:1px solid rgba(255,255,255,.06)}
+.fightnames{margin:0;font-size:14px;color:#fff;min-width:120px}
+.btn.ready{animation:readyPulse 1s ease-in-out infinite}
+@keyframes readyPulse{0%,100%{box-shadow:0 5px 0 #8a5300,0 0 0 0 rgba(255,207,51,.0),0 10px 20px rgba(0,0,0,.4)}50%{box-shadow:0 5px 0 #8a5300,0 0 0 10px rgba(255,207,51,.35),0 10px 30px rgba(255,207,51,.5)}}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn:focus-visible,.hatbtn:focus-visible,.card:focus-visible{outline:3px solid #fff;outline-offset:2px}
 h2{font-family:var(--font-display);font-weight:400;letter-spacing:.04em;margin:0 0 12px;color:var(--gold);font-size:28px}
@@ -184,7 +189,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         <p class="tag">A platform fighter. Rack up damage, launch them off the stage, and remember: everyone looks better in a hat.</p>
         <div class="row">
           <button class="btn" id="btnPlay">PLAY</button>
-          <button class="btn alt" id="btnOnline">📶 ONLINE (2 PHONES)</button>
+          <button class="btn alt" id="btnOnline">📶 ONLINE (2 DEVICES)</button>
           <button class="btn alt" id="btnHowTo">HOW TO PLAY</button>
           <button class="btn alt" id="btnInstall" hidden>📲 INSTALL APP</button>
         </div>
@@ -194,7 +199,8 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
           <div class="kbd"><b style="color:#8ec1ff">Player 1 (left half)</b><br>Left hand: Move <kbd>A</kbd> <kbd>D</kbd> · Up <kbd>W</kbd> · Crouch / fast fall <kbd>S</kbd> · Jump <kbd>Space</kbd><br>Right hand: Attack <kbd>F</kbd> · Special <kbd>G</kbd> · Shield <kbd>H</kbd> · <b>Smash</b> <kbd>T</kbd> (or <kbd>R</kbd>)</div>
           <div class="kbd"><b style="color:#ff8a8a">Player 2 (right half)</b><br>Right hand: Move <kbd>←</kbd> <kbd>→</kbd> · Up <kbd>↑</kbd> · Crouch <kbd>↓</kbd> · Jump <kbd>Right Shift</kbd> (or <kbd>Enter</kbd>)<br>Left hand: Attack <kbd>,</kbd> · Special <kbd>.</kbd> · Shield <kbd>/</kbd> · <b>Smash</b> <kbd>M</kbd><br>Got a numpad? Numpad 1 attack, 2 special, 3 shield, 0 jump, 4 smash.</div>
           <div class="kbd"><b>Smash-style moves</b><br>Hold a direction + <b>Smash</b> key = Smash attack (keep holding to charge). Flick a direction + Attack also works.<br>Hold a direction + Attack = tilt. Attack while running = dash attack.<br>Attack in the air + direction = aerials. Down-air is a meteor. Up is only for up-attacks unless you turn on "Also W / ↑" for jumping.</div>
-          <div class="kbd"><b>Online, two phones</b><br>Tap <b>ONLINE (2 PHONES)</b>. One phone taps <b>HOST</b> and gets a 4-letter code. The other taps <b>JOIN</b> and types it. The host is Player 1, picks the stage and starts the fight; both players pick their own fighter.<br>Best on the same Wi-Fi. Keep both phones awake: switching apps drops the game. If it won't connect across two different networks, that's a carrier firewall, not you.</div>
+          <div class="kbd"><b>Online, two devices</b><br>Phones, laptops, desktops, any mix. Tap <b>ONLINE (2 DEVICES)</b>. One device taps <b>HOST</b> and gets a 4-letter code. The other taps <b>JOIN</b> and types it. The host is Player 1, picks the stage and starts the fight; both players pick their own fighter. On a computer either set of keys controls your fighter.<br>Best on the same Wi-Fi. Keep phones awake: switching apps drops the game. If it won't connect across two different networks, that's a carrier firewall, not you.</div>
+          <div class="kbd"><b style="color:#ff8a8a">Ronnie-Mode!</b><br>Tap <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> quickly in a row (keys or joystick). Time slows, your fighter ties on a karate headband and shows off some moves, and the music switches to the Ronnie-Mode theme.<br>For 20 seconds: <b>Attack</b> = long-reach karate chops (Karate Chop, Rising Chop, Low Chop, Mega Chop) and <b>Special</b> = Flying Kick, Spinning Jump Kick, Dive Kick and Sweep Kick. Then a 15-second cooldown before you can do it again.</div>
           <div class="kbd"><b>Sound &amp; music</b><br>The music is Ronnie's own tunes played on piano: track 1 on the menus, track 2 during fights. Use the Music and Sound buttons in the top-right to turn either off.<br><b>No sound on a phone?</b> iPhone: flip the ring/silent switch to ring, or turn up the volume after the game starts playing music. Android: the game uses the <b>media</b> volume, not the ringer, so press volume-up while the game is open.</div>
           <div class="kbd"><b>On a phone</b><br>Drag anywhere on the left half to use the joystick. Right side: <b>A</b> attack, <b>B</b> special, <b>JUMP</b>, <b>SHIELD</b>.<br>Flick the stick + A at the same time = smash attack. Stick up + A is an up attack. Only the JUMP button jumps.<br>Start your thumb a little in from the phone's edge so the phone's back-swipe doesn't grab it. Add to Home Screen for the best feel.</div>
           <div class="kbd"><b>Napkin fighters</b><br><b>Spike</b> (goat): Side+B Goat Ram, B Horn Toss, Down+B Hoof Stomp (air dive) or Stomp Quake (ground).<br><b>Noodles</b> (orca): Side+B Breach leap, B water Spout, Down+B Belly Flop or Splash.<br><b>Pency</b> (pencil): B fires 3 shavings, Side+B slow Bag Swing that kills, Down+B Pencil Drop spike.<br><b>Bootisaurus</b> (2x size): B Chomp, Side+B Lace Whip tail sweep, Down+B Boot Stomp. Very hard to launch, very easy to hit.<br><b>Baggy</b> (no arms): four jumps and floats, B pulls random junk from the bag, Side+B Bag Roll, Down+B Puff Up.<br><b>Snakey</b> (snake cop): B tosses two tickets, Side+B Slither Charge, Down+B Coil Counter: get hit during it and he hits back instead.<br><b>Cloudy</b> (cloud, no legs): five jumps, hold JUMP in the air to hover. B Lightning Bolt, Side+B Gust pushes far, Down+B Thunderhead Drop or Rain Dance.<br><b>Franchesca</b> (fish with legs): rolls go farther and faster. B Bubble Shot floats up, Side+B Fish Flop hops forward, Down+B Belly Flop or Splash Zone.<br><b>Shoean</b> (shoe): fastest runner. B Lace Shot, Side+B Lace Lasso pulls them in, Down+B Heel Drop or Scuff. Run longer before a dash attack for a SPRINT! bonus.<br><b>Luke Lava</b> (lava blob): every hit sets you on fire for 2 seconds. Lava can't hurt him. B Fireball, Side+B Lava Flow multi-hit slide, Down+B Meteor Drop or Magma Pool, which leaves a burning puddle under him.<br><b>Kayden</b> (ninja knife): hits from behind do 30% more, rolls are shadow steps. B three Shuriken, Side+B Blade Dash, Down+B Smoke Bomb turns him near-invisible.<br><b>Po-po</b> (bead cop): bounces when he lands hard. B Donut Toss, Side+B Cuff Toss pulls them in, Down+B Siren Spin.<br><b>Larry</b> (giraffe): the longest reach in the game, especially upward. B Neck Snap, Side+B Gallop, Down+B Hoof Drop or Leaf Shower.<br><b>Raggy</b> (jailbird sack): Side+B Sack Swing is a huge wide whip, Down+B Bag Over Head pulls them in. B Rock Toss.<br><b>Ian</b> (elephant): heaviest fighter, armor on smashes. B Trumpet shoves everything away, Side+B Trunk Grab pulls them in, Down+B Belly Drop or Big Stomp.<br><b>Gary</b> (sheep mayor): wool softens every hit he takes by 15%. B Campaign Flyers, Side+B Wool Roll, Down+B Gavel Drop or Town Meeting.<br><b>Jacc</b> (jackrabbit): fastest hopper, three jumps, giant hind feet. B Carrot Toss, Side+B Big Hop, Down+B Stomp Drop or Thump.<br><b>Horseshoe Crab</b> (crab in sneakers): wide, low and hard to launch, armor on smashes. B Bubble Blast, Side+B Claw Grab pulls them in, Down+B Sneaker Slam or Shoe Stomp.<br><b>Gigi</b> (monkey in a straitjacket): no hands, so it's all feet, tail and head. Wiggles out of trouble with long rolls. B Banana Peel, Side+B Tail Whip, Down+B Butt Drop or Tantrum.<br><b>Foxy</b> (sly fox, the other big bad guy): bites chew shields, backstabs do 30% more. B Fox Fire, Side+B Pounce, Down+B Sly Trick: a counter that punishes anyone who swings first.</div>
@@ -210,14 +216,14 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
 
     <div id="online" class="overlay" hidden>
       <div class="panel" style="max-width:540px;text-align:center">
-        <h2>Play online, two phones</h2>
-        <p class="hint">One phone hosts and gets a 4-letter code. The other phone types that code to join. Works best when both phones are on the same Wi-Fi.</p>
+        <h2>Play online, two devices</h2>
+        <p class="hint">Phones, laptops or desktops, any mix. One device hosts and gets a 4-letter code. The other types that code to join. On a computer, both players use the Player 1 keys (WASD, Space, F G H, T) or the Player 2 keys, either works. Best when both devices are on the same Wi-Fi.</p>
         <div id="onlinePick" class="row">
           <button class="btn" id="btnHost">HOST A GAME</button>
           <button class="btn alt" id="btnJoinMode">JOIN WITH A CODE</button>
         </div>
         <div id="onlineHost" hidden>
-          <p class="hint" style="margin:10px 0 0">Tell your friend this code:</p>
+          <p class="hint" style="margin:10px 0 0">Tell your friend this code (they can be on a phone or a computer):</p>
           <div class="code" id="roomCode">····</div>
           <p class="hint" id="hostStatus">Setting up…</p>
         </div>
@@ -238,14 +244,15 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
         <p class="hint" id="selHint" style="margin:0 0 10px">Click a fighter for Player 1.</p>
         <div class="grid" id="charGrid"></div>
         <div class="opts">
-          <div class="opt"><label for="optMode">Mode</label><select id="optMode"><option value="cpu">1 Player vs CPU</option><option value="2p">2 Players (same keyboard)</option><option value="online">Online (2 phones)</option></select></div>
+          <div class="opt"><label for="optMode">Mode</label><select id="optMode"><option value="cpu">1 Player vs CPU</option><option value="2p">2 Players (same keyboard)</option><option value="online">Online (2 devices)</option></select></div>
           <div class="opt"><label for="optLevel">CPU level</label><select id="optLevel"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
           <div class="opt"><label for="optStocks">Stocks</label><select id="optStocks"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
           <div class="opt"><label for="optStage">Stage</label><select id="optStage"></select></div>
           <div class="opt"><label for="optJump">Jump key</label><select id="optJump"><option value="space">Space / Enter only (recommended)</option><option value="up">Also W / ↑</option></select></div>
         </div>
-        <div class="row">
+        <div class="fightbar" id="fightBar">
           <button class="btn" id="btnFight" disabled>FIGHT!</button>
+          <span class="hint fightnames" id="fightNames">Pick two fighters</span>
           <button class="btn alt" id="btnRandom">Random both</button>
           <button class="btn alt" id="btnBack">Back</button>
           <button class="btn alt" id="btnLeave" hidden>Leave online</button>
@@ -295,6 +302,7 @@ kbd{background:#0e1330;border:1px solid #3a4580;border-bottom-width:3px;border-r
 <!-- Ronnie's music. Menu track and fight track, each with a piano layer that follows his melody. -->
 <audio id="bgmMenu" loop preload="auto" playsinline src="music/ronnie-1.mp3"></audio>
 <audio id="bgmFight" loop preload="auto" playsinline src="music/ronnie-2.mp3"></audio>
+<audio id="bgmRonnie" loop preload="auto" playsinline src="music/ronnie-mode.mp3"></audio>
 
 <button class="hatbtn" id="hatBtn" aria-label="Put a hat on everyone">
   <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -524,8 +532,8 @@ function audioInit() {
   if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; } }
   if (AC && AC.state !== 'running') { try { const p = AC.resume(); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
 }
-const BGM = { menu: document.getElementById('bgmMenu'), fight: document.getElementById('bgmFight') };
-let musicOn = true, bgmKind = null; const bgmUnlocked = new Set();
+const BGM = { menu: document.getElementById('bgmMenu'), fight: document.getElementById('bgmFight'), ronnie: document.getElementById('bgmRonnie') };
+let musicOn = true, bgmKind = null, bgmBase = 'menu'; const bgmUnlocked = new Set();
 for (const k in BGM) { BGM[k].volume = 0.5; BGM[k].addEventListener('error', () => { bgmUnlocked.add(k); }); }
 function bgmPlay() {
   if (!musicOn || !bgmKind) return;
@@ -535,7 +543,11 @@ function bgmPlay() {
 function setMusic(kind) {
   if (kind === bgmKind) { bgmPlay(); return; }
   for (const k in BGM) if (k !== kind && !BGM[k].paused) { BGM[k].pause(); BGM[k].currentTime = 0; }
-  bgmKind = kind; bgmPlay();
+  bgmKind = kind; if (kind === 'ronnie') { try { BGM.ronnie.currentTime = 0; } catch (e) {} } bgmPlay();
+}
+function musicTick() { // Ronnie-Mode swaps the music in while anyone is in it, then hands back to the normal track
+  const rm = scene === 'fight' && match && !match.demo && (match.cut || match.fighters.some(f => f.ronnie > 0));
+  const want = rm ? 'ronnie' : bgmBase; if (want !== bgmKind) setMusic(want);
 }
 function unlockAudio() {
   audioInit();
@@ -579,6 +591,7 @@ const SFX = {
   finalGet() { [392, 523, 659, 784, 1046].forEach((f, i) => setTimeout(() => tone(f, 0.25, 'square', 0.1), i * 80)); setTimeout(() => noise(0.2, 0.15, 3000), 400); },
   final() { noise(0.8, 0.4, 600); tone(65, 1.0, 'sawtooth', 0.25, -30); [262, 330, 392, 523].forEach(f => tone(f, 0.9, 'square', 0.06)); },
   proj() { tone(900, 0.08, 'sawtooth', 0.05, -400); },
+  gong() { noise(0.3, 0.2, 500); tone(98, 1.8, 'sine', 0.3, -12); tone(147, 1.4, 'triangle', 0.14, -8); tone(196, 1.0, 'sine', 0.1, 0); },
 };
 
 /* ---------------- Fighters ---------------- */
@@ -823,7 +836,20 @@ const ATK = {
   sideb: { dur: 34, s: 8,  e: 18, dmg: 10, ang: 45,  bkb: 7, kbg: 70,  box: { x: 30, y: -60, w: 62, h: 58 }, special: 'side', move: true, lag: 10 },
   neutralb: { dur: 26, s: 10, e: 10, special: 'proj', lag: 6 },
   downb: { dur: 44, s: 14, e: 22, dmg: 12, ang: 60,  bkb: 9, kbg: 85,  box: { x: 0,  y: -50, w: 144, h: 62 }, special: 'down', lag: 12 },
+  // Ronnie-Mode: extended-reach karate chops on the attack button, flying and spinning kicks on the special button.
+  rchop:    { name: 'Karate Chop', dur: 20, s: 4, e: 9, dmg: 9, ang: 42, bkb: 7, kbg: 72, box: { x: 70, y: -54, w: 124, h: 40 } },
+  rchopUp:  { name: 'Rising Chop', dur: 22, s: 5, e: 11, dmg: 9, ang: 88, bkb: 7, kbg: 80, box: { x: 10, y: -118, w: 90, h: 90 } },
+  rchopDown:{ name: 'Low Chop', dur: 20, s: 4, e: 9, dmg: 8, ang: 30, bkb: 6, kbg: 60, box: { x: 64, y: -16, w: 110, h: 30 } },
+  rchopBig: { name: 'Mega Chop', dur: 40, s: 14, e: 20, dmg: 19, ang: 40, bkb: 9, kbg: 104, box: { x: 80, y: -56, w: 150, h: 60 }, smash: true, dust: true },
+  rchopAir: { name: 'Air Chop', dur: 26, s: 6, e: 12, dmg: 11, ang: 45, bkb: 7, kbg: 82, box: { x: 64, y: -58, w: 120, h: 50 }, air: true, lag: 8 },
+  rchopDair:{ name: 'Falling Chop', dur: 30, s: 10, e: 16, dmg: 12, ang: 280, bkb: 6, kbg: 72, box: { x: 10, y: -10, w: 90, h: 44 }, air: true, lag: 10, meteor: true },
+  rkick:    { name: 'Flying Kick', dur: 40, s: 5, e: 28, dmg: 13, ang: 44, bkb: 8, kbg: 86, box: { x: 36, y: -52, w: 96, h: 70 }, special: 'lunge', lunge: { vx: 13, vy: -10 }, move: true, lag: 10 },
+  rspin:    { name: 'Spinning Jump Kick', dur: 44, s: 2, e: 30, dmg: 3, ang: 80, bkb: 4, kbg: 30, rehit: 4, box: { x: 0, y: -24, w: 140, h: 170 }, special: 'up', lag: 14, finalHit: { dmg: 10, ang: 70, bkb: 9, kbg: 90 } },
+  rdrop:    { name: 'Dive Kick', dur: 80, s: 10, e: 80, dmg: 14, ang: 275, bkb: 6, kbg: 70, box: { x: 10, y: -14, w: 70, h: 56 }, special: 'dive', dive: true, lag: 12, meteor: true },
+  rsweep:   { name: 'Sweep Kick', dur: 34, s: 8, e: 18, dmg: 12, ang: 70, bkb: 8, kbg: 82, box: { x: 0, y: -22, w: 190, h: 46 }, dust: true, lag: 10 },
 };
+const RONNIE_MAP = { jab: 'rchop', ftilt: 'rchop', dash: 'rchop', utilt: 'rchopUp', usmash: 'rchopUp', dtilt: 'rchopDown', dsmash: 'rchopDown', fsmash: 'rchopBig', nair: 'rchopAir', fair: 'rchopAir', bair: 'rchopAir', uair: 'rchopUp', dair: 'rchopDair', neutralb: 'rkick', sideb: 'rkick', upb: 'rspin', downb: 'rdrop', downbGround: 'rsweep' };
+const RONNIE_FRAMES = 1200, RONNIE_CUT = 130;
 
 // Personalized normal attacks. Each fighter gets its own names, reach, angles and a signature mechanic:
 //  Spike   - armor on smashes: hits under the armor value do damage but never knock him out of the move.
@@ -1094,7 +1120,8 @@ class Fighter {
     Object.assign(this, { x, y, vx: 0, vy: 0, percent: 0, state: 'air', grounded: false, facing: this.idx === 0 ? 1 : -1, jumpsLeft: this.ch.jumps,
       frame: 0, atk: null, atkName: '', hitstun: 0, hitlag: 0, inv: 0, shield: 100, lag: 0, charge: 0, pendingAtk: '', dodgeUsed: false, fastFall: false,
       ledgeTimer: 0, ledgeCool: 0, anim: 0, hitIds: null, runFrames: 0, helpless: false, afterHelpless: false, onPlat: null, squash: 1, trail: [],
-      crouch: false, respawnT: 0, brokenT: 0, dodgeType: '', dodgeDir: 0, dodgeDur: 0, ko: false, koT: 0, lastHitBy: null, lastHitT: 0, tumble: 0, finalSmash: false, burnT: 0, fire: 0, stealth: 0 });
+      crouch: false, respawnT: 0, brokenT: 0, dodgeType: '', dodgeDir: 0, dodgeDur: 0, ko: false, koT: 0, lastHitBy: null, lastHitT: 0, tumble: 0, finalSmash: false, burnT: 0, fire: 0, stealth: 0, ronnie: 0, ronnieCool: 0 });
+    this.rseq = [];
     this.aiQueue = []; this.aiCool = 0;
   }
   hurt() { const c = this.crouch ? 22 : 0, hh = this.ch.hurtH || 76; return { x: this.x - 22 * this.ch.scale, y: this.y - hh * this.ch.scale + c, w: 44 * this.ch.scale, h: hh * this.ch.scale - c }; }
@@ -1127,6 +1154,7 @@ class Fighter {
   }
   chargeSmash(name) { this.state = 'charge'; this.pendingAtk = name; this.charge = 0; this.vx *= 0.4; this.crouch = false; this.runFrames = 0; }
   startAttack(name, charge = 0) {
+    if (this.ronnie > 0 && RONNIE_MAP[name]) name = RONNIE_MAP[name];
     const a = this.getAtk(name), ch = this.ch;
     this.dashRun = this.runFrames;
     this.state = 'attack'; this.atk = a; this.atkName = name; this.frame = 0; this.hitIds = new Set(); this.charge = charge; this.crouch = false; this.runFrames = 0;
@@ -1146,6 +1174,8 @@ class Fighter {
   update(stage, fighters) {
     const f = this, ch = f.ch, ip = f.input;
     if (f.ko) return;
+    if (f.ronnie > 0) { f.ronnie--; if (f.ronnie === 0) { f.moveLabel = { text: 'MODE OVER', t: 0 }; } else if (f.anim % 6 === 0) particles.list.push({ x: f.x + rnd(-16, 16) * ch.scale, y: f.y - rnd(0, 70) * ch.scale, vx: rnd(-0.5, 0.5), vy: rnd(-1.5, -0.5), life: 16, max: 16, color: f.anim % 12 ? '#ff4d4d' : '#ffcf33', size: rnd(2, 4), g: -0.02 }); }
+    if (f.ronnieCool > 0) f.ronnieCool--;
     if (f.hitlag > 0) { f.hitlag--; return; }
     f.inv = Math.max(0, f.inv - 1); f.ledgeCool = Math.max(0, f.ledgeCool - 1); f.anim++;
     if (f.grounded && f.state === 'ground' && Math.abs(f.vx) > ch.speed * 0.6) { if (ch.id === 'boot' && f.anim % 9 === 0) { particles.dust(f.x - f.facing * 30, f.y, 4); shake = Math.max(shake, 1.5); } else if (ch.id === 'noodles' && f.anim % 6 === 0) { particles.list.push({ x: f.x - f.facing * 20, y: f.y - 4, vx: -f.facing * 2, vy: rnd(-3, -1), life: 14, max: 14, color: '#4fb3ff', size: 3, g: 0.25 }); } else if (ch.id === 'baggy' && f.anim % 12 === 0) { particles.list.push({ x: f.x - f.facing * 10, y: f.y - 40, vx: -f.facing * 1.5, vy: rnd(-1, 0), life: 30, max: 30, color: FX_COLS.baggy[f.anim % 5], size: 4, g: 0.05, rect: true }); } else if (ch.id === 'penny' && f.anim % 8 === 0) { particles.list.push({ x: f.x - f.facing * 14, y: f.y - 2, vx: -f.facing, vy: -1, life: 12, max: 12, color: '#2b2b33', size: 2, g: 0.1 }); } }
@@ -1429,7 +1459,8 @@ const particles = {
       const t = p.life / p.max;
       if (p.ring) { c.globalAlpha = t; c.strokeStyle = p.color || '#fff'; c.lineWidth = 3; c.beginPath(); c.arc(p.x, p.y, p.size * (1.6 - t), 0, Math.PI * 2); c.stroke(); c.globalAlpha = 1; continue; }
       c.globalAlpha = Math.min(1, t * 1.5); c.fillStyle = p.color;
-      if (p.rect) { c.save(); c.translate(p.x, p.y); c.rotate(p.life * 0.3); c.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2); c.restore(); }
+      if (p.len) { c.fillRect(p.x, p.y, p.len, p.size); }
+      else if (p.rect) { c.save(); c.translate(p.x, p.y); c.rotate(p.life * 0.3); c.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2); c.restore(); }
       else { c.beginPath(); c.arc(p.x, p.y, p.size * (0.5 + t * 0.5), 0, Math.PI * 2); c.fill(); }
     }
     c.globalAlpha = 1;
@@ -1578,6 +1609,7 @@ function respawn(f, m, first) {
   if (!first) { f.state = 'respawn'; f.respawnT = 150; f.inv = 2; }
 }
 function updateMatch(m) {
+  if (m.cut) { updateCut(m); updateCam(m); return; }
   m.t++;
   if (m.phase === 'ready') { m.phaseT++; if (m.phaseT === 60) SFX.go(); if (m.phaseT > 100) m.phase = 'fight'; }
   if (m.phase === 'fight') {
@@ -1667,6 +1699,29 @@ function updateMatch(m) {
   if (m.phase === 'game') { m.phaseT++; if (m.phaseT === 150) { scene = 'results'; showResults(m); } }
   updateCam(m);
 }
+function ronnieTap(f, d) {
+  if (!f.rseq) f.rseq = [];
+  if (frameCount - (f.rlast || 0) > 45) f.rseq.length = 0;
+  f.rseq.push(d); f.rlast = frameCount; if (f.rseq.length > 4) f.rseq.shift();
+  if (f.rseq.join() === 'left,up,right,down') { f.rseq.length = 0; tryRonnie(f); }
+}
+function tryRonnie(f) {
+  const m = match; if (!m || m.demo || m.phase !== 'fight' || m.cut || f.ko || f.ronnie > 0 || f.ronnieCool > 0) return;
+  if (f.state !== 'ground' && f.state !== 'air') return;
+  m.cut = { i: f.idx, t: 0 }; f.vx = 0; f.atk = null; f.crouch = false; f.inv = 0; SFX.gong(); flash = 0.4;
+}
+function updateCut(m) {
+  const cut = m.cut, f = m.fighters[cut.i]; cut.t += 0.5; f.anim++; f.inv = 0;
+  if (cut.t > 22 && cut.t < 23) { particles.burst(f.x, f.y - 70 * f.ch.scale, '#e02828', 14, 4); SFX.select(); }
+  if (Math.abs(cut.t - 60) < 0.3 || Math.abs(cut.t - 82) < 0.3 || Math.abs(cut.t - 104) < 0.3) { particles.hitSpark(f.x + f.facing * 50 * f.ch.scale, f.y - 50 * f.ch.scale, 60, ['#fff', '#e02828', '#ffcf33']); SFX.hit(40); shake = Math.max(shake, 5); }
+  if (cut.t % 2 < 0.5) particles.list.push({ x: f.x + rnd(-1, 1) * 420, y: f.y - 60 + rnd(-1, 1) * 240, vx: -f.facing * rnd(18, 30), vy: 0, life: 8, max: 8, color: 'rgba(255,255,255,.5)', size: 2, g: 0, rect: true, len: 40 });
+  particles.update();
+  if (cut.t >= RONNIE_CUT) {
+    m.cut = null; f.ronnie = RONNIE_FRAMES; f.ronnieCool = 900; f.inv = 20;
+    m.banner = { text: 'RONNIE-MODE!', sub: f.ch.name + ' tied the headband. Special = flying kicks, Attack = karate chops. 20 seconds.', t: 0, color: '#e02828' };
+    particles.confetti(f.x, f.y - 80); SFX.finalGet();
+  }
+}
 function movePlats(m) {
   for (const pl of m.stage.plats) {
     if (!pl.mx && !pl.my) continue;
@@ -1676,6 +1731,7 @@ function movePlats(m) {
   }
 }
 function updateCam(m) {
+  if (m.cut) { const f = m.fighters[m.cut.i]; cam.z = lerp(cam.z, 1.75, 0.07); cam.x = lerp(cam.x, f.x + f.facing * 20, 0.1); cam.y = lerp(cam.y, f.y - 70 * f.ch.scale, 0.1); return; }
   const live = m.fighters.filter(f => !f.ko);
   if (live.length) {
     let minx = Infinity, maxx = -Infinity, miny = Infinity, maxy = -Infinity;
@@ -1726,7 +1782,7 @@ function attackPose(f) {
   const bite = /chomp|bite|snap|bonk|headbutt|horn|toss|ram/.test(name);
   const kick = /kick|stomp|sweep|trip|hoof|heel|toe|dropkick|tumble/.test(name) && !['cloudy', 'penny', 'lava', 'rollo'].includes(f.ch.id);
   const thrust = /poke|stab|lunge|lance|jab|scrape|point|drop/.test(name) && f.ch.id === 'penny';
-  const swing = /swing|smack|whip|slap|baton|nightstick|lash|spin|sweep|flick|punch|slam|clap|strike|shove|lift|gust|pursuit|rush|flip|cut|slash|poke|jab|bonk|reach|hammer|tap|handshake|bump|charge|beat|launch|drop/.test(name);
+  const swing = /swing|smack|whip|slap|baton|nightstick|lash|spin|sweep|flick|punch|slam|clap|strike|shove|lift|gust|pursuit|rush|flip|cut|slash|poke|jab|bonk|reach|hammer|tap|handshake|bump|charge|beat|launch|drop|chop/.test(name);
   const hf = ({ penny: 0.3, baggy: 0.35, cloudy: 0.45 })[f.ch.id] || 1;
   P.lean = (-0.14 * P.wind + 0.2 * P.strike) * P.dir;
   if (ny < -0.5) P.lean -= 0.12 * P.strike; // upward moves arch back
@@ -1757,7 +1813,7 @@ function drawLegs(c, color, crouch, legA, hoof, lift) {
 }
 function drawArms(c, f, color, crouch, atkA, idle) {
   c.fillStyle = color;
-  const P = POSE, posing = P && P.punch && (f.state === 'attack' || f.state === 'charge');
+  const P = POSE, posing = P && P.punch && (f.state === 'attack' || f.state === 'charge' || P.force);
   let back = idle && idle.back ? idle.back : [-20, -40 + crouch + (f.state === 'shield' ? -6 : 0)];
   let front = atkA ? [26, -40 + crouch + (f.atk.box.y + 50) * 0.5] : (idle && idle.front ? idle.front : [20, -40 + crouch]);
   if (posing) { const target = [P.punch[0], P.punch[1] + crouch]; if (P.punchBack) { back = target; front = [16 + 6 * P.strike, -44 + crouch]; } else { front = target; back = [-20 - 6 * P.wind, -40 + crouch - 6 * P.wind]; } }
@@ -2365,7 +2421,7 @@ function drawFighter(c, f, hats, miniAlpha) {
   const crouch = f.crouch ? 14 : 0;
   const atkA = f.state === 'attack' && f.atk && f.atk.box && f.frame >= f.atk.s - 2 && f.frame <= f.atk.e + 2;
   const idle = f.grounded && f.state === 'ground' && !run && f.lag === 0 && !f.crouch;
-  POSE = attackPose(f); f.pose = POSE;
+  POSE = attackPose(f); if (match && match.cut && match.cut.i === f.idx && !miniAlpha) POSE = cutPose(f, match.cut.t); f.pose = POSE;
   if (POSE.lean) { c.translate(0, -16); c.rotate(POSE.lean); c.translate(0, 16); }
   if (POSE.flip) { c.translate(0, -36); c.rotate(-POSE.flip * Math.PI * 1.5 * POSE.dir); c.translate(0, 36); }
   let head;
@@ -2391,6 +2447,7 @@ function drawFighter(c, f, hats, miniAlpha) {
   else if (ch.id === 'gary') head = drawGary(c, f, ch, crouch, legA, atkA, idle);
   else head = drawGeneric(c, f, ch, crouch, legA, atkA);
   if (hats) drawCharHat(c, ch.id, head.hx || 0, head.htop, head.hr, f.anim);
+  if (f.ronnie > 0 || (match && match.cut && match.cut.i === f.idx && match.cut.t > 22)) drawHeadband(c, head, f);
   if (f.state === 'broken') { c.fillStyle = '#ffcf33'; for (let i = 0; i < 3; i++) { const a = f.anim * 0.15 + i * 2.1; c.beginPath(); c.arc(Math.cos(a) * 22, head.htop - 14 + Math.sin(a) * 6, 4, 0, Math.PI * 2); c.fill(); } }
   c.restore();
   if (f.state === 'shield') drawShield(c, f, sx, sy - 40 * s, (14 + 36 * f.shield / 100) * s);
@@ -2408,6 +2465,27 @@ function drawFighter(c, f, hats, miniAlpha) {
   }
 }
 // Shields look like the fighter too: water bubble, leather dome, paper bag, pink eraser, horned bubble, police badge.
+// Ronnie-Mode cutscene: tie the headband, strike a stance, chop, kick, spin kick, bow. t runs 0..RONNIE_CUT in slow motion.
+function cutPose(f, t) {
+  const P = { wind: 0, strike: 0, lean: 0, headX: 0, headY: 0, mouth: 0, punch: null, punchBack: false, kick: 0, legLift: 0, thrust: 0, swing: null, stomp: 0, dir: 1, active: false, force: true };
+  const ease = x => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
+  if (t < 30) { const k = ease(t / 14); P.punch = [10 * k - 2, -74 * k - 40 * (1 - k)]; P.headY = -2 * k; P.mouth = 0.2; P.lean = -0.04 * k; return P; } // hands up, tying the headband
+  if (t < 52) { const k = ease((t - 30) / 10); P.lean = -0.12 * k; P.punch = [26 * k + 8, -52]; P.headX = -3 * k; P.mouth = 0.3; P.legLift = -0.3 * k; return P; } // stance
+  if (t < 74) { const k = ease((t - 52) / 7); P.strike = k; P.swing = -1.4 + 2.2 * k; P.punch = [8 + 36 * k, -70 + 16 * k]; P.lean = 0.22 * k; P.headX = 8 * k; P.mouth = 0.6 * k; P.active = true; return P; } // chop
+  if (t < 96) { const k = ease((t - 74) / 8); P.kick = 1; P.legLift = k; P.lean = -0.1 * k; P.punch = [-10, -52]; P.punchBack = true; P.headX = 4 * k; P.mouth = 0.5; return P; } // front kick
+  if (t < 118) { const k = ease((t - 96) / 8); P.kick = 2; P.legLift = k; P.lean = 0.25 * k; P.punch = [22, -60]; P.headX = 10 * k; P.headY = -6 * k; P.mouth = 0.8; return P; } // spinning high kick
+  const k = ease((t - 118) / 8); P.lean = 0.38 * k; P.headY = 8 * k; P.punch = [12, -42]; P.mouth = 0.1; return P; // bow
+}
+function drawHeadband(c, head, f) {
+  const hy = (head.hy !== undefined ? head.hy : -70) - 12, hx = head.hx || 0, r = (head.hr || 12) * 1.15;
+  c.save(); c.translate(hx, 0);
+  c.fillStyle = '#e02828'; rr(c, -r - 2, hy - 4, r * 2 + 4, 8, 3); c.fill();
+  c.fillStyle = '#fff'; c.beginPath(); c.arc(0, hy, 2.2, 0, Math.PI * 2); c.fill();
+  // tails flutter behind the head
+  c.strokeStyle = '#e02828'; c.lineWidth = 5; c.lineCap = 'round';
+  for (let i = 0; i < 2; i++) { const ph = f.anim * 0.25 + i * 1.3; c.beginPath(); c.moveTo(-r - 2, hy + i * 3); c.quadraticCurveTo(-r - 14, hy + 2 + Math.sin(ph) * 5 + i * 4, -r - 26 - Math.abs(f.vx) * 1.5, hy + 8 + Math.sin(ph + 1) * 7 + i * 6); c.stroke(); }
+  c.restore();
+}
 function drawShield(c, f, x, y, r) {
   const id = SHIELD_STYLE[f.ch.id] || f.ch.id, t = f.anim;
   c.save(); c.globalAlpha = 0.55;
@@ -2810,6 +2888,7 @@ function drawHUD(c, m) {
     // stocks
     for (let s = 0; s < Math.max(f.stocks, 0); s++) { c.fillStyle = uiColor(f.ch); c.beginPath(); c.arc(cx - 48 + s * 20, by - 50, 7, 0, Math.PI * 2); c.fill(); c.strokeStyle = '#fff'; c.lineWidth = 1.5; c.stroke(); drawCharHat(c, f.ch.id, cx - 48 + s * 20, by - 57, 5, frameCount); }
     
+    if (f.ronnie > 0) { c.fillStyle = frameCount % 20 < 10 ? '#e02828' : '#ffcf33'; c.font = '900 12px Nunito, sans-serif'; c.textAlign = 'left'; c.fillText('🥋 RONNIE-MODE  ' + Math.ceil(f.ronnie / 60) + 's', cx - 150, by - 104); }
     if (f.finalSmash) { c.fillStyle = 'hsl(' + ((frameCount * 4) % 360) + ',100%,65%)'; c.font = '900 11px Nunito, sans-serif'; c.textAlign = 'left'; c.fillText('★ FINAL SMASH READY (press Special)', cx - 56, by - 8); }
     c.restore();
   });
@@ -2839,7 +2918,13 @@ function render() {
   particles.draw(ctx);
   for (const pu of m.puddles) { const a = Math.min(1, pu.t / 40); ctx.save(); ctx.globalAlpha = a; const g = ctx.createRadialGradient(pu.x, pu.y, 2, pu.x, pu.y, pu.w / 2 + 16); g.addColorStop(0, 'rgba(255,207,51,.9)'); g.addColorStop(0.5, 'rgba(255,106,43,.8)'); g.addColorStop(1, 'rgba(255,106,43,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(pu.x, pu.y + 2, pu.w / 2 + 16, 10, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#ff6a2b'; ctx.beginPath(); ctx.ellipse(pu.x, pu.y + 2, pu.w / 2, 5, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#ffcf33'; ctx.beginPath(); ctx.ellipse(pu.x + Math.sin(frameCount * 0.1) * 6, pu.y + 1, pu.w / 5, 2.5, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
   for (const p of projectiles) drawProjectile(ctx, p);
-  for (const f of m.fighters) drawFighter(ctx, f, true);
+  if (m.cut) { // dim everyone else, then the star of the show on top
+    ctx.fillStyle = 'rgba(5,6,20,.55)'; ctx.fillRect(-2000, -2000, 5000, 5000);
+    const f = m.fighters[m.cut.i]; drawFighter(ctx, f, true);
+    const pop = Math.min(1, m.cut.t / 10), ov = 1 + 0.35 * Math.sin(Math.min(1, m.cut.t / 10) * Math.PI);
+    ctx.save(); ctx.translate(f.x, f.y - 150 * f.ch.scale + Math.sin(m.cut.t * 0.2) * 3); ctx.scale(pop * ov, pop * ov); ctx.rotate(-0.06);
+    ctx.font = '46px "Lilita One", Impact, sans-serif'; ctx.textAlign = 'center'; ctx.lineWidth = 8; ctx.strokeStyle = '#1b1230'; ctx.strokeText('Ronnie-Mode!', 0, 0); ctx.fillStyle = '#ffcf33'; ctx.fillText('Ronnie-Mode!', 0, 0); ctx.fillStyle = '#e02828'; ctx.font = '900 14px Nunito, sans-serif'; ctx.lineWidth = 4; ctx.strokeText('SLOW MOTION', 0, 18); ctx.fillText('SLOW MOTION', 0, 18); ctx.restore();
+  } else for (const f of m.fighters) drawFighter(ctx, f, true);
   for (const k of koBursts) {
     const t = k.t / 50; ctx.save(); ctx.translate(k.x, k.y); ctx.globalAlpha = 1 - t;
     ctx.strokeStyle = k.color; ctx.lineWidth = 14 * (1 - t) + 2; ctx.beginPath(); ctx.arc(0, 0, 20 + t * 220, 0, Math.PI * 2); ctx.stroke();
@@ -2870,6 +2955,8 @@ function step() {
   if (match) updateMatch(match);
   shake *= 0.85; if (shake < 0.3) shake = 0;
   flash = Math.max(0, flash - 0.06);
+  // Ronnie-Mode input: tap left, up, right, down in a row
+  if (match && !match.demo) for (const f of match.fighters) { if (f.cpu) continue; const ip = f.input; for (const d of ['left', 'up', 'right', 'down']) if (ip[d] && !ip.prev[d]) ronnieTap(f, d); }
   // roll input edges
   if (match) for (const f of match.fighters) { const ip = f.input; for (const k of KEYNAMES) { if (ip[k] && !ip.prev[k] && ip.at[k] !== undefined) ip.at[k] = frameCount; ip.prev[k] = ip[k]; } }
   if (net.role === 'host' && match && !match.demo) netHostSend();
@@ -2882,7 +2969,7 @@ function loop(ts) {
   let n = 0;
   while (acc >= 1000 / 60 && n < 4) { acc -= 1000 / 60; n++; if (!paused && scene !== 'results') step(); }
   render();
-  netTick();
+  netTick(); musicTick();
 }
 
 /* ---------------- Online play (two phones) ----------------
@@ -3018,7 +3105,7 @@ function netTick() {
   const bad = now - net.lastRx > 2500; const b = $('netBadge'); if (b.classList.contains('bad') !== bad) { b.classList.toggle('bad', bad); b.textContent = (bad ? '⚠ RECONNECTING · ' : '📶 ONLINE · ') + (net.role === 'host' ? 'HOST (P1) · ' : 'P2 · ') + net.code; }
 }
 // ---- host: build and send a delta snapshot every frame
-const SKIP_F = new Set(['ch', 'input', 'atk', 'hitIds', 'lastHitBy', 'onPlat', 'aiQueue', 'idx', 'cpu', 'lvl', 'pose', 'trail']);
+const SKIP_F = new Set(['ch', 'input', 'atk', 'hitIds', 'lastHitBy', 'onPlat', 'aiQueue', 'idx', 'cpu', 'lvl', 'pose', 'trail', 'rseq', 'rlast']);
 const R2 = v => Math.round(v * 100) / 100;
 function fighterDelta(f, last) {
   const out = [];
@@ -3039,6 +3126,7 @@ function netHostSend() {
   const wi = m.winner ? m.winner.idx : -1; if (L.m.w !== wi) { L.m.w = wi; md.push('w', wi); }
   if (md.length) msg.m = md;
   if (m.banner) msg.b = m.banner;
+  if (m.cut) msg.c = m.cut;
   if (projectiles.length) msg.p = projectiles.map(p => { const o = {}; for (const k in p) { const v = p[k], tv = typeof v; if (k === 'owner') o.o = v === STAGE_ATT ? -1 : v.idx; else if (tv === 'number') o[k] = R2(v); else if (tv === 'string' || tv === 'boolean') o[k] = v; } return o; });
   if (m.puddles.length) msg.u = m.puddles.map(pu => ({ x: R2(pu.x), y: R2(pu.y), w: pu.w, t: pu.t, pl: pu.pl ? m.stage.plats.indexOf(pu.pl) : -1, ox: pu.ox }));
   if (koBursts.length) msg.k = koBursts;
@@ -3068,7 +3156,7 @@ function applySnapshot(msg, m) {
     f.atk = f.state === 'attack' && f.atkName ? f.getAtk(f.atkName) : null;
   });
   if (msg.m) for (let j = 0; j < msg.m.length; j += 2) { const k = msg.m[j], v = msg.m[j + 1]; if (k === 'w') m.winner = v < 0 ? null : m.fighters[v]; else m[k] = v; }
-  m.banner = msg.b || null;
+  m.banner = msg.b || null; m.cut = msg.c || null;
   projectiles = msg.p ? msg.p.map(q => { const p = Object.assign({}, q); p.owner = q.o < 0 ? STAGE_ATT : m.fighters[q.o]; delete p.o; return p; }) : [];
   m.puddles = msg.u ? msg.u.map(u => ({ x: u.x, y: u.y, w: u.w, t: u.t, pl: u.pl >= 0 ? m.stage.plats[u.pl] : null, ox: u.ox })) : [];
   koBursts.length = 0; if (msg.k) koBursts.push(...msg.k);
@@ -3274,8 +3362,11 @@ function refreshSelect() {
   $('btnFight').disabled = settings.p1 === null || settings.p2 === null;
   $('optLevel').parentElement.style.opacity = settings.mode === 'cpu' ? 1 : 0.4;
   netRefreshSelect();
+  const fb = $('btnFight'); fb.classList.toggle('ready', !fb.disabled);
+  const n1 = settings.p1 === null ? '?' : CHARS[settings.p1].name, n2 = settings.p2 === null ? '?' : CHARS[settings.p2].name;
+  $('fightNames').textContent = settings.p1 === null && settings.p2 === null ? 'Pick two fighters' : n1 + ' vs ' + n2;
 }
-function show(id) { for (const o of ['title', 'select', 'pause', 'results', 'online']) $(o).hidden = o !== id; refreshTouch(); if (id === 'title' || id === 'select' || id === 'online') setMusic('menu'); else if (id === null) setMusic('fight'); }
+function show(id) { for (const o of ['title', 'select', 'pause', 'results', 'online']) $(o).hidden = o !== id; refreshTouch(); if (id === 'title' || id === 'select' || id === 'online') bgmBase = 'menu'; else if (id === null) bgmBase = 'fight'; musicTick(); }
 function startDemo() {
   const a = Math.floor(Math.random() * CHARS.length), b = (a + 1 + Math.floor(Math.random() * (CHARS.length - 1))) % CHARS.length;
   match = newMatch(CHARS[a], CHARS[b], { p1cpu: true, p2cpu: true, level: 6, stocks: 99, stage: Math.floor(Math.random() * STAGES.length), demo: true });
