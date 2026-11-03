@@ -1,0 +1,17 @@
+X:1
+T:Ronnie-Mode!
+C:Composed for Ronnie, 2026 (Super Hat Bros)
+M:4/4
+L:1/8
+Q:1/4=124
+K:Am
+%%score (Lead) (Stabs) (Bass)
+V:Lead clef=treble name="Lead"
+V:Stabs clef=treble name="Brass stabs"
+V:Bass clef=bass name="Bass"
+[V:Lead] "Am"A c d e z d c A | "G"g A c z A g e z | "Am"A c d e g e d c | "C"A z e d c z A z |]
+[V:Stabs] [Ace] z z [Ace] z4 | z8 | [Ace] z z [Ace] z4 | z8 |]
+[V:Bass] A,, A, A,, A, A,, A, E, G, | G, G G, G G, G D F | A,, A, A,, A, A,, A, E, G, | C, C C, C _E, F, G, _B, |]
+W:Road map: bars 1-2 drums+bass+gong, bars 3-4 melody bars 3-4, bars 5-8 full phrase, bars 9-16 up an octave,
+W:bars 17-24 doubled an octave lower, then loop. Drums every bar: kick on all four beats, snare on 2 and 4,
+W:closed hat on the beat, open hat on every "and". Gong on bar 1 and 13. "HA!" on beat 4 of every 4th bar.
