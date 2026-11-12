@@ -9,4 +9,6 @@ Super Hat Bros is a Smash-style platform fighting game starring twenty fighters 
 - Installable as an app (Add to Home Screen) and playable offline.
 - Music recorded by Ronnie, with a piano layer that follows his melody.
 
+Soundtrack page: https://stevedalyrealty.github.io/Ronnie-Stuff/soundtrack/
+
 See [README-game.md](README-game.md) for the full fighter list, controls and how everything works.

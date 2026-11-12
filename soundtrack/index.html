@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Hat Bros Soundtrack</title>
+<meta name="description" content="The Super Hat Bros soundtrack: Ronnie's tunes on piano, the battle theme with guitar, and the Ronnie-Mode theme. Listen online or download.">
+<meta name="theme-color" content="#0b1024">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800;900&display=swap">
+<style>
+:root{--bg:#0b1024;--panel:#1b2350;--line:#3a4580;--gold:#ffcf33;--red:#ff4d4d;--fg:#fff;--muted:#aab0d6}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a3a8a,var(--bg) 60%);color:var(--fg);font-family:Nunito,system-ui,sans-serif;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:28px 16px 60px}
+.wrap{width:100%;max-width:560px}
+.cover{background:linear-gradient(160deg,#ff8a3d,#e02828 60%,#5a1e2e);border-radius:22px;padding:26px 22px 22px;box-shadow:0 20px 60px rgba(0,0,0,.6);position:relative;overflow:hidden}
+.cover:before{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(rgba(255,255,255,.06) 0 6deg,transparent 6deg 12deg);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cover>*{position:relative}
+.hat{width:74px;height:74px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 0 #8a5300;margin-bottom:12px}
+h1{font-family:"Lilita One",Impact,sans-serif;font-size:40px;line-height:.95;margin:0;letter-spacing:.02em;text-shadow:0 4px 0 rgba(0,0,0,.35)}
+h1 small{display:block;font-size:18px;color:var(--gold);letter-spacing:.14em}
+.by{margin:10px 0 0;font-weight:800;opacity:.95}
+.player{background:var(--panel);border:1px solid var(--line);border-radius:18px;margin-top:16px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.track{display:flex;align-items:center;gap:12px;padding:12px 10px;border-radius:12px;cursor:pointer;border:1px solid transparent}
+.track:hover{background:rgba(255,255,255,.05)}
+.track.on{background:rgba(255,207,51,.12);border-color:rgba(255,207,51,.5)}
+.num{width:30px;height:30px;border-radius:50%;background:#0e1330;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:var(--gold);flex-shrink:0}
+.track.on .num{background:var(--gold);color:#2b1900}
+.info{flex:1;min-width:0}.info b{display:block;font-size:16px}.info span{font-size:12.5px;color:var(--muted);font-weight:700}
+.dur{font-size:12px;color:var(--muted);font-weight:800}
+.bar{height:6px;background:#0e1330;border-radius:3px;margin:10px 10px 4px;overflow:hidden;cursor:pointer}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--red))}
+.ctl{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 0 4px}
+button{font-family:inherit;font-weight:900;border:0;border-radius:999px;cursor:pointer;padding:12px 18px;font-size:14px;color:#2b1900;background:linear-gradient(180deg,#ffe27a,#f2b705);box-shadow:0 4px 0 #8a5300}
+button.alt{background:linear-gradient(180deg,#3a4a9a,#242d66);color:#fff;box-shadow:0 4px 0 #121735}
+button:active{transform:translateY(2px);box-shadow:none}
+.big{width:62px;height:62px;padding:0;font-size:22px}
+.now{text-align:center;font-size:13px;color:var(--muted);font-weight:800;min-height:18px}
+.links{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.links a{display:block;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 10px;color:#fff;text-decoration:none;font-weight:800;font-size:13px}
+.links a:hover{border-color:var(--gold)}
+.foot{margin-top:18px;text-align:center;font-size:12px;color:var(--muted);font-weight:700;line-height:1.6}
+.foot a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cover">
+    <div class="hat"><svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true"><ellipse cx="32" cy="48" rx="28" ry="8" fill="#1b1230"/><rect x="16" y="14" width="32" height="34" rx="3" fill="#2a1d4d"/><rect x="16" y="36" width="32" height="7" fill="#ff4d4d"/><path d="M16 14 q16 -6 32 0" fill="#3a2a66"/></svg></div>
+    <h1><small>SUPER HAT BROS</small>Original Soundtrack</h1>
+    <p class="by">Music by Ronnie 🎹 · Arranged for the game, 2026</p>
+  </div>
+
+  <div class="player">
+    <div class="track" data-src="../music/ronnie-1.mp3" data-title="Ronnie's Theme (Menu)"><div class="num">1</div><div class="info"><b>Ronnie's Theme</b><span>Piano · plays on the menus</span></div><div class="dur">0:49</div></div>
+    <div class="track" data-src="../music/ronnie-2.mp3" data-title="Battle Theme (Fight)"><div class="num">2</div><div class="info"><b>Battle Theme</b><span>Piano + electric guitar · plays during fights</span></div><div class="dur">1:30</div></div>
+    <div class="track" data-src="../music/ronnie-mode.mp3" data-title="Ronnie-Mode!"><div class="num">3</div><div class="info"><b>Ronnie-Mode!</b><span>Martial-arts disco · plays in Ronnie-Mode</span></div><div class="dur">0:47</div></div>
+    <div class="bar" id="bar"><i id="fill"></i></div>
+    <div class="now" id="now">Tap a track, or press play to hear the whole soundtrack</div>
+    <div class="ctl">
+      <button class="alt" id="prev" aria-label="Previous">⏮</button>
+      <button class="big" id="play" aria-label="Play">▶</button>
+      <button class="alt" id="next" aria-label="Next">⏭</button>
+      <button class="alt" id="loop" aria-label="Repeat all">🔁 Repeat: on</button>
+    </div>
+    <audio id="a" preload="auto" playsinline></audio>
+  </div>
+
+  <div class="links">
+    <a href="../music/super-hat-bros-soundtrack.mp3" download>⬇ Download all 3 as one MP3</a>
+    <a href="../">🎮 Play Super Hat Bros</a>
+    <a href="../music/ronnie-mode-sheet.pdf">🎼 Ronnie-Mode sheet music</a>
+    <a href="../music/ronnie-mode-ukulele.pdf">🎸 Ronnie-Mode ukulele tab</a>
+  </div>
+  <p class="foot">Tracks 1 and 2 are Ronnie's own tunes played on piano. Track 3 is the Ronnie-Mode theme, an original martial-arts disco tune.<br>Share this page: <a href="https://stevedalyrealty.github.io/Ronnie-Stuff/soundtrack/">stevedalyrealty.github.io/Ronnie-Stuff/soundtrack</a></p>
+</div>
+<script>
+(() => {
+  const a = document.getElementById('a'), tracks = [...document.querySelectorAll('.track')], now = document.getElementById('now'), playBtn = document.getElementById('play'), fill = document.getElementById('fill');
+  let i = -1, loop = true;
+  const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  function load(n, autoplay) { i = (n + tracks.length) % tracks.length; tracks.forEach((t, k) => t.classList.toggle('on', k === i)); a.src = tracks[i].dataset.src; now.textContent = 'Now playing: ' + tracks[i].dataset.title; if (autoplay) a.play().catch(() => {}); }
+  tracks.forEach((t, k) => t.addEventListener('click', () => load(k, true)));
+  playBtn.addEventListener('click', () => { if (i < 0) load(0, true); else if (a.paused) a.play().catch(() => {}); else a.pause(); });
+  document.getElementById('next').addEventListener('click', () => load(i + 1, true));
+  document.getElementById('prev').addEventListener('click', () => { if (a.currentTime > 3) a.currentTime = 0; else load(i - 1, true); });
+  document.getElementById('loop').addEventListener('click', e => { loop = !loop; e.target.textContent = '🔁 Repeat: ' + (loop ? 'on' : 'off'); });
+  a.addEventListener('play', () => { playBtn.textContent = '⏸'; }); a.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+  a.addEventListener('timeupdate', () => { if (a.duration) { fill.style.width = (a.currentTime / a.duration * 100) + '%'; now.textContent = 'Now playing: ' + tracks[i].dataset.title + ' · ' + fmt(a.currentTime) + ' / ' + fmt(a.duration); } });
+  a.addEventListener('ended', () => { if (i < tracks.length - 1 || loop) load(i + 1, true); else { now.textContent = 'That\'s the whole soundtrack.'; } });
+  document.getElementById('bar').addEventListener('click', e => { if (!a.duration) return; const r = e.currentTarget.getBoundingClientRect(); a.currentTime = (e.clientX - r.left) / r.width * a.duration; });
+  if ('mediaSession' in navigator) { a.addEventListener('play', () => { navigator.mediaSession.metadata = new MediaMetadata({ title: tracks[i].dataset.title, artist: 'Ronnie', album: 'Super Hat Bros Original Soundtrack' }); }); }
+})();
+</script>
+</body>
+</html>
