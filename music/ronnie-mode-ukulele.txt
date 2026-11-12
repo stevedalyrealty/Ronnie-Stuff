@@ -1,0 +1,36 @@
+RONNIE-MODE!  (ukulele)
+Martial-arts disco theme from Super Hat Bros. Composed for Ronnie, 2026.
+Tempo 124 bpm, 4/4. Standard tuning G C E A. Every number is a fret; 0 = open string. Numbers in a row are eighth notes (two per beat).
+
+CHORDS   Am = 2000     G = 0232     C = 0003     (numbers are G C E A strings, left to right)
+
+MELODY (the 4-bar riff; it loops)  -  all on the A string
+   Am                        G                         Am                        C
+   1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--
+A|--0--3--5--7-----5--3--0-|-10--0--3-----0-10--7----|--0--3--5--7-10--7--5--3-|--0-----7--5--3-----0----|
+E|-------------------------|-------------------------|-------------------------|-------------------------|
+C|-------------------------|-------------------------|-------------------------|-------------------------|
+G|-------------------------|-------------------------|-------------------------|-------------------------|
+Tip: fret 10 is high up the neck. If it is a stretch, play fret 7 (E) there instead; it still sounds right.
+
+CHORD STABS (what the brass does: odd bars only, beat 1 and the "and" of 2)
+   Am                        (rest)                    Am                        (rest)
+   1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--  1--+--2--+--3--+--4--+--
+A|--0--------0-------------|-------------------------|--0--------0-------------|-------------------------|
+E|--0--------0-------------|-------------------------|--0--------0-------------|-------------------------|
+C|--0--------0-------------|-------------------------|--0--------0-------------|-------------------------|
+G|--2--------2-------------|-------------------------|--2--------2-------------|-------------------------|
+
+STRUM PATTERN (if you'd rather strum the whole song)
+  1   +   2   +   3   +   4   +      (every bar, all four chords: Am | G | Am | C)
+  D       D   U   D   U   D   U      D = strum down, U = strum up. Keep it steady and bouncy, like a disco beat.
+  (mute the strings with your palm on the "+" after 1 to get the "chug" from the bass line)
+
+ROAD MAP (24 bars, then it loops)
+  Bars 1-2    strum Am | G, no melody yet (the gong rings at bar 1)
+  Bars 3-4    melody bars 3 and 4
+  Bars 5-8    the full 4-bar melody
+  Bars 9-16   same melody again, play it louder or an octave up if you can (frets 12, 15, 17, 19, 22)
+  Bar 13      gong
+  Bars 17-24  melody again, then back to bar 1
+  "HA!"       shout it on beat 4 of bars 4, 8, 12, 16, 20 and 24
